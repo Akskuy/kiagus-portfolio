@@ -54,6 +54,72 @@ Motion must be visible enough to make the interface feel alive, but still contro
 
 Do not make motion chaotic.
 
+---
+
+# Micro Element Motion Rule
+
+Small UI details should not be completely dead.
+
+Important micro-elements such as:
+
+* border lines
+* separators
+* chips
+* icon tiles
+* status dots
+* progress rails
+* panel corners
+* label frames
+* miniature badges
+* card corners
+* tiny arrows
+* data dividers
+* CTA edges
+* placeholder borders
+* thumbnail frames
+
+should have subtle life effects when appropriate.
+
+Acceptable micro motion:
+
+* faint glow pulse
+* moving data packet
+* border trace
+* scanline pass
+* LED blink
+* hover shimmer
+* active node pulse
+* tiny parallax offset
+* endpoint glow
+* small flicker
+* segmented line animation
+* corner light pulse
+
+Do not animate everything aggressively.
+
+But avoid completely dead, flat, generic UI.
+
+The interface should feel alive at macro level and micro level.
+
+---
+
+# Game Interface Motion Rule
+
+This portfolio should feel like a polished game interface, not a normal website.
+
+Motion should help small UI objects feel designed and interactive.
+
+Panels should not only appear; they should activate.
+Borders should not only exist; they should pulse, trace, or respond.
+Lines should not only divide; they should carry data or glow at endpoints.
+Buttons should not only hover; they should feel like game controls.
+Cards should not only sit; they should breathe, flicker, or hold energy.
+Nodes should not only connect; they should transfer motion or signal.
+
+Every section should feel like a live interface system.
+
+---
+
 ## Forbidden Main Animation Style
 
 Do not use these as the main animation language:
@@ -69,6 +135,8 @@ Do not use these as the main animation language:
 * plain parallax without object transformation
 
 These are allowed only as tiny supporting details. They cannot be the main experience.
+
+---
 
 ## Required Main Animation Style
 
@@ -88,6 +156,8 @@ The main animation language must use:
 * scene-to-scene object continuity
 * depth layers
 * responsive animated UI states
+
+---
 
 ## Section Phase Structure
 
@@ -148,6 +218,8 @@ Examples:
 * trophy reflection turns into node lines
 * data core opens
 
+---
+
 ## Required Transition Map
 
 ### Slide 1 to Slide 2
@@ -187,6 +259,8 @@ The dashboard becomes the Knowledge Map.
 Knowledge nodes converge into a central data core.
 The data core opens into the Future Laboratory.
 
+---
+
 ## Transition Rules
 
 Do not use:
@@ -208,6 +282,8 @@ Every transition must have:
 * motion direction
 * visible transformation
 * connection between previous and next section
+
+---
 
 ## Scroll Animation Foundation
 
@@ -245,6 +321,8 @@ Use CSS animations for:
 * looping data packets
 * pixel particles
 
+---
+
 ## Idle Motion Rule
 
 Even when the user does nothing, each section must still feel alive.
@@ -261,6 +339,96 @@ Every section must include ambient idle motion, such as:
 * tiny data stream movement
 * animated background grid
 * subtle parallax drift
+
+---
+
+## Panel Motion Rule
+
+Every panel should have a sense of activation.
+
+Avoid dead panels.
+
+Acceptable panel behaviors:
+
+* faint breathing glow
+* animated corner accents
+* active status LED
+* scanline sweep
+* hover energy frame
+* subtle depth lift
+* border trace on hover
+* data pulse through one edge
+* active/inactive lighting difference
+
+The motion should be subtle and premium.
+
+Do not animate panels so much that text becomes hard to read.
+
+---
+
+## Button Motion Rule
+
+Buttons should feel like interactive game controls.
+
+Avoid generic website button behavior.
+
+Acceptable button behaviors:
+
+* segmented frame hover
+* icon pulse
+* subtle soundless “press” feel through scale/depth
+* animated edge light
+* data packet entering/exiting
+* active corner glow
+* terminal-style label response
+
+Buttons must remain accessible and readable.
+
+---
+
+## Card Motion Rule
+
+Cards should feel like game UI modules.
+
+Avoid plain card hover.
+
+Acceptable card behaviors:
+
+* animated border trace
+* icon tile glow
+* status LED pulse
+* micro background scanline
+* hover lift with depth
+* tiny data packet movement
+* corner bracket activation
+* internal glyph shimmer
+
+Cards must stay readable.
+
+---
+
+## Hero Object Motion Rule
+
+Hero objects such as avatars, lanyard cards, project cartridges, trophies, books, terminals, and data cores need stronger motion identity.
+
+They should feel like important interactive objects.
+
+Acceptable hero object behaviors:
+
+* idle floating
+* soft spotlight shift
+* hover tilt
+* card flip
+* glow pulse
+* object scan
+* parallax depth
+* frame shimmer
+* holographic sweep
+* status chip pulse
+
+The motion should make the object feel valuable, not gimmicky.
+
+---
 
 ## Responsive Motion
 
@@ -287,6 +455,8 @@ Mobile:
 * use lighter particles
 * preserve visible life effects
 
+---
+
 ## Reduced Motion
 
 Support prefers-reduced-motion.
@@ -296,19 +466,28 @@ If reduced motion is enabled:
 * disable heavy camera movement
 * disable large zooms
 * reduce parallax
+* reduce continuous particles
+* reduce aggressive flicker
 * keep subtle glow, cursor blink, and lightweight UI states
 * keep the website usable and readable
+
+---
 
 ## Final Motion Checklist
 
 Before considering any section complete, check:
 
-* Is any important element static?
-* Does the section feel alive before interaction?
-* Does hover create meaningful response?
-* Does click/tap reveal useful information?
-* Is the transition to the next section object-based?
-* Is the animation more advanced than fade/slide?
-* Is the motion controlled and professional?
-* Is the content still readable?
-* Does it match the reference image direction without becoming a static image?
+1. Is any important element static?
+2. Does the section feel alive before interaction?
+3. Do micro-elements have subtle theme-appropriate life?
+4. Does hover create meaningful response?
+5. Does click/tap reveal useful information?
+6. Is the transition to the next section object-based or prepared for object-based transition?
+7. Is the animation more advanced than fade/slide?
+8. Is the motion controlled and professional?
+9. Is the content still readable?
+10. Does it match the reference image direction without becoming a static image?
+11. Does every panel feel activated rather than dead?
+12. Do buttons feel like game controls rather than normal web buttons?
+13. Do cards feel like game modules rather than plain rectangles?
+14. Does the hero object feel valuable and interactive?

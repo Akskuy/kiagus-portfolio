@@ -36,6 +36,122 @@ They are not final website backgrounds.
 
 ---
 
+# Game UI Asset Richness Rule
+
+This portfolio must not use plain minimal UI elements.
+
+Do not be visually stingy.
+
+Every visible UI element should feel intentionally designed for the dark pixel game-like portfolio theme.
+
+Even small elements such as:
+
+* panels
+* cards
+* columns
+* borders
+* lines
+* separators
+* buttons
+* labels
+* icon boxes
+* status chips
+* progress bars
+* placeholder slots
+* navigation dots
+* data lines
+* section frames
+* terminal rows
+* list items
+* thumbnails
+* callout boxes
+
+must be styled to match the game-inspired visual system.
+
+Do not leave these elements as plain rectangles, plain dividers, or generic website blocks.
+
+Every UI element should use at least some theme-appropriate treatment, such as:
+
+* pixel corner brackets
+* segmented borders
+* inset frames
+* layered panel depth
+* small icon tiles
+* emblem areas
+* tiny thumbnails
+* status LEDs
+* animated border traces
+* scanline overlays
+* soft glow accents
+* data packet motion
+* circuit-line details
+* micro labels
+* terminal-style captions
+* small glyphs or icons
+* hover energy effects
+* premium game-like chrome
+* subtle shadow/depth layering
+
+The goal is not to make the UI crowded or chaotic.
+
+The goal is to make every element feel like part of a custom game interface system.
+
+Bad examples:
+
+* plain rectangle card
+* plain border-only box
+* simple text column
+* generic button
+* empty dark box
+* default dashboard panel
+* boring website card
+* line divider with no styling
+* iconless information block
+
+Good examples:
+
+* a stat card with icon tile, corner brackets, animated border, and status LED
+* a separator line with glowing endpoints and moving data packet
+* a button with segmented frame, hover glow, and pixel accent
+* a panel with inset frame, scanline overlay, and micro status label
+* a card with emblem area, small thumbnail, and layered border
+* a navigation rail with pulsing active node and data flow
+
+Important:
+
+If a section only needs a small amount of content, do not leave the UI visually empty.
+
+Instead, enrich the section with theme-appropriate structural elements:
+
+* environmental objects
+* micro UI details
+* decorative but meaningful interface chrome
+* animated accents
+* icon tiles
+* small system labels
+* background monitors
+* data lines
+* status indicators
+* subtle game-like ornaments
+
+However, never let decoration destroy readability.
+
+The priority order is:
+
+1. Clear portfolio information
+2. Game-like immersive interface
+3. Rich UI detail
+4. Controlled motion
+5. Readability and responsiveness
+
+Final rule:
+
+Every section must feel like a designed game screen, not a normal website section.
+Every panel must feel custom-built, not like a plain rectangle.
+Every small UI element must visually belong to the theme.
+
+---
+
 # Reference Image Priority System
 
 There are two types of reference images in this project:
@@ -793,3 +909,5 @@ Every time a section is built, verify:
 12. Is the section aligned with `MOTION_RULES.md`?
 13. Does the section avoid becoming a generic text-heavy portfolio?
 14. Does the section fit properly at 100% browser zoom?
+15. Does every small UI element visually belong to the game-like theme?
+16. Are panels, lines, buttons, chips, labels, and separators enriched instead of plain?
