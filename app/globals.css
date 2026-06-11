@@ -1,26 +1,278 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: dark;
+
+  --background: #05070a;
+  --foreground: #e6f4f7;
+  --surface-0: #070b10;
+  --surface-1: #0b1118;
+  --surface-2: #101923;
+  --surface-3: #142231;
+  --line-muted: rgba(132, 186, 196, 0.18);
+  --line-strong: rgba(112, 224, 224, 0.46);
+  --cyan-muted: #71d9d2;
+  --teal-muted: #3fb9aa;
+  --blue-soft: #8bb9ff;
+  --amber-soft: #f1b95a;
+  --green-soft: #8de19c;
+  --danger-soft: #ff7c7c;
+  --glow-cyan: 0 0 24px rgba(113, 217, 210, 0.28);
+  --glow-amber: 0 0 24px rgba(241, 185, 90, 0.22);
+  --glow-green: 0 0 22px rgba(141, 225, 156, 0.18);
+  --shadow-panel: 0 24px 80px rgba(0, 0, 0, 0.46);
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --page-pad: clamp(1rem, 4vw, 3.5rem);
+  --shell-max: 1440px;
+  --scroll-progress: 0;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-cyan-muted: var(--cyan-muted);
+  --color-teal-muted: var(--teal-muted);
+  --color-blue-soft: var(--blue-soft);
+  --color-amber-soft: var(--amber-soft);
+  --color-green-soft: var(--green-soft);
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Code", Consolas, monospace;
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+
+html {
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 18% 10%, rgba(63, 185, 170, 0.16), transparent 28rem),
+    radial-gradient(circle at 82% 22%, rgba(139, 185, 255, 0.12), transparent 26rem),
+    var(--background);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: transparent;
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(113, 217, 210, 0.26);
+  color: #f4ffff;
+}
+
+.pixel-grid {
+  background-image:
+    linear-gradient(rgba(113, 217, 210, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(113, 217, 210, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.micro-grid {
+  background-image:
+    linear-gradient(rgba(230, 244, 247, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230, 244, 247, 0.045) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
+
+.scanline-mask {
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    transparent 46%,
+    rgba(151, 244, 235, 0.12) 50%,
+    transparent 54%,
+    transparent
+  );
+  background-size: 100% 8px;
+  mix-blend-mode: screen;
+}
+
+.font-pixel-ui {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+.alive-border {
+  position: relative;
+}
+
+.alive-border::before {
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    linear-gradient(90deg, transparent, rgba(113, 217, 210, 0.74), transparent)
+      0 0 / 220% 1px no-repeat,
+    linear-gradient(180deg, transparent, rgba(241, 185, 90, 0.56), transparent)
+      100% 0 / 1px 220% no-repeat,
+    linear-gradient(270deg, transparent, rgba(139, 185, 255, 0.56), transparent)
+      100% 100% / 220% 1px no-repeat,
+    linear-gradient(0deg, transparent, rgba(141, 225, 156, 0.42), transparent)
+      0 100% / 1px 220% no-repeat;
+  content: "";
+  animation: border-trace 5.5s linear infinite;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.alive-border > * {
+  position: relative;
+  z-index: 1;
+}
+
+.terminal-cursor::after {
+  display: inline-block;
+  width: 0.6ch;
+  color: var(--cyan-muted);
+  content: "_";
+  animation: cursor-blink 1.05s steps(2, end) infinite;
+}
+
+.reduce-heavy-motion {
+  transform: translateZ(0);
+}
+
+@keyframes border-trace {
+  0% {
+    background-position:
+      220% 0,
+      100% 220%,
+      -220% 100%,
+      0 -220%;
+  }
+  100% {
+    background-position:
+      -220% 0,
+      100% -220%,
+      220% 100%,
+      0 220%;
+  }
+}
+
+@keyframes cursor-blink {
+  0%,
+  42% {
+    opacity: 1;
+  }
+  43%,
+  100% {
+    opacity: 0.08;
+  }
+}
+
+@keyframes scanline-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 64px;
+  }
+}
+
+@keyframes panel-breathe {
+  0%,
+  100% {
+    box-shadow: var(--shadow-panel), 0 0 18px rgba(113, 217, 210, 0.1);
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    box-shadow: var(--shadow-panel), 0 0 34px rgba(113, 217, 210, 0.18);
+    transform: translate3d(0, -1px, 0);
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-28px, -28px, 0);
+  }
+}
+
+@keyframes packet-run {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  12%,
+  78% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.54;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes sweep-light {
+  0% {
+    transform: translateX(-120%) skewX(-16deg);
+  }
+  100% {
+    transform: translateX(220%) skewX(-16deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reduce-heavy-motion {
+    transform: none !important;
+  }
+
+  .terminal-cursor::after {
+    animation: cursor-blink 1.4s steps(2, end) infinite !important;
+  }
 }
