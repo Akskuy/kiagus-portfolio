@@ -1,5 +1,5 @@
-import { GlobalEnvironmentPreview } from "@/components/preview/global-environment-preview";
+import { IdentitySnapshotSection } from "@/components/sections/identity/identity-snapshot-section";
 
 export default function Home() {
-  return <GlobalEnvironmentPreview />;
+  return <IdentitySnapshotSection />;
 }
