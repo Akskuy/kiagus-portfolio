@@ -4,7 +4,7 @@
 
 Do not use reference images as static backgrounds.
 
-Reference images are visual blueprints only.
+Reference images are visual guides only.
 
 Build the website as real interactive components using:
 
@@ -16,7 +16,8 @@ Build the website as real interactive components using:
 * GSAP scroll-driven motion
 * SVG/canvas layers where useful
 * responsive layouts
-* hover and click states
+* hover states
+* click states
 * animated panels
 * animated data streams
 * scroll-driven transitions
@@ -33,21 +34,129 @@ The reference images define:
 
 They are not final website backgrounds.
 
-## Required Folder Structure
+---
+
+# Reference Image Priority System
+
+There are two types of reference images in this project:
+
+1. Concept Board References
+2. Clean Target References
+
+These two reference types have different purposes.
+
+## 1. Concept Board References
+
+Path:
+
+```text
+public/reference/concept-board/
+```
+
+Concept board images may contain:
+
+* phase labels
+* guide panels
+* interaction notes
+* motion annotations
+* transition explanations
+* arrows
+* process labels
+* UI planning text
+* instruction cards
+* technical notes
+
+Use concept-board images only to understand:
+
+* animation phases
+* transition ideas
+* interaction logic
+* object relationships
+* motion direction
+* system behavior
+* scene progression
+* how elements should feel alive
+
+Do NOT copy concept-board labels into the final UI.
+
+Do NOT render visible labels such as:
+
+* PHASE A
+* PHASE B
+* PHASE C
+* PHASE D
+* VISUAL_HINT_ONLY
+* PORTFOLIO_BOOT
+* annotated interaction concept board
+* monitor object locked
+* instruction arrows
+* explanatory guide panels
+* interaction notes
+* technical notes
+* prompt labels
+* process labels
+
+These are development annotations, not final portfolio UI.
+
+## 2. Clean Target References
+
+Path:
+
+```text
+public/reference/clean-target/
+```
+
+Clean target images are the main visual truth for the final visible UI.
+
+Use clean-target images to follow:
+
+* final composition
+* layout
+* scale
+* object placement
+* visual density
+* scene mood
+* typography balance
+* final visible UI structure
+* spacing
+* section atmosphere
+* overall screenshot-like target
+
+When concept-board and clean-target conflict, clean-target wins for final visible UI.
+
+Final rule:
+
+**Concept-board = understand how the section should move, transition, and behave.**
+**Clean-target = understand how the section should look in the final website.**
+
+---
+
+# Required Folder Structure
 
 Use this asset folder structure:
 
 ```text
 public/
   reference/
-    slide-1-identity-snapshot.png
-    slide-2-capability-matrix.png
-    slide-3-knowledge-library.png
-    slide-4-experience-district.png
-    slide-5-project-archive.png
-    slide-6-achievement-analytics.png
-    slide-7-knowledge-map.png
-    slide-8-future-laboratory.png
+    concept-board/
+      slide-1-identity-snapshot-board.png
+      slide-2-capability-matrix-board.png
+      slide-3-knowledge-library-board.png
+      slide-4-experience-district-board.png
+      slide-5-project-archive-board.png
+      slide-6-achievement-analytics-board.png
+      slide-7-knowledge-map-board.png
+      slide-8-future-laboratory-board.png
+
+    clean-target/
+      slide-1-identity-snapshot.png
+      slide-2-capability-matrix.png
+      slide-3-knowledge-library.png
+      slide-4-experience-district.png
+      slide-5-project-archive.png
+      slide-6-achievement-analytics.png
+      slide-7-knowledge-map.png
+      slide-8-future-laboratory.png
 
   avatar/
     fotokiagus.jpeg
@@ -72,13 +181,17 @@ If they do not exist, use polished placeholder components.
 
 Do not invent fake evidence images.
 
-## Main Files
+---
 
-### CV / Resume
+# Main Files
+
+## CV / Resume
 
 Path:
 
-`public/docs/kiagus-arif-rahman-resume.pdf`
+```text
+public/docs/kiagus-arif-rahman-resume.pdf
+```
 
 Use for:
 
@@ -89,11 +202,13 @@ Use for:
 Do not parse the PDF visually inside the UI.
 Use structured content from `CONTENT_SOURCE.md`.
 
-### Avatar Source
+## Avatar Source
 
 Path:
 
-`public/avatar/fotokiagus.jpeg`
+```text
+public/avatar/fotokiagus.jpeg
+```
 
 Use for:
 
@@ -101,95 +216,178 @@ Use for:
 * pixel/stylized identity representation
 * Slide 1 Identity Snapshot
 
-Do not display as a plain boring circular photo unless used as fallback.
+Do not display it as a plain boring circular photo unless used as a fallback.
 Integrate it into the pixel data interface.
 
-## Slide Reference Assets
+---
 
-### Slide 1 Reference
+# Slide Reference Assets
 
-Path:
+## Slide 1 — Identity Snapshot
 
-`public/reference/slide-1-identity-snapshot.png`
+Concept board:
 
-Used for:
+```text
+public/reference/concept-board/slide-1-identity-snapshot-board.png
+```
 
-* Identity Snapshot composition
-* dark data center mood
-* avatar center layout
-* stat cards
-* identity dashboard
-* boot/preload interface direction
+Clean target:
 
-Must be rebuilt as:
+```text
+public/reference/clean-target/slide-1-identity-snapshot.png
+```
+
+Use concept board for:
+
+* boot/preload concept
+* phase logic
+* interaction idea
+* avatar click behavior
+* monitor transition hook
+* motion planning
+
+Use clean target for:
+
+* final visible composition
+* centered avatar scene
+* 3 info cards left
+* 3 info cards right
+* large name at top
+* short subtitle
+* bottom interaction bar
+* final scale and spacing
+
+Final Slide 1 must be rebuilt as:
 
 * avatar component
-* stat card components
-* boot sequence
-* identity panel
-* contact buttons
-* animated monitor
-* scroll transition object
+* identity headline
+* concise stat cards
+* boot console if visually appropriate
+* contact/interaction bar
+* animated monitor hook
+* flip avatar About panel
+* animated data-center background
 
-### Slide 2 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-2-capability-matrix.png`
+## Slide 2 — Capability Matrix
 
-Used for:
+Concept board:
 
-* Capability Matrix composition
-* command center atmosphere
-* terminal grid
-* capability panels
-* interactive detail panel
+```text
+public/reference/concept-board/slide-2-capability-matrix-board.png
+```
 
-Must be rebuilt as:
+Clean target:
 
-* terminal card grid
+```text
+public/reference/clean-target/slide-2-capability-matrix.png
+```
+
+Use concept board for:
+
+* terminal boot phases
+* interaction model
+* detail panel behavior
+* transition from Slide 1 monitor
+* transition into Slide 3 archive/library
+
+Use clean target for:
+
+* final command center composition
+* terminal grid placement
+* visual density
+* clean user-facing UI
+* scale and spacing
+
+Final Slide 2 must be rebuilt as:
+
+* capability terminal grid
 * active terminal detail panel
-* cable data streams
 * command center background
-* scroll-controlled terminal expansion
+* cable/data stream animation
+* terminal hover/click states
+* scroll transition hook into Knowledge Library
 
-### Slide 3 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-3-knowledge-library.png`
+## Slide 3 — Knowledge Library
 
-Used for:
+Concept board:
 
-* Knowledge Library composition
-* digital library shelf layout
-* category navigation
-* knowledge module panel
-* course-to-skill mapping layout
+```text
+public/reference/concept-board/slide-3-knowledge-library-board.png
+```
 
-Must be rebuilt as:
+Clean target:
+
+```text
+public/reference/clean-target/slide-3-knowledge-library.png
+```
+
+Use concept board for:
+
+* knowledge shelf interaction logic
+* book/module click behavior
+* course-to-skill reveal
+* transition from terminal to archive
+* transition from book page to city map
+
+Use clean target for:
+
+* final library composition
+* shelf layout
+* category/navigation placement
+* knowledge module scale
+* final visible UI hierarchy
+
+Final Slide 3 must be rebuilt as:
 
 * knowledge shelf component
 * book/module cards
 * category sidebar
 * course-to-skill detail panels
-* book opening transition
+* animated book opening transition
 
-### Slide 4 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-4-experience-district.png`
+## Slide 4 — Experience District
 
-Used for:
+Concept board:
 
-* Experience District composition
-* pixel city map
-* building-based experience UI
-* timeline panel
-* role detail dashboard
+```text
+public/reference/concept-board/slide-4-experience-district-board.png
+```
 
-Must be rebuilt as:
+Clean target:
+
+```text
+public/reference/clean-target/slide-4-experience-district.png
+```
+
+Use concept board for:
+
+* city interaction logic
+* building hover/click behavior
+* timeline reveal
+* transition from book map
+* transition into Project Archive
+
+Use clean target for:
+
+* final pixel city composition
+* building placement
+* visual density
+* role detail area
+* final scale and spacing
+
+Final Slide 4 must be rebuilt as:
 
 * experience building components
 * animated city map
@@ -198,23 +396,42 @@ Must be rebuilt as:
 * timeline rail
 * building-to-project transition
 
-### Slide 5 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-5-project-archive.png`
+## Slide 5 — Project Archive
 
-Used for:
+Concept board:
 
-* Project Archive composition
-* cartridge system
-* technical viewer
-* project scanner
-* architecture panel
-* code snippet panel
-* screenshot placeholder layout
+```text
+public/reference/concept-board/slide-5-project-archive-board.png
+```
 
-Must be rebuilt as:
+Clean target:
+
+```text
+public/reference/clean-target/slide-5-project-archive.png
+```
+
+Use concept board for:
+
+* project cartridge interaction
+* scanner logic
+* project detail viewer behavior
+* architecture reveal behavior
+* transition to Achievement Analytics
+
+Use clean target for:
+
+* final project archive composition
+* cartridge layout
+* scanner placement
+* project viewer layout
+* code snippet panel position
+* screenshot/demo slot position
+
+Final Slide 5 must be rebuilt as:
 
 * project cartridge components
 * project detail viewer
@@ -224,21 +441,41 @@ Must be rebuilt as:
 * demo placeholder
 * scanner transition
 
-### Slide 6 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-6-achievement-analytics.png`
+## Slide 6 — Achievement Analytics
 
-Used for:
+Concept board:
 
-* Achievement Analytics composition
-* trophy dashboard
-* metric cards
-* documentation slot layout
+```text
+public/reference/concept-board/slide-6-achievement-analytics-board.png
+```
+
+Clean target:
+
+```text
+public/reference/clean-target/slide-6-achievement-analytics.png
+```
+
+Use concept board for:
+
+* achievement dashboard interaction
+* metric reveal logic
+* documentation slot behavior
+* trophy analytics behavior
+* transition to Knowledge Map
+
+Use clean target for:
+
+* final achievement dashboard composition
+* trophy/metric layout
+* documentation slot placement
 * analytics museum mood
+* final scale and spacing
 
-Must be rebuilt as:
+Final Slide 6 must be rebuilt as:
 
 * achievement cards
 * trophy/metric dashboard
@@ -247,21 +484,41 @@ Must be rebuilt as:
 * animated counters
 * node transition setup
 
-### Slide 7 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-7-knowledge-map.png`
+## Slide 7 — Knowledge Map
 
-Used for:
+Concept board:
 
-* Knowledge Map composition
-* node graph layout
-* skill clusters
-* connected data map
-* relationship visual
+```text
+public/reference/concept-board/slide-7-knowledge-map-board.png
+```
 
-Must be rebuilt as:
+Clean target:
+
+```text
+public/reference/clean-target/slide-7-knowledge-map.png
+```
+
+Use concept board for:
+
+* node interaction logic
+* skill relationship behavior
+* click/hover detail panel
+* graph transition behavior
+* convergence into final data core
+
+Use clean target for:
+
+* final node map composition
+* cluster placement
+* connection density
+* center core placement
+* final visual hierarchy
+
+Final Slide 7 must be rebuilt as:
 
 * knowledge node components
 * animated edges
@@ -269,21 +526,41 @@ Must be rebuilt as:
 * skill/course/project relationship map
 * central data core transition
 
-### Slide 8 Reference
+Do not show concept-board annotations in the final UI.
 
-Path:
+---
 
-`public/reference/slide-8-future-laboratory.png`
+## Slide 8 — Future Laboratory
 
-Used for:
+Concept board:
 
-* Future Laboratory composition
-* final CTA layout
-* central data core
-* AI product roadmap
-* closing dashboard
+```text
+public/reference/concept-board/slide-8-future-laboratory-board.png
+```
 
-Must be rebuilt as:
+Clean target:
+
+```text
+public/reference/clean-target/slide-8-future-laboratory.png
+```
+
+Use concept board for:
+
+* final lab interaction
+* CTA interaction behavior
+* data core activation
+* final completion state
+* future roadmap behavior
+
+Use clean target for:
+
+* final laboratory composition
+* data core placement
+* CTA station layout
+* roadmap card layout
+* final closing mood
+
+Final Slide 8 must be rebuilt as:
 
 * future data core
 * roadmap cards
@@ -292,47 +569,65 @@ Must be rebuilt as:
 * lab background layers
 * portfolio completion state
 
-## Placeholder Asset Rules
+Do not show concept-board annotations in the final UI.
+
+---
+
+# Placeholder Asset Rules
 
 If project screenshots are not available yet, create polished placeholders.
 
 Use these future paths:
 
-### Project screenshots
+## Project screenshots
 
-`public/projects/automated-clipping-screenshot.png`
+```text
+public/projects/automated-clipping-screenshot.png
+```
 
 For:
 Automated Clipping Website screenshot or dashboard preview.
 
-`public/projects/skyholic-dashboard-screenshot.png`
+```text
+public/projects/skyholic-dashboard-screenshot.png
+```
 
 For:
 Skyholic Universe Recruitment & Scoring System dashboard screenshot.
 
-`public/projects/ar-tryon-preview.png`
+```text
+public/projects/ar-tryon-preview.png
+```
 
 For:
 Avalon AI AR Fashion Try-On preview.
 
-`public/projects/umkm-survey-output.png`
+```text
+public/projects/umkm-survey-output.png
+```
 
 For:
 Cooperative UMKM Survey Data output screenshot.
 
-### Achievement documentation
+## Achievement documentation
 
-`public/evidence/compfest-documentation.png`
+```text
+public/evidence/compfest-documentation.png
+```
 
 For:
 COMPFEST documentation photo.
 
-`public/evidence/iconic-documentation.png`
+```text
+public/evidence/iconic-documentation.png
+```
 
 For:
 ICONIC IT documentation photo.
 
-`public/evidence/bangkit-documentation.png`
+```text
+public/evidence/bangkit-documentation.png
+```
 
 For:
 Bangkit documentation photo.
@@ -340,7 +635,9 @@ Bangkit documentation photo.
 Do not show certificates directly unless manually inserted by the portfolio owner.
 Use documentation slots instead.
 
-## Placeholder Component Requirements
+---
+
+# Placeholder Component Requirements
 
 Create these components:
 
@@ -362,15 +659,25 @@ Use a dark pixel panel with:
 * subtle breathing glow
 * instruction text such as “Replace with real screenshot later”
 
-## Asset Loading Rules
+---
+
+# Asset Loading Rules
 
 Use Next.js image optimization where possible.
 
-For reference images:
+For concept-board images:
 
-* may be used inside internal developer/debug preview mode
-* should not dominate production UI
-* should not be visible as full static section background
+* may be referenced by Codex for understanding animation/interaction planning
+* should not be rendered in production UI
+* should not appear as visible final UI
+* should not be used as page background
+
+For clean-target images:
+
+* may be referenced by Codex to understand final layout
+* should not be rendered as a full static background
+* should not replace real components
+* should guide composition only
 
 For avatar:
 
@@ -383,9 +690,11 @@ For evidence/project images:
 * gracefully fallback to placeholder if missing
 * do not break layout if file does not exist
 
-## Suggested Component Mapping
+---
 
-### Global Components
+# Suggested Component Mapping
+
+## Global Components
 
 * PixelPanel
 * PixelButton
@@ -401,30 +710,30 @@ For evidence/project images:
 * MotionLayer
 * SectionProgressRail
 
-### Slide 1 Components
+## Slide 1 Components
 
 * AvatarCore
 * IdentityDashboard
 * StatCard
 * BootConsole
 * ContactDock
-* MonitorTransition
+* MonitorTransitionHook
 
-### Slide 2 Components
+## Slide 2 Components
 
 * CapabilityTerminal
 * CapabilityMatrix
 * TerminalDetailPanel
 * CommandCenterBackground
 
-### Slide 3 Components
+## Slide 3 Components
 
 * KnowledgeShelf
 * KnowledgeBook
 * KnowledgeDetailPanel
 * CourseSkillMapper
 
-### Slide 4 Components
+## Slide 4 Components
 
 * ExperienceDistrict
 * ExperienceBuilding
@@ -432,7 +741,7 @@ For evidence/project images:
 * RoleDetailPanel
 * DataRoad
 
-### Slide 5 Components
+## Slide 5 Components
 
 * ProjectArchive
 * ProjectCartridge
@@ -441,14 +750,14 @@ For evidence/project images:
 * ArchitectureDiagram
 * CodeSnippetPanel
 
-### Slide 6 Components
+## Slide 6 Components
 
 * AchievementDashboard
 * AchievementCard
 * TrophyMetricPanel
 * DocumentationSlot
 
-### Slide 7 Components
+## Slide 7 Components
 
 * KnowledgeMap
 * KnowledgeNode
@@ -456,7 +765,7 @@ For evidence/project images:
 * NodeDetailPanel
 * CentralDataCore
 
-### Slide 8 Components
+## Slide 8 Components
 
 * FutureLaboratory
 * FutureDataCore
@@ -464,17 +773,23 @@ For evidence/project images:
 * FinalCTAStation
 * ContactActionButton
 
-## Developer Reminder
+---
+
+# Developer Reminder
 
 Every time a section is built, verify:
 
-1. Is the reference image used as a blueprint, not a background?
-2. Are major elements real components?
-3. Are animation layers implemented?
-4. Is the transition scroll-driven?
-5. Are important elements alive?
-6. Are hover and click states implemented?
-7. Is the layout responsive?
-8. Are placeholders polished?
-9. Is content sourced from `CONTENT_SOURCE.md`?
-10. Is the section aligned with `MOTION_RULES.md`?
+1. Is the concept-board used only for animation/interactions?
+2. Is the clean-target used as the final visual truth?
+3. Are concept-board annotations excluded from the final UI?
+4. Are major elements real components?
+5. Are animation layers implemented?
+6. Is the transition scroll-driven or prepared for scroll-driven motion?
+7. Are important elements alive?
+8. Are hover and click states implemented?
+9. Is the layout responsive?
+10. Are placeholders polished?
+11. Is content sourced from `CONTENT_SOURCE.md`?
+12. Is the section aligned with `MOTION_RULES.md`?
+13. Does the section avoid becoming a generic text-heavy portfolio?
+14. Does the section fit properly at 100% browser zoom?
