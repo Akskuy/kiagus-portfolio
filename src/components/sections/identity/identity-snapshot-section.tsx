@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, type WheelEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
 import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
+import { IdentityToCommandGate } from "@/components/sections/identity/identity-to-command-gate";
 import { useGsapScrollScene } from "@/hooks/use-gsap-scroll-scene";
 import { cn } from "@/lib/cn";
 
@@ -72,6 +73,9 @@ export function IdentitySnapshotSection() {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [transitionGateActivated, setTransitionGateActivated] = useState(false);
+  const scrollGateArmed = bootComplete && scrollProgress > 0.72;
+  const transitionGateActive = transitionGateActivated || scrollGateArmed;
 
   const handleProgress = useCallback((progress: number) => {
     setScrollProgress(progress);
@@ -85,6 +89,27 @@ export function IdentitySnapshotSection() {
     setBootComplete(true);
   }, []);
 
+  const activateTransitionGate = useCallback(() => {
+    setTransitionGateActivated(true);
+  }, []);
+
+  const handleSceneWheel = useCallback(
+    (event: WheelEvent<HTMLElement>) => {
+      if (!bootComplete || transitionGateActive || event.deltaY <= 18) {
+        return;
+      }
+
+      const bounds = event.currentTarget.getBoundingClientRect();
+      const pointerY = event.clientY - bounds.top;
+      const isNearLowerScene = pointerY / bounds.height > 0.62;
+
+      if (isNearLowerScene) {
+        setTransitionGateActivated(true);
+      }
+    },
+    [bootComplete, transitionGateActive],
+  );
+
   useGsapScrollScene(sectionRef, {
     start: "top top",
     end: "bottom bottom",
@@ -96,6 +121,7 @@ export function IdentitySnapshotSection() {
     <section
       ref={sectionRef}
       className="relative isolate h-[100svh] overflow-hidden px-[var(--page-pad)] py-3 md:py-4"
+      onWheelCapture={handleSceneWheel}
       aria-label="Identity Snapshot"
     >
       <IdentityDataCenterBackdrop progress={scrollProgress} />
@@ -158,6 +184,11 @@ export function IdentitySnapshotSection() {
             }}
           >
             <MonitorWall />
+            <IdentityToCommandGate
+              active={transitionGateActive}
+              onActivate={activateTransitionGate}
+              scrollArmed={scrollGateArmed}
+            />
             <AvatarCore
               bootReleased={bootComplete}
               isAboutOpen={aboutOpen}
