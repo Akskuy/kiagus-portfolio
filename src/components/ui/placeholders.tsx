@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PixelPanel } from "@/components/ui/pixel-panel";
-import { StatusBadge } from "@/components/ui/status-badge";
+import { PremiumPlaceholder } from "@/components/ui/premium-placeholder";
 import { cn } from "@/lib/cn";
 
 type PlaceholderKind = "screenshot" | "evidence" | "documentation" | "demo" | "certificate";
@@ -57,36 +57,14 @@ function PlaceholderCore({
   const copy = defaults[kind];
 
   return (
-    <PixelPanel
-      className={cn(
-        "flex min-h-48 flex-col justify-between p-4",
-        className,
-      )}
+    <PremiumPlaceholder
+      className={cn("min-h-48", className)}
+      icon={copy.token}
+      label={kind}
+      note={note ?? copy.note}
+      title={title ?? copy.title}
       tone={kind === "demo" ? "green" : kind === "certificate" ? "amber" : "cyan"}
-    >
-      <div className="flex items-center justify-between gap-3">
-        <StatusBadge label={kind} tone={kind === "certificate" ? "amber" : "cyan"} />
-        <span className="font-mono text-xs text-foreground/40 terminal-cursor">
-          asset_wait
-        </span>
-      </div>
-
-      <div className="grid place-items-center py-6">
-        <div className="relative grid h-20 w-20 place-items-center rounded-md border border-cyan-muted/25 bg-background/70 font-mono text-lg font-bold text-cyan-muted shadow-[var(--glow-cyan)]">
-          <span className="absolute inset-2 rounded-sm border border-dashed border-cyan-muted/20 animate-[node-pulse_3.6s_ease-in-out_infinite]" />
-          {copy.token}
-        </div>
-      </div>
-
-      <div>
-        <h3 className="font-mono text-sm font-semibold uppercase text-foreground">
-          {title ?? copy.title}
-        </h3>
-        <p className="mt-2 max-w-sm text-sm leading-6 text-foreground/60">
-          {note ?? copy.note}
-        </p>
-      </div>
-    </PixelPanel>
+    />
   );
 }
 

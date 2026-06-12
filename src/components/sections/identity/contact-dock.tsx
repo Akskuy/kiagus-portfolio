@@ -1,14 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronsDown, MousePointerClick } from "lucide-react";
+import { ChevronsDown } from "lucide-react";
 import { DataStream } from "@/components/motion/data-stream";
 
-type ContactDockProps = {
-  onAboutClick: () => void;
-};
-
-export function ContactDock({ onAboutClick }: ContactDockProps) {
+export function ContactDock() {
   return (
     <motion.div
       className="alive-border relative z-30 overflow-hidden rounded-sm border border-cyan-muted/30 bg-surface-1/90 px-3 py-2 shadow-[var(--shadow-panel)] backdrop-blur-md md:px-5"
@@ -42,20 +38,12 @@ export function ContactDock({ onAboutClick }: ContactDockProps) {
       </div>
 
       <div className="relative z-10 grid items-center gap-3 font-mono text-[0.72rem] uppercase tracking-[0.06em] text-foreground/80 sm:grid-cols-[1fr_auto_1fr] md:text-sm">
-        <button
-          type="button"
-          onClick={onAboutClick}
-          className="group relative inline-flex min-h-10 items-center justify-center gap-3 overflow-hidden rounded-sm border border-amber-soft/30 bg-background/55 px-3 py-1.5 text-left outline-none focus-visible:ring-2 focus-visible:ring-cyan-muted/70 sm:justify-start"
-        >
-          <span className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(241,185,90,0.1),transparent)] opacity-0 animate-[holo-sweep_4.8s_ease-in-out_infinite] group-hover:opacity-100" />
-          <span className="grid h-7 w-7 shrink-0 place-items-center rounded-sm border border-amber-soft/40 bg-amber-soft/10 text-amber-soft shadow-[var(--glow-amber)]">
-            <MousePointerClick className="h-4 w-4 animate-[node-pulse_2.6s_ease-in-out_infinite]" />
-          </span>
-          <span className="text-balance group-hover:text-cyan-muted">
-            Click avatar to know more about Kiagus
-          </span>
-          <span className="absolute inset-x-4 bottom-1 h-px bg-gradient-to-r from-transparent via-amber-soft/70 to-transparent animate-[sweep-light_3.5s_linear_infinite]" />
-        </button>
+        <div className="relative flex min-h-10 items-center justify-center gap-3 overflow-hidden rounded-sm border border-amber-soft/25 bg-background/45 px-3 py-1.5 sm:justify-start">
+          <span className="absolute inset-0 bg-[linear-gradient(90deg,rgba(241,185,90,0.08)_1px,transparent_1px)] bg-[length:14px_14px] animate-[led-chase_2.2s_linear_infinite]" />
+          <span className="relative z-10 h-2 w-2 rounded-[2px] bg-amber-soft shadow-[var(--glow-amber)] animate-[node-pulse_2.8s_ease-in-out_infinite]" />
+          <span className="relative z-10">Scene 01 online</span>
+          <span className="absolute inset-x-4 bottom-1 h-px bg-gradient-to-r from-transparent via-amber-soft/60 to-transparent animate-[sweep-light_3.8s_linear_infinite]" />
+        </div>
 
         <span className="relative hidden h-10 w-12 place-items-center font-mono text-cyan-muted sm:grid">
           <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-cyan-muted/45 to-transparent" />

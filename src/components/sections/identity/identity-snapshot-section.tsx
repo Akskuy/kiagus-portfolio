@@ -1,59 +1,64 @@
 "use client";
 
 import { useCallback, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
-import { ContactDock } from "@/components/sections/identity/contact-dock";
+import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
-import { MonitorTransitionHook } from "@/components/sections/identity/monitor-transition-hook";
 import { useGsapScrollScene } from "@/hooks/use-gsap-scroll-scene";
 import { cn } from "@/lib/cn";
 
 const leftCards = [
   {
-    label: "Data Science Foundation",
-    detail: "Statistics, data systems, and AI problem formulation.",
+    title: "Data Science Student",
+    label: "Academic Foundation",
+    description:
+      "Undergraduate Data Science student with foundations in statistics, data systems, probabilistic reasoning, and AI problem formulation.",
     marker: "SCI",
     icon: "science" as const,
-    tone: "cyan" as const,
   },
   {
-    label: "Project-Based Experience",
-    detail: "Applied web, data, and workflow systems.",
+    title: "Project-Based Experience",
+    label: "Practical Builder",
+    description:
+      "Experienced in team-based and individual projects involving data processing, workflow design, web-based solutions, and system-oriented implementation.",
     marker: "PRJ",
     icon: "project" as const,
-    tone: "amber" as const,
   },
   {
-    label: "National-Level Achievement",
-    detail: "Competition credibility at national innovation level.",
+    title: "National-Level Achievement",
+    label: "Competition Credibility",
+    description:
+      "Achievement record includes Champion at COMPFEST 16 AI Innovation Challenge, Runner-up at ICONIC IT UI/UX Competition, and Best 2nd Product in Bangkit Program.",
     marker: "NAT",
     icon: "achievement" as const,
-    tone: "green" as const,
   },
 ];
 
 const rightCards = [
   {
-    label: "Leadership Experience",
-    detail: "Technical direction, mentoring, and team coordination.",
+    title: "Leadership Experience",
+    label: "Team Direction",
+    description:
+      "Led and coordinated technical and organizational teams, including roles in Avalon AI Community, regional student forum activities, and project-based team collaboration.",
     marker: "LED",
     icon: "leadership" as const,
-    tone: "green" as const,
   },
   {
-    label: "End-to-End Data Workflow",
-    detail: "Transforms inputs into structured automated processes.",
+    title: "End-to-End Data Workflow",
+    label: "Data to Output",
+    description:
+      "Experienced in processing, cleaning, validating, structuring, and packaging raw data into usable outputs aligned with stakeholder or project needs.",
     marker: "FLOW",
     icon: "workflow" as const,
-    tone: "cyan" as const,
   },
   {
-    label: "System Design & AI Solutions",
-    detail: "Owns architecture, data flow, and decision rules.",
+    title: "System Design & AI Solutions",
+    label: "System Thinking",
+    description:
+      "Focuses on translating problems into structured workflows, AI product logic, system concepts, and implementation-ready digital solution designs.",
     marker: "SYS",
     icon: "system" as const,
-    tone: "blue" as const,
   },
 ];
 
@@ -65,6 +70,7 @@ const wallScreens = Array.from({ length: 10 }, (_, index) => index);
 export function IdentitySnapshotSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [bootComplete, setBootComplete] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const handleProgress = useCallback((progress: number) => {
@@ -73,6 +79,10 @@ export function IdentitySnapshotSection() {
 
   const toggleAbout = useCallback(() => {
     setAboutOpen((current) => !current);
+  }, []);
+
+  const handleBootComplete = useCallback(() => {
+    setBootComplete(true);
   }, []);
 
   useGsapScrollScene(sectionRef, {
@@ -90,7 +100,20 @@ export function IdentitySnapshotSection() {
     >
       <IdentityDataCenterBackdrop progress={scrollProgress} />
 
-      <div className="relative z-10 mx-auto grid h-full w-full max-w-[var(--shell-max)] grid-rows-[auto_minmax(0,1fr)_auto] gap-3">
+      <motion.div
+        animate={{
+          filter: bootComplete ? "blur(0px)" : "blur(12px)",
+          opacity: bootComplete ? 1 : 0,
+          scale: bootComplete ? 1 : 0.985,
+        }}
+        aria-hidden={!bootComplete}
+        className={cn(
+          "relative z-10 mx-auto grid h-full w-full max-w-[var(--shell-max)] grid-rows-[auto_minmax(0,1fr)] gap-3",
+          !bootComplete && "pointer-events-none",
+        )}
+        initial={false}
+        transition={{ duration: 0.74, ease: [0.16, 1, 0.3, 1] }}
+      >
         <motion.header
           className="relative mx-auto w-full max-w-5xl text-center"
           style={{
@@ -136,11 +159,11 @@ export function IdentitySnapshotSection() {
           >
             <MonitorWall />
             <AvatarCore
+              bootReleased={bootComplete}
               isAboutOpen={aboutOpen}
               onToggleAbout={toggleAbout}
               className="relative z-20"
             />
-            <MonitorTransitionHook />
           </motion.div>
 
           <motion.div
@@ -155,8 +178,11 @@ export function IdentitySnapshotSection() {
           </motion.div>
         </div>
 
-        <ContactDock onAboutClick={toggleAbout} />
-      </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {!bootComplete ? <IdentityBootPreloader onComplete={handleBootComplete} /> : null}
+      </AnimatePresence>
     </section>
   );
 }

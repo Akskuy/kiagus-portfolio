@@ -1,8 +1,9 @@
+import { StatusLED, type UiTone } from "@/components/ui/status-led";
 import { cn } from "@/lib/cn";
 
 type StatusBadgeProps = {
   label: string;
-  tone?: "cyan" | "amber" | "green" | "blue";
+  tone?: UiTone;
   className?: string;
 };
 
@@ -26,7 +27,7 @@ export function StatusBadge({
         className,
       )}
     >
-      <span className="h-1.5 w-1.5 rounded-[2px] bg-current animate-[node-pulse_2.8s_ease-in-out_infinite]" />
+      <StatusLED active size="sm" tone={tone} />
       {label}
     </span>
   );
