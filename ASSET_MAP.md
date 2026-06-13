@@ -1,1049 +1,1012 @@
 # ASSET MAP — KIAGUS PORTFOLIO
 
-## 1. Main Asset Rule
-
-Do not use reference images as static full backgrounds.
-
-Reference images are visual guides only.
-
-Build the website as real interactive components using:
-
-* HTML
-* CSS
-* React components
-* TypeScript
-* Tailwind utility classes
-* Framer Motion animations
-* GSAP scroll-driven motion
-* SVG layers where useful
-* canvas layers where useful
-* responsive layouts
-* hover states
-* tap states
-* click states
-* animated panels
-* animated data streams
-* scroll-driven transitions
-
-The reference images define:
-
-* composition
-* layout density
-* visual hierarchy
-* color mood
-* UI direction
-* section identity
-* motion inspiration
-* object placement
-* scene atmosphere
-
-They are not final website backgrounds.
-
-Do not render the reference images as the actual UI.
-
-The final website must be built from real components.
+## Source of Truth for Portfolio Assets
 
 ---
 
-## 2. Reference Image Priority System
+# 0. Purpose
 
-There are two types of reference images in this project:
+This file defines where assets live and how they may be used.
 
-1. Concept Board References
-2. Clean Target References
+This file prevents incorrect asset usage such as:
 
-These two reference types have different purposes.
+* rendering clean-target images as static backgrounds
+* using concept-board annotations in the final UI
+* inventing fake evidence images
+* using placeholder images as real proof
+* placing assets in random folders
+* using wrong file paths
+* duplicating assets unnecessarily
 
----
+Scene layout is defined in:
 
-## 3. Concept Board References
+SCENE_ARCHITECTURE.md
 
-Path:
+Motion behavior is defined in:
 
-public/reference/concept-board/
+MOTION_RULES.md
 
-Concept board images may contain:
+Scene order is defined in:
 
-* phase labels
-* guide panels
-* interaction notes
-* motion annotations
-* transition explanations
-* arrows
-* process labels
-* UI planning text
-* instruction cards
-* technical notes
-* internal planning captions
+SECTION_PLAN.md
 
-Use concept-board images only to understand:
+Portfolio text and factual claims are defined in:
 
-* animation phases
-* transition ideas
-* interaction logic
-* object relationships
-* motion direction
-* system behavior
-* scene progression
-* how elements should feel alive
-* how panels should open
-* how scene gates should connect
-
-Do not copy concept-board labels into the final UI.
-
-Do not render visible labels such as:
-
-* PHASE A
-* PHASE B
-* PHASE C
-* PHASE D
-* VISUAL_HINT_ONLY
-* PORTFOLIO_BOOT
-* annotated interaction concept board
-* monitor object locked
-* instruction arrows
-* explanatory guide panels
-* interaction notes
-* technical notes
-* prompt labels
-* process labels
-* guide labels
-* planning labels
-
-These are development annotations.
-
-They are not final portfolio UI.
+CONTENT_SOURCE.md
 
 ---
 
-## 4. Clean Target References
+# 1. Global Asset Rule
 
-Path:
+Assets must support the one-viewport cinematic journey.
+
+Assets must not turn the portfolio into:
+
+* static image slides
+* a screenshot gallery
+* background-image-only scenes
+* a fake visual mockup pasted into the page
+* normal web sections with decorative images
+
+The website must recreate the scenes using real UI components.
+
+Reference images are visual blueprints, not final rendered backgrounds.
+
+---
+
+# 2. Asset Folder Structure
+
+Primary asset folders:
+
+public/avatar/
+
+public/docs/
 
 public/reference/clean-target/
 
-Clean target images are the main visual truth for the final visible UI.
+public/reference/concept-board/
 
-Use clean-target images to follow:
+Recommended future folders:
 
-* final composition
-* layout
-* scale
-* object placement
-* visual density
-* scene mood
-* typography balance
-* final visible UI structure
-* spacing
-* atmosphere
-* rough component placement
-* screenshot-like target
+public/evidence/
 
-When concept-board and clean-target conflict:
+public/evidence/projects/
 
-Clean target wins for final visible UI.
+public/evidence/achievements/
 
-Final rule:
+public/evidence/community/
 
-Concept-board = understand how the section should move, transition, and behave.
+public/placeholders/
 
-Clean-target = understand how the section should look in the final website.
+public/icons/
 
----
+public/textures/
 
-## 5. Required Folder Structure
+public/environment/
 
-Use this asset folder structure:
+Rules:
 
-public/
-reference/
-concept-board/
-slide-1-identity-snapshot-board.png
-slide-2-capability-matrix-board.png
-slide-3-knowledge-library-board.png
-slide-4-experience-district-board.png
-slide-5-project-archive-board.png
-slide-6-achievement-analytics-board.png
-slide-7-knowledge-map-board.png
-slide-8-future-laboratory-board.png
-clean-target/
-slide-1-identity-snapshot.png
-slide-2-capability-matrix.png
-slide-3-knowledge-library.png
-slide-4-experience-district.png
-slide-5-project-archive.png
-slide-6-achievement-analytics.png
-slide-7-knowledge-map.png
-slide-8-future-laboratory.png
-avatar/
-fotokiagus.jpeg
-docs/
-kiagus-arif-rahman-resume.pdf
-evidence/
-compfest-documentation.png
-iconic-documentation.png
-bangkit-documentation.png
-projects/
-automated-clipping-screenshot.png
-skyholic-dashboard-screenshot.png
-ar-tryon-preview.png
-umkm-survey-output.png
-
-Files inside evidence/ and projects/ may not exist yet.
-
-If they do not exist, use polished placeholder components.
-
-Do not invent fake evidence images.
-
-Do not invent fake project screenshots.
+* Do not scatter portfolio assets randomly.
+* Do not put reference images in component folders.
+* Do not put real evidence inside reference folders.
+* Do not put generated placeholders inside evidence folders unless clearly labeled.
+* Do not treat reference boards as user-facing content.
 
 ---
 
-## 6. Main Files
+# 3. Clean Target References
 
-## CV / Resume
+Clean-target images define the final visual composition of each scene.
+
+Clean-target images are not final UI assets.
+
+They are used only as visual blueprints during development.
+
+Do not render clean-target images directly in the final website.
+
+Do not use clean-target images as CSS backgrounds.
+
+Do not cover the website with clean-target screenshots.
+
+The final website must recreate the design using components.
+
+## Scene 1 Clean Target
 
 Path:
 
-public/docs/kiagus-arif-rahman-resume.pdf
+public/reference/clean-target/slide-1-identity-snapshot.png
 
-Use for:
+Scene:
 
-* resume download button
-* professional content support
-* contact information support
+Identity Snapshot
 
-Do not visually parse the PDF inside the UI.
+Usage:
 
-Use structured portfolio content from CONTENT_SOURCE.md.
+* final composition reference
+* title placement reference
+* central lanyard/photo card reference
+* left/right identity panel placement reference
+* dark data-center mood reference
 
-## Avatar Source
+Do not:
+
+* render it as a background
+* crop it into UI
+* use it as hero image
+
+## Scene 2 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-2-capability-matrix.png
+
+Scene:
+
+Capability Matrix
+
+Usage:
+
+* final command-center composition reference
+* 2x3 terminal grid reference
+* server rack left/right reference
+* bottom command desk reference
+* title rail reference
+
+Important:
+
+Scene 2 must not become central console with tiny side sockets.
+
+Clean-target requires six large terminals in a 2x3 grid.
+
+## Scene 3 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-3-knowledge-library.png
+
+Scene:
+
+Knowledge Library
+
+Usage:
+
+* final archive/library composition reference
+* top category tabs reference
+* left pillar panel reference
+* center modules panel reference
+* right overview panel reference
+* bottom sentence bar reference
+* warm archive mood reference
+
+Important:
+
+Scene 3 must not become a course list or ordinary tab component.
+
+## Scene 4 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-4-experience-district.png
+
+Scene:
+
+Experience District
+
+Usage:
+
+* final night city UI composition reference
+* six district building/card layout reference
+* left district categories panel reference
+* bottom selected district panel reference
+* right vertical journey indicator reference
+* bottom district navigation reference
+
+Important:
+
+Scene 4 must not become a resume timeline.
+
+## Scene 5 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-5-project-archive.png
+
+Scene:
+
+Project Archive
+
+Usage:
+
+* final project archive machine composition reference
+* left cartridge rack reference
+* central project viewer machine reference
+* right archive equipment wall reference
+* bottom summary/workflow/proof panels reference
+
+Important:
+
+Scene 5 must not become a normal project card grid.
+
+## Scene 6 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-6-achievement-analytics.png
+
+Scene:
+
+Achievement Analytics
+
+Usage:
+
+* final museum analytics composition reference
+* left achievement list reference
+* central trophy display reference
+* right selected achievement panel reference
+* bottom performance analytics strip reference
+
+Important:
+
+Scene 6 must not become a normal awards list or fake certificate gallery.
+
+## Scene 7 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-7-knowledge-map.png
+
+Scene:
+
+Knowledge Map
+
+Usage:
+
+* final graph interface composition reference
+* central DATA SCIENCE & AI BUILDER node reference
+* domain node placement reference
+* subskill list placement reference
+* connection line reference
+* bottom instruction bar reference
+
+Important:
+
+Scene 7 must not become a generic mind map or skill cards.
+
+## Scene 8 Clean Target
+
+Path:
+
+public/reference/clean-target/slide-8-future-laboratory.png
+
+Scene:
+
+Future Laboratory
+
+Usage:
+
+* final lab composition reference
+* central holographic globe reference
+* left future focus panels reference
+* right system panels reference
+* mission panel reference
+* connect console reference
+* contact strip reference
+
+Important:
+
+Scene 8 must not become a footer or normal contact section.
+
+---
+
+# 4. Concept Board References
+
+Concept-board images are for planning motion and interaction.
+
+They may contain annotations, arrows, labels, phases, and notes.
+
+They must not be rendered in the final UI.
+
+Do not copy annotation text from concept boards into the website.
+
+Concept-board images may guide:
+
+* transition logic
+* object relationship
+* interaction behavior
+* phase planning
+* animation hook
+* scene storytelling
+
+Clean-target references always win for final visual composition.
+
+## Scene 1 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-1-identity-snapshot-board.png
+
+Usage:
+
+* identity interaction planning
+* lanyard behavior idea
+* side panel reveal behavior idea
+* boot/preloader planning
+
+## Scene 2 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-2-capability-matrix-board.png
+
+Usage:
+
+* capability terminal interaction planning
+* command center motion planning
+* identity-to-capability morph planning
+
+## Scene 3 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-3-knowledge-library-board.png
+
+Usage:
+
+* library tab interaction planning
+* archive-panel behavior planning
+* terminal-to-library morph planning
+
+## Scene 4 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-4-experience-district-board.png
+
+Usage:
+
+* district building interaction planning
+* city map exploration planning
+* book-to-map transition planning
+
+## Scene 5 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-5-project-archive-board.png
+
+Usage:
+
+* cartridge interaction planning
+* project viewer behavior planning
+* district-to-cartridge transition planning
+
+## Scene 6 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-6-achievement-analytics-board.png
+
+Usage:
+
+* trophy/museum analytics planning
+* achievement selection behavior
+* project-proof-to-achievement transition planning
+
+## Scene 7 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-7-knowledge-map-board.png
+
+Usage:
+
+* graph interaction planning
+* node relationship planning
+* achievement-to-graph transition planning
+
+## Scene 8 Concept Board
+
+Expected path:
+
+public/reference/concept-board/slide-8-future-laboratory-board.png
+
+Usage:
+
+* lab closing interaction planning
+* contact console planning
+* graph-to-data-core transition planning
+
+---
+
+# 5. Avatar Assets
+
+## Kiagus Portrait
 
 Path:
 
 public/avatar/fotokiagus.jpeg
 
-Use for:
+Usage:
+
+* Scene 1 central lanyard/photo card
+* AvatarCore component
+* identity snapshot visual anchor
+
+Allowed use:
+
+* front face of lanyard card
+* small avatar token if needed
+* profile identity object
+
+Not allowed:
+
+* using it as full-page background
+* distorting the face
+* making it low-quality through excessive filters
+* replacing it with a random AI portrait
+* using it in Scene 2 as large hero after lanyard has docked
+
+Scene-specific rule:
+
+In Scene 1, the portrait is central and important.
+
+In Scene 2, the portrait/lanyard may only remain as a small docked access token.
+
+From Scene 3 onward, the portrait should not dominate unless explicitly approved.
+
+---
+
+# 6. Document Assets
+
+## Resume PDF
+
+Path:
+
+public/docs/kiagus-arif-rahman-resume.pdf
+
+Usage:
+
+* Scene 8 Resume card
+* resume open/download action
+* optional resume reference link
+
+Rules:
+
+* resume card should open or download this file
+* do not create fake resume content if the PDF exists
+* do not claim resume was updated unless file is updated
+* do not replace this with external unverified link
+
+Scene 8 resume card should use:
+
+Title:
+
+RESUME
+
+Detail:
+
+Download My Resume
+
+Action target:
+
+public/docs/kiagus-arif-rahman-resume.pdf
+
+---
+
+# 7. Evidence Assets
+
+Evidence assets are not the same as placeholders.
+
+Evidence means real proof, such as:
+
+* real screenshots
+* real certificates
+* real documents
+* real project output captures
+* real community activity documentation
+* real project delivery files
+* real competition proof
+
+Recommended path:
+
+public/evidence/
+
+Recommended subfolders:
+
+public/evidence/projects/
+
+public/evidence/achievements/
+
+public/evidence/community/
+
+Do not invent evidence.
+
+Do not generate fake certificates.
+
+Do not generate fake screenshots and present them as real.
+
+Do not use visual placeholders as proof.
+
+If evidence is missing, use clearly labeled placeholders.
+
+---
+
+# 8. Placeholder Assets
+
+Placeholders are allowed when real evidence is not available yet.
+
+Recommended path:
+
+public/placeholders/
+
+Placeholder labels must be honest.
+
+Allowed labels:
+
+* Prototype Preview
+* Demo Placeholder
+* Evidence Placeholder
+* Output Preview Placeholder
+* Replace With Verified Proof
+* Screenshot Slot
+* Documentation Slot
+* To Be Verified
+* Conceptual Analytics
+* Portfolio Display Placeholder
+
+Forbidden labels:
+
+* Real Client Result
+* Verified Certificate
+* Production Screenshot
+* Deployed System Proof
+* Official Document
+* Real User Analytics
+
+unless actually verified.
+
+Placeholders may be used in:
+
+* Scene 5 Project Proof / Output Preview
+* Scene 6 Achievement evidence slots
+* Scene 8 lab context/demo system values
+
+Placeholders must never pretend to be real proof.
+
+---
+
+# 9. Scene-Specific Asset Usage
+
+## Scene 1 — Identity Snapshot
+
+Required assets:
+
+* public/avatar/fotokiagus.jpeg
+* public/reference/clean-target/slide-1-identity-snapshot.png as reference only
+* public/reference/concept-board/slide-1-identity-snapshot-board.png as planning reference only if available
+
+Rendered user-facing assets:
 
 * Kiagus portrait
-* Slide 1 identity card
-* stylized identity object
-* premium lanyard / card portrait
 
-Do not display it as a plain boring circle unless used as fallback.
+Reference-only assets:
 
-Do not place it as an unstyled normal photo.
+* clean-target
+* concept-board
 
-Integrate it into:
+Do not render:
 
-* premium lanyard card
-* collectible identity badge
-* holographic frame
-* pixel data interface
-* acrylic card holder
-* game identity object
+* clean-target image
+* concept-board image
+* annotation text
 
----
+## Scene 2 — Capability Matrix
 
-## 7. Game UI Asset Richness Rule
+Required assets:
 
-This portfolio must not use plain minimal UI elements.
+* public/reference/clean-target/slide-2-capability-matrix.png as reference only
+* public/reference/concept-board/slide-2-capability-matrix-board.png as planning reference only if available
 
-Do not be visually stingy.
+Rendered user-facing assets:
 
-Every visible UI element should feel intentionally designed for the dark pixel game-like portfolio theme.
+* no required bitmap asset
+* UI should be built from components
 
-This applies to:
+Optional generated internal objects:
 
-* panels
-* cards
-* columns
-* borders
-* lines
-* separators
-* buttons
-* labels
-* icon boxes
-* status chips
-* progress bars
-* placeholder slots
-* navigation dots
-* data lines
-* section frames
-* terminal rows
-* list items
-* thumbnails
-* callout boxes
-* bottom bars
-* detail windows
-* title-only panels
-* hover targets
-* click targets
+* icon/glyph components
+* server rack shapes
+* terminal panels
+* command desk shapes
 
-Do not leave these elements as:
+Do not render:
 
-* plain rectangles
-* plain dividers
-* plain website boxes
-* generic Tailwind cards
-* simple dark containers
-* empty border-only panels
-* basic dashboard widgets
-* boring accordion panels
-* generic buttons
+* clean-target image as background
+* concept-board image
+* fake terminal screenshots
 
-Every UI element should use at least some theme-appropriate treatment, such as:
+## Scene 3 — Knowledge Library
 
-* pixel corner brackets
-* segmented borders
-* inset frames
-* layered panel depth
-* small icon tiles
-* emblem areas
-* tiny thumbnails
-* status LEDs
-* animated border traces
-* scanline overlays
-* soft glow accents
-* data packet motion
-* circuit-line details
-* micro labels
-* terminal-style captions
-* small glyphs or icons
-* hover energy effects
-* premium game-like chrome
-* subtle shadow/depth layering
-* active/inactive light state
-* endpoint glow
-* animated separators
+Required assets:
 
-The goal is not to make the UI crowded or chaotic.
+* public/reference/clean-target/slide-3-knowledge-library.png as reference only
+* public/reference/concept-board/slide-3-knowledge-library-board.png as planning reference only if available
 
-The goal is to make every element feel like part of a custom game interface system.
+Rendered user-facing assets:
 
-Priority order:
+* preferably component-built library UI
+* optional texture assets only if they do not replace component design
 
-1. Clear portfolio information
-2. Game-like immersive interface
-3. Rich UI detail
-4. Controlled motion
-5. Readability and responsiveness
+Optional future assets:
 
-Final rule:
+* subtle paper/wood texture
+* book glyphs
+* archive icons
 
-Every section must feel like a designed game screen, not a normal website section.
+Do not render:
 
-Every panel must feel custom-built, not like a plain rectangle.
+* clean-target as library background
+* concept-board annotations
+* fake academic certificates
 
-Every small UI element must visually belong to the theme.
+## Scene 4 — Experience District
 
----
+Required assets:
 
-## 8. Animated UI Asset Rule
+* public/reference/clean-target/slide-4-experience-district.png as reference only
+* public/reference/concept-board/slide-4-experience-district-board.png as planning reference only if available
 
-UI richness is not only about shape.
+Rendered user-facing assets:
 
-Small UI details should also support animation.
+* city/building visuals should be component-built or controlled environment assets
+* district cards must be components
 
-When creating UI components, prepare elements that can animate, such as:
+Optional future assets:
 
-* LED dots
-* scanner beams
-* corner brackets
-* border trace paths
-* inner glow layers
-* scanline overlays
-* data packet lines
-* terminal cursors
-* hologram projection layers
-* icon tile glow
-* active frame state
-* micro status labels
-* small circuit paths
-* pixel noise overlay
-* object shadow depth
-* moving highlight streaks
+* pixel building sprites
+* skyline texture
+* avatar/character sprite if approved
 
-Do not build UI as flat static boxes.
+Do not render:
 
-Each reusable UI component should have enough internal structure to support motion.
+* clean-target as full city background
+* fake documentation thumbnails as real proof
+* unverified evidence
 
-Examples:
+## Scene 5 — Project Archive
 
-A good panel should contain:
+Required assets:
 
-* outer frame
-* inner frame
-* header strip
-* icon tile
-* status LED
-* scanline overlay
-* animated border
-* content area
-* active state layer
+* public/reference/clean-target/slide-5-project-archive.png as reference only
+* public/reference/concept-board/slide-5-project-archive-board.png as planning reference only if available
 
-A good button should contain:
+Rendered user-facing assets:
 
-* segmented frame
-* label
-* icon or glyph
-* hover light
-* press depth
-* edge animation
+* cartridge UI should be component-built
+* central project viewer should be component-built
+* proof preview slots may use placeholders if real screenshots are unavailable
 
-A good separator should contain:
+Possible placeholder location:
 
-* segmented line
-* glowing endpoints
-* moving data packet
-* small system label if useful
+public/placeholders/projects/
 
----
+Truth rule:
 
-## 9. Interactive Panel Asset Rule
+Project evidence placeholders must be labeled clearly.
 
-Many portfolio details should start as title-only panels.
+Do not show fake production screenshots as real.
 
-These panels need visual structure that supports creative reveal animation.
+## Scene 6 — Achievement Analytics
 
-A title-only panel should not be just:
+Required assets:
 
-* title text
-* arrow icon
-* hidden description
+* public/reference/clean-target/slide-6-achievement-analytics.png as reference only
+* public/reference/concept-board/slide-6-achievement-analytics-board.png as planning reference only if available
 
-A good title-only panel should include:
+Rendered user-facing assets:
 
-* title
-* small icon/emblem
-* status label
-* LED indicator
-* corner brackets
-* hidden content area
-* reveal mask or clip area
-* scanline layer
-* animated border layer
-* active state styling
-* inactive state styling
+* trophy may be component-built or controlled icon/shape
+* achievement list must be component-built
+* evidence slots must be verified or labeled placeholder
 
-When clicked, it should open through one of these reveal patterns:
+Possible evidence location:
 
-* access scan reveal
-* terminal execute reveal
-* hatch unlock reveal
-* data chip insert reveal
-* hologram projection reveal
-* file decryption reveal
-* inventory slot expand
-* x-ray scanner reveal
-* circuit activation reveal
-* pixel assembly reveal
-* book/page unfold reveal
-* building/window unlock reveal
-* cartridge scanner reveal
-* node hologram expand
-* reactor console unlock
+public/evidence/achievements/
 
-Do not create basic accordion UI.
+Possible placeholder location:
 
-Do not create simple dropdown behavior.
+public/placeholders/achievements/
 
-Panel reveal must feel like system activation.
+Truth rule:
+
+Do not invent certificates, ranks, proof, or metrics.
+
+## Scene 7 — Knowledge Map
+
+Required assets:
+
+* public/reference/clean-target/slide-7-knowledge-map.png as reference only
+* public/reference/concept-board/slide-7-knowledge-map-board.png as planning reference only if available
+
+Rendered user-facing assets:
+
+* graph should be component-built
+* nodes, lines, and labels should be real UI
+* no required bitmap asset
+
+Do not render:
+
+* clean-target as graph image
+* static screenshot as the map
+* random unsupported skill icons if they imply fake tools
+
+## Scene 8 — Future Laboratory
+
+Required assets:
+
+* public/reference/clean-target/slide-8-future-laboratory.png as reference only
+* public/reference/concept-board/slide-8-future-laboratory-board.png as planning reference only if available
+* public/docs/kiagus-arif-rahman-resume.pdf
+* verified contact data from CONTENT_SOURCE.md
+
+Rendered user-facing assets:
+
+* resume PDF link
+* lab UI components
+* contact action cards
+
+Optional future assets:
+
+* lab texture
+* skyline texture
+* social/contact icons
+
+Truth rule:
+
+Do not invent phone, location, LinkedIn, GitHub, email, or resume paths.
+
+Use CONTENT_SOURCE.md as factual source.
 
 ---
 
-## 10. Slide Reference Assets
+# 10. Icons and Glyphs
 
-## Slide 1 — Identity Snapshot / Scene 1 — Identity Room
+Icons and glyphs should support the scene language.
 
-Concept board:
+They may be:
 
-public/reference/concept-board/slide-1-identity-snapshot-board.png
+* inline SVG components
+* CSS/pixel shapes
+* icon library components if already installed
+* simple custom glyph components
 
-Clean target:
+Do not import random icon systems without checking project setup.
 
-public/reference/clean-target/slide-1-identity-snapshot.png
+Do not create inconsistent icon styles.
 
-Use concept board for:
+Icon style should be:
 
-* boot/preload concept
-* phase logic
-* interaction idea
-* avatar/card click behavior
-* monitor transition hook
-* motion planning
-* panel activation ideas
+* pixel-inspired
+* technical
+* simple
+* readable
+* not childish
+* not overly detailed
+* not mismatched across scenes
 
-Use clean target for:
+## Scene Icon Directions
 
-* final visible composition
-* centered hero object
-* 3 info cards left
-* 3 info cards right
-* large name at top
-* short subtitle
-* bottom interaction bar
-* final scale and spacing
-* dark monitor-wall background mood
+Scene 2 terminals:
 
-Final Slide 1 must be rebuilt as:
+* Statistical Thinking: chart bars
+* AI Product Logic: brain / AI node
+* Data Workflow: database stack
+* System Analysis: gear / system diagram
+* Web-Based Solution: browser / window grid
+* Leadership & Team Direction: team / group node
 
-* premium lanyard / collectible identity card component
-* identity headline
-* concise title-only panels
-* creative access-scan panel reveal
-* bottom contact/interaction bar
-* animated monitor wall / data-center background
-* transition gate into Scene 2
-* no concept-board annotation text
+Scene 3 library:
 
-Do not show concept-board annotations in final UI.
+* foundation pillar: sigma / chart / probability grid
+* modules: book/archive rows
+* bottom bar: open book / archive seal
 
-Do not use the clean target as static background.
+Scene 4 district:
 
----
+* community: group / AI emblem
+* academic: institution / department
+* project team: system office
+* content systems: media/screen
+* operations: store/service
+* leadership: microphone/group
 
-## Slide 2 — Capability Matrix / Scene 2 — Capability Command Center
+Scene 5 archive:
 
-Concept board:
+* cartridge: project/media/system icons
+* workflow: link, gear, scissors, upload
+* proof: dashboard/output/log
 
-public/reference/concept-board/slide-2-capability-matrix-board.png
+Scene 6 achievement:
 
-Clean target:
+* trophy
+* medal
+* badge
+* analytics gauge
+* trend chart
 
-public/reference/clean-target/slide-2-capability-matrix.png
+Scene 7 graph:
 
-Use concept board for:
+* statistics: chart
+* research: magnifier
+* business analytics: growth chart
+* leadership: team
+* systems: gear
+* data engineering: database
+* machine learning: AI/brain
 
-* terminal boot phases
-* interaction model
-* detail panel behavior
-* transition from Scene 1 monitor/data
-* transition into Scene 3 archive/library
+Scene 8 lab:
 
-Use clean target for:
-
-* final command center composition
-* terminal grid placement
-* visual density
-* clean user-facing UI
-* scale and spacing
-
-Final Slide 2 must be rebuilt as:
-
-* capability terminal grid
-* title-only terminal panels
-* terminal execute reveal
-* active terminal detail panel
-* command center background
-* cable/data stream animation
-* terminal hover/click states
-* transition gate into Knowledge Library
-
-Do not show concept-board annotations in final UI.
+* AI Products: brain
+* Data Platforms: database
+* Decision Intelligence: chart
+* Automation Systems: gear
+* LinkedIn, GitHub, Email, Resume contact icons
 
 ---
 
-## Slide 3 — Knowledge Library / Scene 3 — Knowledge Library
+# 11. Texture and Environment Assets
 
-Concept board:
+If texture/environment assets are added later, they should live in:
 
-public/reference/concept-board/slide-3-knowledge-library-board.png
+public/textures/
 
-Clean target:
+public/environment/
 
-public/reference/clean-target/slide-3-knowledge-library.png
+Allowed texture types:
 
-Use concept board for:
+* subtle grid
+* subtle scanline
+* paper texture
+* warm library grain
+* metal panel texture
+* dark vignette
+* low-noise dust
+* low-opacity HUD texture
 
-* knowledge shelf interaction logic
-* book/module click behavior
-* course-to-skill reveal
-* transition from terminal to archive
-* transition from book page to city map
+Forbidden texture behavior:
 
-Use clean target for:
+* overpowering text
+* replacing component design
+* hiding layout issues
+* making UI noisy
+* turning scenes into static wallpapers
 
-* final library composition
-* shelf layout
-* category/navigation placement
-* knowledge module scale
-* final visible UI hierarchy
+Textures must be subtle.
 
-Final Slide 3 must be rebuilt as:
-
-* knowledge shelf component
-* book/module cards
-* title-only knowledge modules
-* book/page unfold reveal
-* category sidebar
-* course-to-skill detail panels
-* book-to-city transition gate
-
-Do not show concept-board annotations in final UI.
+Visual structure should come from components, not texture images.
 
 ---
 
-## Slide 4 — Experience District / Scene 4 — Experience District
+# 12. Asset Naming Rules
 
-Concept board:
+Use clear lowercase kebab-case filenames.
 
-public/reference/concept-board/slide-4-experience-district-board.png
+Allowed examples:
 
-Clean target:
+slide-1-identity-snapshot.png
 
-public/reference/clean-target/slide-4-experience-district.png
+slide-2-capability-matrix.png
 
-Use concept board for:
+slide-3-knowledge-library.png
 
-* city interaction logic
-* building hover/click behavior
-* timeline reveal
-* transition from book map
-* transition into Project Archive
+kiagus-portrait.jpg
 
-Use clean target for:
+project-placeholder-dashboard.png
 
-* final pixel city composition
-* building placement
-* visual density
-* role detail area
-* final scale and spacing
+achievement-placeholder-certificate.png
 
-Final Slide 4 must be rebuilt as:
+Avoid:
 
-* experience building components
-* animated city map
-* building/window unlock reveal
-* role detail panel
-* data roads
-* timeline rail
-* building-to-project-cartridge transition gate
+* random screenshot names
+* spaces in filenames
+* uppercase inconsistent names
+* duplicate files with unclear versions
+* final-final-v2-new.png
 
-Do not show concept-board annotations in final UI.
+If user-uploaded files have messy names, copy or rename them into the correct public folder before using.
 
 ---
 
-## Slide 5 — Project Archive / Scene 5 — Project Archive
+# 13. Missing Asset Rule
 
-Concept board:
+If an expected asset is missing:
 
-public/reference/concept-board/slide-5-project-archive-board.png
+1. Do not invent content.
+2. Do not silently use a random replacement.
+3. Use a clearly labeled placeholder if needed.
+4. Report the missing asset.
+5. Continue only if the placeholder is acceptable for the current task.
 
-Clean target:
+Missing clean-target reference:
 
-public/reference/clean-target/slide-5-project-archive.png
+* do not build that scene final layout freely
+* ask for the clean-target or use SCENE_ARCHITECTURE.md only if explicitly approved
 
-Use concept board for:
+Missing real evidence:
 
-* project cartridge interaction
-* scanner logic
-* project detail viewer behavior
-* architecture reveal behavior
-* transition to Achievement Analytics
+* use placeholder
+* label it as placeholder
+* do not claim it is proof
 
-Use clean target for:
+Missing resume:
 
-* final project archive composition
-* cartridge layout
-* scanner placement
-* project viewer layout
-* code snippet panel position
-* screenshot/demo slot position
+* do not create fake resume path
+* ask or use verified existing resume path only
 
-Final Slide 5 must be rebuilt as:
+Missing portrait:
 
-* project cartridge components
-* cartridge scanner reveal
-* project detail viewer
-* animated architecture diagram
-* code/pseudo-code panel
-* screenshot placeholder
-* demo placeholder
-* scanner transition gate
-
-Do not show concept-board annotations in final UI.
+* do not use AI-generated substitute
+* ask for verified portrait asset
 
 ---
 
-## Slide 6 — Achievement Analytics / Scene 6 — Achievement Analytics
+# 14. User-Facing vs Development-Only Assets
 
-Concept board:
+## User-Facing Assets
 
-public/reference/concept-board/slide-6-achievement-analytics-board.png
+These may appear in the final website:
 
-Clean target:
+* Kiagus portrait
+* resume PDF link
+* verified evidence images
+* approved placeholders
+* approved icons/glyphs
+* approved textures/environment assets
 
-public/reference/clean-target/slide-6-achievement-analytics.png
+## Development-Only Assets
 
-Use concept board for:
+These must not appear directly in the final website:
 
-* achievement dashboard interaction
-* metric reveal logic
-* documentation slot behavior
-* trophy analytics behavior
-* transition to Knowledge Map
+* clean-target references
+* concept-board references
+* annotated boards
+* planning screenshots
+* motion guide images
+* visual instruction images
 
-Use clean target for:
-
-* final achievement dashboard composition
-* trophy/metric layout
-* documentation slot placement
-* analytics museum mood
-* final scale and spacing
-
-Final Slide 6 must be rebuilt as:
-
-* achievement cards
-* decrypt/x-ray achievement reveal
-* trophy/metric dashboard
-* documentation placeholders
-* credibility panels
-* animated counters
-* node transition setup
-
-Do not show concept-board annotations in final UI.
+If a reference image appears directly in the website, it is wrong unless explicitly approved.
 
 ---
 
-## Slide 7 — Knowledge Map / Scene 7 — Knowledge Map
+# 15. Asset Truthfulness Checklist
 
-Concept board:
+Before using any asset, check:
 
-public/reference/concept-board/slide-7-knowledge-map-board.png
+1. Is this asset user-facing or development-only?
+2. Is this asset a reference image?
+3. Is this asset verified evidence?
+4. Is this asset only a placeholder?
+5. Is the path correct?
+6. Does CONTENT_SOURCE.md support the claim attached to it?
+7. Does the asset match the scene visual direction?
+8. Is the asset being used honestly?
+9. Does it preserve the one-viewport cinematic experience?
+10. Does it avoid making the scene look like a static screenshot?
 
-Clean target:
-
-public/reference/clean-target/slide-7-knowledge-map.png
-
-Use concept board for:
-
-* node interaction logic
-* skill relationship behavior
-* click/hover detail panel
-* graph transition behavior
-* convergence into final data core
-
-Use clean target for:
-
-* final node map composition
-* cluster placement
-* connection density
-* center core placement
-* final visual hierarchy
-
-Final Slide 7 must be rebuilt as:
-
-* knowledge node components
-* animated edges
-* node hologram reveal
-* node detail panel
-* skill/course/project relationship map
-* central data core transition
-
-Do not show concept-board annotations in final UI.
+If any answer is unclear, do not treat the asset as factual proof.
 
 ---
 
-## Slide 8 — Future Laboratory / Scene 8 — Future Laboratory
+# 16. Final Asset Rule
 
-Concept board:
+Clean-target images define what to build.
 
-public/reference/concept-board/slide-8-future-laboratory-board.png
+Concept-board images define how it may move.
 
-Clean target:
+Portrait and resume are real user-facing assets.
 
-public/reference/clean-target/slide-8-future-laboratory.png
+Evidence must be verified.
 
-Use concept board for:
+Placeholders must be labeled.
 
-* final lab interaction
-* CTA interaction behavior
-* data core activation
-* final completion state
-* future roadmap behavior
-
-Use clean target for:
-
-* final laboratory composition
-* data core placement
-* CTA station layout
-* roadmap card layout
-* final closing mood
-
-Final Slide 8 must be rebuilt as:
-
-* future data core
-* reactor console unlock reveal
-* roadmap cards
-* CTA buttons
-* final contact panel
-* lab background layers
-* portfolio completion state
-
-Do not show concept-board annotations in final UI.
-
----
-
-## 11. Placeholder Asset Rules
-
-If project screenshots are not available yet, create polished placeholders.
-
-Use these future paths:
-
-## Project screenshots
-
-public/projects/automated-clipping-screenshot.png
-
-For:
-
-Automated Clipping Website screenshot or dashboard preview.
-
-public/projects/skyholic-dashboard-screenshot.png
-
-For:
-
-Skyholic Universe Recruitment & Scoring System dashboard screenshot.
-
-public/projects/ar-tryon-preview.png
-
-For:
-
-Avalon AI AR Fashion Try-On preview.
-
-public/projects/umkm-survey-output.png
-
-For:
-
-Cooperative UMKM Survey Data output screenshot.
-
-## Achievement documentation
-
-public/evidence/compfest-documentation.png
-
-For:
-
-COMPFEST documentation photo.
-
-public/evidence/iconic-documentation.png
-
-For:
-
-ICONIC IT documentation photo.
-
-public/evidence/bangkit-documentation.png
-
-For:
-
-Bangkit documentation photo.
-
-Do not show certificates directly unless manually inserted by the portfolio owner.
-
-Use documentation slots instead.
-
-Do not invent certificate images.
-
-Do not invent documentation photos.
-
----
-
-## 12. Placeholder Component Requirements
-
-Create these components when needed:
-
-* ScreenshotPlaceholder
-* EvidencePlaceholder
-* DocumentationSlot
-* ProjectDemoPlaceholder
-* CertificateDocumentationSlot
-* PremiumPlaceholder
-
-Each placeholder must look premium.
-
-Do not use plain gray boxes.
-
-Do not use empty rectangles.
-
-Use a dark pixel panel with:
-
-* animated border trace
-* small label
-* scanline overlay
-* placeholder icon
-* subtle breathing glow
-* instruction text such as “Replace with real screenshot later”
-* micro status label
-* segmented frame
-* active LED
-
-Clear placeholder labels are allowed because they prevent fake evidence.
-
----
-
-## 13. Asset Loading Rules
-
-Use Next.js image optimization where possible.
-
-For concept-board images:
-
-* may be referenced by Codex for understanding animation/interaction planning
-* should not be rendered in production UI
-* should not appear as visible final UI
-* should not be used as page background
-
-For clean-target images:
-
-* may be referenced by Codex to understand final layout
-* should not be rendered as a full static background
-* should not replace real components
-* should guide composition only
-
-For avatar:
-
-* optimize image
-* use stylized/pixel treatment through CSS/filter/mask/canvas if useful
-* provide fallback image rendering
-* integrate into premium card/lanyard object
-
-For evidence/project images:
-
-* gracefully fallback to placeholder if missing
-* do not break layout if file does not exist
-* do not pretend placeholder is real evidence
-
----
-
-## 14. Suggested Global Component Mapping
-
-Global Components:
-
-* SceneFrame
-* SceneJourney
-* SceneProgressRail
-* TransitionGate
-* InteractiveRevealPanel
-* PixelPanel
-* PixelButton
-* SectionFrame
-* AnimatedBorder
-* ScanlineOverlay
-* PixelGridBackground
-* DataStream
-* DataPacketLine
-* StatusLED
-* IconTile
-* MicroLabel
-* PixelSeparator
-* HologramPanel
-* TerminalOutput
-* ScannerBeam
-* CircuitLine
-* BootSequence
-* ScrollScene
-* ParallaxLayer
-* MotionLayer
-* PremiumPlaceholder
-
-Scene 1 Components:
-
-* IdentityRoom
-* PremiumLanyardCard
-* IdentityRevealPanel
-* IdentityDashboard
-* IdentityInfoPanel
-* AccessScanPanel
-* DataCenterBackground
-* BottomInteractionBar
-* MonitorTransitionHook
-
-Scene 2 Components:
-
-* CapabilityCommandCenter
-* CapabilityTerminal
-* CapabilityMatrix
-* TerminalDetailPanel
-* CommandCenterBackground
-* TerminalExecutePanel
-
-Scene 3 Components:
-
-* KnowledgeLibrary
-* KnowledgeShelf
-* KnowledgeBook
-* KnowledgeDetailPanel
-* CourseSkillMapper
-* BookUnfoldPanel
-
-Scene 4 Components:
-
-* ExperienceDistrict
-* ExperienceBuilding
-* ExperienceTimeline
-* RoleDetailPanel
-* DataRoad
-* BuildingWindowPanel
-
-Scene 5 Components:
-
-* ProjectArchive
-* ProjectCartridge
-* ProjectScanner
-* ProjectViewer
-* ArchitectureDiagram
-* CodeSnippetPanel
-* CartridgeScannerPanel
-
-Scene 6 Components:
-
-* AchievementAnalytics
-* AchievementDashboard
-* AchievementCard
-* TrophyMetricPanel
-* DocumentationSlot
-* AchievementXrayPanel
-
-Scene 7 Components:
-
-* KnowledgeMap
-* KnowledgeNode
-* NodeConnection
-* NodeDetailPanel
-* CentralDataCore
-* NodeHologramPanel
-
-Scene 8 Components:
-
-* FutureLaboratory
-* FutureDataCore
-* RoadmapPanel
-* FinalCTAStation
-* ContactActionButton
-* ReactorConsolePanel
-
----
-
-## 15. Developer Reminder
-
-Every time a scene is built, verify:
-
-1. Is the concept-board used only for animation/interactions?
-2. Is the clean-target used as the final visual truth?
-3. Are concept-board annotations excluded from the final UI?
-4. Are major elements real components?
-5. Are animation layers implemented?
-6. Is the transition scroll-driven or prepared for scroll-driven motion?
-7. Are important elements alive?
-8. Are hover and click states implemented?
-9. Is the layout responsive?
-10. Are placeholders polished?
-11. Is content sourced from CONTENT_SOURCE.md?
-12. Is the scene aligned with MOTION_RULES.md?
-13. Does the section avoid becoming a generic text-heavy portfolio?
-14. Does the scene fit properly at 100% browser zoom?
-15. Does every small UI element visually belong to the game-like theme?
-16. Are panels, lines, buttons, chips, labels, and separators enriched instead of plain?
-17. Are title-only panels opened through creative reveal behavior?
-18. Does panel reveal avoid basic accordion behavior?
-19. Does scroll feel like scene control instead of normal vertical page movement?
-20. Does the scene prepare an object-based transition gate?
-21. Does the result feel premium and difficult to build?
+The final website must be component-built, not a collection of pasted screenshots.
