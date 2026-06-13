@@ -66,6 +66,32 @@ const serverLights = Array.from({ length: 44 }, (_, index) => index);
 const particles = Array.from({ length: 24 }, (_, index) => index);
 const monitorRows = Array.from({ length: 7 }, (_, index) => index);
 const wallScreens = Array.from({ length: 10 }, (_, index) => index);
+const capabilityTerminals = [
+  {
+    command: "RUN_STATISTICAL_LOGIC",
+    title: "STATISTICAL THINKING",
+  },
+  {
+    command: "RUN_AI_PRODUCT_FLOW",
+    title: "AI PRODUCT LOGIC",
+  },
+  {
+    command: "RUN_DATA_PIPELINE",
+    title: "DATA WORKFLOW",
+  },
+  {
+    command: "RUN_SYSTEM_ANALYSIS",
+    title: "SYSTEM ANALYSIS",
+  },
+  {
+    command: "RUN_WEB_SOLUTION",
+    title: "WEB-BASED SOLUTION",
+  },
+  {
+    command: "RUN_TEAM_DIRECTION",
+    title: "LEADERSHIP & TEAM DIRECTION",
+  },
+] as const;
 
 type IdentityCard = (typeof leftCards)[number] | (typeof rightCards)[number];
 
@@ -342,6 +368,7 @@ function TerminalSocketShell({
 }) {
   const direction = side === "left" ? 1 : -1;
   const slotNumber = side === "left" ? index + 1 : index + 4;
+  const terminal = capabilityTerminals[slotNumber - 1];
 
   return (
     <span
@@ -370,13 +397,22 @@ function TerminalSocketShell({
         )}
       />
       <span className="absolute left-4 right-4 top-[2.7rem] h-px bg-gradient-to-r from-transparent via-cyan-muted/24 to-transparent" />
-      <span className="absolute left-4 right-4 top-[3.18rem] rounded-[4px] border border-cyan-muted/14 bg-background/42 px-3 py-2 text-center font-mono text-[0.82rem] font-bold uppercase tracking-[0.2em] text-cyan-muted/86 shadow-[inset_0_0_18px_rgba(113,217,210,0.05)]">
-        SLOT {String(slotNumber).padStart(2, "0")}
+      <span className="absolute left-4 right-4 top-[2.95rem] rounded-[4px] border border-cyan-muted/14 bg-background/42 px-3 py-2.5 text-center font-mono uppercase text-cyan-muted/86 shadow-[inset_0_0_18px_rgba(113,217,210,0.05)]">
+        <span className="block text-[0.48rem] font-bold tracking-[0.18em] text-foreground/42">
+          SLOT {String(slotNumber).padStart(2, "0")}
+        </span>
+        <span className="mt-1 block text-[0.68rem] font-black leading-4 tracking-[0.08em] text-cyan-muted">
+          {terminal.title}
+        </span>
+        <span className="mt-2 block rounded-[3px] border border-green-soft/12 bg-green-soft/7 px-2 py-1 text-[0.46rem] font-bold leading-3 tracking-[0.08em] text-green-soft/76">
+          {terminal.command}
+        </span>
       </span>
       <span className="absolute left-4 right-4 top-[58%] h-px bg-gradient-to-r from-transparent via-cyan-muted/46 to-transparent" />
-      <span className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-[3px] border border-green-soft/14 bg-green-soft/7 px-2.5 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.16em] text-green-soft/72">
+      <span className="absolute bottom-4 left-1/2 flex h-6 w-24 -translate-x-1/2 items-center gap-2 rounded-[3px] border border-green-soft/14 bg-green-soft/7 px-2.5">
         <span className="h-1.5 w-1.5 rounded-[2px] bg-green-soft/80 shadow-[var(--glow-green)]" />
-        MODULE READY
+        <span className="h-px flex-1 bg-gradient-to-r from-green-soft/42 to-transparent" />
+        <span className="h-1.5 w-5 rounded-[2px] bg-cyan-muted/28" />
       </span>
       <span className="absolute bottom-3 left-4 grid h-7 w-16 grid-cols-4 items-end gap-1 opacity-40">
         {wallScreens.slice(0, 4).map((screen) => (
