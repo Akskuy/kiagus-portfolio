@@ -5,11 +5,17 @@ import { PinnedJourneyStage } from "@/components/journey/pinned-journey-stage";
 import { useCinematicScrollProgress } from "@/components/journey/use-cinematic-scroll-progress";
 import { IdentitySnapshotSection } from "@/components/sections/identity/identity-snapshot-section";
 
-const JOURNEY_SCROLL_DISTANCE = "h-[200svh]";
+const JOURNEY_SCROLL_DISTANCE = "h-[300svh]";
+
+function clamp01(value: number) {
+  return Math.min(1, Math.max(0, value));
+}
 
 export function CinematicJourney() {
   const journeyRef = useRef<HTMLElement | null>(null);
   const progress = useCinematicScrollProgress(journeyRef);
+  const identityToCapabilityProgress = clamp01(progress / 0.48);
+  const capabilityToKnowledgeProgress = clamp01((progress - 0.48) / 0.52);
   const style = {
     "--journey-progress": progress,
   } as CSSProperties;
@@ -26,8 +32,11 @@ export function CinematicJourney() {
         ariaLabel="Pinned cinematic portfolio viewport"
         progress={progress}
       >
-        {(stageProgress) => (
-          <IdentitySnapshotSection journeyProgress={stageProgress} />
+        {() => (
+          <IdentitySnapshotSection
+            journeyProgress={identityToCapabilityProgress}
+            knowledgeProgress={capabilityToKnowledgeProgress}
+          />
         )}
       </PinnedJourneyStage>
     </main>

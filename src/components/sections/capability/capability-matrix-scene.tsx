@@ -5,6 +5,7 @@ import { memo, useCallback, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type CapabilityMatrixSceneProps = {
+  archiveProgress?: number;
   floorShift: number;
   shellForm: number;
   titleMorph: number;
@@ -93,11 +94,13 @@ function clamp01(value: number) {
 }
 
 export function CapabilityMatrixScene({
+  archiveProgress = 0,
   floorShift,
   shellForm,
   titleMorph,
 }: CapabilityMatrixSceneProps) {
   const shell = clamp01(shellForm);
+  const archive = clamp01(archiveProgress);
   const terminalReveal = clamp01((shell - 0.18) / 0.82);
   const roomDepth = clamp01(floorShift);
   const titleReady = clamp01(shell * 0.9 + titleMorph * 0.1);
@@ -112,8 +115,9 @@ export function CapabilityMatrixScene({
   }
 
   const sceneStyle = {
-    opacity: shell,
-    transform: `translate3d(0, ${(1 - shell) * 18}px, 0) scale(${0.982 + shell * 0.018})`,
+    filter: `saturate(${1 - archive * 0.28}) sepia(${archive * 0.18}) brightness(${1 - archive * 0.12})`,
+    opacity: shell * (1 - archive * 0.86),
+    transform: `translate3d(0, ${(1 - shell) * 18 - archive * 14}px, 0) scale(${0.982 + shell * 0.018 - archive * 0.03})`,
   } as CSSProperties;
 
   return (
@@ -136,17 +140,26 @@ export function CapabilityMatrixScene({
         }}
       />
 
-      <ServerRack side="left" strength={shell} />
-      <ServerRack side="right" strength={shell} />
+      <ServerRack archiveProgress={archive} side="left" strength={shell} />
+      <ServerRack archiveProgress={archive} side="right" strength={shell} />
 
-      <TitleRail strength={titleReady} />
+      <TitleRail archiveProgress={archive} strength={titleReady} />
       <CapabilityTerminalGrid
+        archiveProgress={archive}
         selectedIndex={selectedIndex}
         strength={terminalReveal}
         onSelect={handleSelectTerminal}
       />
-      <CapabilityInfoDock strength={terminalReveal} terminal={selectedTerminal} />
-      <CommandDesk strength={terminalReveal} floorShift={roomDepth} />
+      <CapabilityInfoDock
+        archiveProgress={archive}
+        strength={terminalReveal}
+        terminal={selectedTerminal}
+      />
+      <CommandDesk
+        archiveProgress={archive}
+        strength={terminalReveal}
+        floorShift={roomDepth}
+      />
 
       <div
         className="absolute inset-x-[16%] bottom-[1.5%] h-[36%] origin-bottom border-t border-cyan-muted/10 bg-[linear-gradient(rgba(113,217,210,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(113,217,210,0.1)_1px,transparent_1px)] bg-[length:46px_25px]"
@@ -159,13 +172,19 @@ export function CapabilityMatrixScene({
   );
 }
 
-const TitleRail = memo(function TitleRail({ strength }: { strength: number }) {
+const TitleRail = memo(function TitleRail({
+  archiveProgress,
+  strength,
+}: {
+  archiveProgress: number;
+  strength: number;
+}) {
   return (
     <div
       className="absolute left-1/2 top-[3.5%] flex h-[8%] w-[min(52vw,41rem)] items-center justify-center overflow-hidden rounded-[5px] border border-cyan-muted/28 bg-[linear-gradient(90deg,rgba(3,7,10,0.76),rgba(15,31,39,0.92)_50%,rgba(3,7,10,0.76))] shadow-[0_0_36px_rgba(113,217,210,0.16),inset_0_0_24px_rgba(113,217,210,0.08)]"
       style={{
-        opacity: strength,
-        transform: `translateX(-50%) translateY(${(1 - strength) * -14}px) scale(${0.96 + strength * 0.04})`,
+        opacity: strength * (1 - archiveProgress * 0.72),
+        transform: `translateX(-50%) translateY(${(1 - strength) * -14 - archiveProgress * 12}px) scale(${0.96 + strength * 0.04 + archiveProgress * 0.06})`,
       }}
     >
       <span className="absolute inset-1 rounded-[3px] border border-foreground/10" />
@@ -181,10 +200,12 @@ const TitleRail = memo(function TitleRail({ strength }: { strength: number }) {
 });
 
 function CapabilityTerminalGrid({
+  archiveProgress,
   onSelect,
   selectedIndex,
   strength,
 }: {
+  archiveProgress: number;
   onSelect: (index: number) => void;
   selectedIndex: number;
   strength: number;
@@ -193,8 +214,9 @@ function CapabilityTerminalGrid({
     <div
       className="pointer-events-auto absolute left-1/2 top-[16%] grid h-[45%] w-[min(62vw,50rem)] grid-cols-3 grid-rows-2 gap-[clamp(0.75rem,1.3vw,1.2rem)]"
       style={{
-        opacity: strength,
-        transform: `translateX(-50%) translateY(${(1 - strength) * 24}px) scale(${0.94 + strength * 0.06})`,
+        opacity: strength * (1 - archiveProgress * 0.62),
+        transform: `translateX(-50%) translateY(${(1 - strength) * 24 + archiveProgress * 12}px) perspective(1000px) rotateX(${archiveProgress * 10}deg) scaleX(${0.94 + strength * 0.06 + archiveProgress * 0.08}) scaleY(${1 - archiveProgress * 0.18})`,
+        transformOrigin: "50% 55%",
       }}
     >
       {capabilityTerminals.map((terminal, index) => (
@@ -281,9 +303,11 @@ const CapabilityTerminalPanel = memo(function CapabilityTerminalPanel({
 });
 
 function CapabilityInfoDock({
+  archiveProgress,
   strength,
   terminal,
 }: {
+  archiveProgress: number;
   strength: number;
   terminal: CapabilityTerminal;
 }) {
@@ -291,8 +315,8 @@ function CapabilityInfoDock({
     <div
       className="absolute left-1/2 top-[62%] grid h-[10.5%] w-[min(62vw,50rem)] grid-cols-[1.08fr_0.92fr] gap-3"
       style={{
-        opacity: strength,
-        transform: `translateX(-50%) translateY(${(1 - strength) * 18}px)`,
+        opacity: strength * (1 - archiveProgress * 0.92),
+        transform: `translateX(-50%) translateY(${(1 - strength) * 18 + archiveProgress * 28}px) scaleY(${1 - archiveProgress * 0.2})`,
       }}
     >
       <div className="relative overflow-hidden rounded-[7px] border border-cyan-muted/18 bg-[linear-gradient(135deg,rgba(3,12,15,0.9),rgba(8,22,27,0.76))] px-4 py-3 shadow-[inset_0_0_22px_rgba(113,217,210,0.06)]">
@@ -446,9 +470,11 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
 }
 
 const ServerRack = memo(function ServerRack({
+  archiveProgress,
   side,
   strength,
 }: {
+  archiveProgress: number;
   side: "left" | "right";
   strength: number;
 }) {
@@ -459,8 +485,8 @@ const ServerRack = memo(function ServerRack({
         side === "left" ? "left-[3%] -skew-y-3" : "right-[3%] skew-y-3",
       )}
       style={{
-        opacity: strength,
-        transform: `translateX(${(1 - strength) * (side === "left" ? -24 : 24)}px)`,
+        opacity: strength * (1 - archiveProgress * 0.56),
+        transform: `translateX(${(1 - strength) * (side === "left" ? -24 : 24) + archiveProgress * (side === "left" ? -8 : 8)}px) scaleY(${1 + archiveProgress * 0.06})`,
       }}
     >
       <span className="absolute inset-1 rounded-[5px] border border-foreground/8" />
@@ -496,9 +522,11 @@ const ServerRack = memo(function ServerRack({
 });
 
 const CommandDesk = memo(function CommandDesk({
+  archiveProgress,
   floorShift,
   strength,
 }: {
+  archiveProgress: number;
   floorShift: number;
   strength: number;
 }) {
@@ -506,8 +534,8 @@ const CommandDesk = memo(function CommandDesk({
     <div
       className="absolute left-1/2 bottom-[2.5%] h-[21%] w-[min(75vw,64rem)] overflow-hidden rounded-t-[18px] border border-cyan-muted/18 bg-[linear-gradient(180deg,rgba(18,28,35,0.84),rgba(3,7,10,0.98)_72%)] shadow-[0_28px_90px_rgba(0,0,0,0.68),inset_0_0_42px_rgba(113,217,210,0.07)]"
       style={{
-        opacity: strength,
-        transform: `translateX(-50%) perspective(960px) rotateX(${56 - floorShift * 8}deg) translateY(${(1 - strength) * 32}px) scale(${0.96 + strength * 0.04})`,
+        opacity: strength * (1 - archiveProgress * 0.64),
+        transform: `translateX(-50%) perspective(960px) rotateX(${56 - floorShift * 8 + archiveProgress * 7}deg) translateY(${(1 - strength) * 32 + archiveProgress * 18}px) scaleX(${0.96 + strength * 0.04 + archiveProgress * 0.08}) scaleY(${1 - archiveProgress * 0.2})`,
         transformOrigin: "50% 100%",
       }}
     >

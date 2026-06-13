@@ -6,6 +6,7 @@ import { CapabilityMatrixScene } from "@/components/sections/capability/capabili
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
 import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
+import { KnowledgeLibraryScene } from "@/components/sections/knowledge/knowledge-library-scene";
 import { cn } from "@/lib/cn";
 
 const leftCards = [
@@ -107,6 +108,7 @@ type IdentitySceneMorph = {
 
 type IdentitySnapshotSectionProps = {
   journeyProgress?: number;
+  knowledgeProgress?: number;
 };
 
 function clamp01(value: number) {
@@ -139,6 +141,7 @@ function getIdentitySceneMorph(progress: number): IdentitySceneMorph {
 
 export function IdentitySnapshotSection({
   journeyProgress = 0,
+  knowledgeProgress = 0,
 }: IdentitySnapshotSectionProps) {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
@@ -162,10 +165,12 @@ export function IdentitySnapshotSection({
         shellForm={morph.shellForm}
       />
       <CapabilityMatrixScene
+        archiveProgress={knowledgeProgress}
         floorShift={morph.floorShift}
         shellForm={morph.shellForm}
         titleMorph={morph.titleMorph}
       />
+      <KnowledgeLibraryScene progress={knowledgeProgress} />
 
       <motion.div
         animate={{
