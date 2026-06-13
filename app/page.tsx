@@ -1,5 +1,5 @@
-import { IdentitySnapshotSection } from "@/components/sections/identity/identity-snapshot-section";
+import { CinematicJourney } from "@/components/journey/cinematic-journey";
 
 export default function Home() {
-  return <IdentitySnapshotSection />;
+  return <CinematicJourney />;
 }

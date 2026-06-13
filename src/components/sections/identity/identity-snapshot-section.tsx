@@ -1,12 +1,10 @@
 "use client";
 
-import { useCallback, useRef, useState, type WheelEvent } from "react";
+import { useCallback, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
 import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
-import { IdentityToCommandGate } from "@/components/sections/identity/identity-to-command-gate";
-import { useGsapScrollScene } from "@/hooks/use-gsap-scroll-scene";
 import { cn } from "@/lib/cn";
 
 const leftCards = [
@@ -69,17 +67,8 @@ const monitorRows = Array.from({ length: 7 }, (_, index) => index);
 const wallScreens = Array.from({ length: 10 }, (_, index) => index);
 
 export function IdentitySnapshotSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [transitionGateActivated, setTransitionGateActivated] = useState(false);
-  const scrollGateArmed = bootComplete && scrollProgress > 0.72;
-  const transitionGateActive = transitionGateActivated || scrollGateArmed;
-
-  const handleProgress = useCallback((progress: number) => {
-    setScrollProgress(progress);
-  }, []);
 
   const toggleAbout = useCallback(() => {
     setAboutOpen((current) => !current);
@@ -89,42 +78,12 @@ export function IdentitySnapshotSection() {
     setBootComplete(true);
   }, []);
 
-  const activateTransitionGate = useCallback(() => {
-    setTransitionGateActivated(true);
-  }, []);
-
-  const handleSceneWheel = useCallback(
-    (event: WheelEvent<HTMLElement>) => {
-      if (!bootComplete || transitionGateActive || event.deltaY <= 18) {
-        return;
-      }
-
-      const bounds = event.currentTarget.getBoundingClientRect();
-      const pointerY = event.clientY - bounds.top;
-      const isNearLowerScene = pointerY / bounds.height > 0.62;
-
-      if (isNearLowerScene) {
-        setTransitionGateActivated(true);
-      }
-    },
-    [bootComplete, transitionGateActive],
-  );
-
-  useGsapScrollScene(sectionRef, {
-    start: "top top",
-    end: "bottom bottom",
-    scrub: 0.7,
-    onProgress: handleProgress,
-  });
-
   return (
     <section
-      ref={sectionRef}
       className="relative isolate h-[100svh] overflow-hidden px-[var(--page-pad)] py-3 md:py-4"
-      onWheelCapture={handleSceneWheel}
       aria-label="Identity Snapshot"
     >
-      <IdentityDataCenterBackdrop progress={scrollProgress} />
+      <IdentityDataCenterBackdrop progress={0} />
 
       <motion.div
         animate={{
@@ -142,9 +101,6 @@ export function IdentitySnapshotSection() {
       >
         <motion.header
           className="relative mx-auto w-full max-w-5xl text-center"
-          style={{
-            transform: `translateY(${scrollProgress * -10}px)`,
-          }}
         >
           <span className="absolute left-[8%] right-[8%] top-0 hidden h-px bg-gradient-to-r from-transparent via-cyan-muted/40 to-transparent md:block">
             <span className="absolute top-0 h-px w-20 bg-cyan-muted shadow-[var(--glow-cyan)] animate-[sweep-light_4.4s_linear_infinite]" />
@@ -168,9 +124,6 @@ export function IdentitySnapshotSection() {
         <div className="relative grid min-h-0 items-center gap-4 lg:grid-cols-[minmax(12rem,0.72fr)_minmax(20rem,1fr)_minmax(12rem,0.72fr)]">
           <motion.div
             className="z-20 grid gap-3 sm:grid-cols-3 lg:grid-cols-1"
-            style={{
-              transform: `translate3d(${scrollProgress * -14}px, ${scrollProgress * 5}px, 0)`,
-            }}
           >
             {leftCards.map((card) => (
               <IdentityStatCard key={card.label} {...card} />
@@ -179,16 +132,8 @@ export function IdentitySnapshotSection() {
 
           <motion.div
             className="relative z-10 mx-auto grid w-full max-w-[29rem] place-items-center"
-            style={{
-              transform: `translateY(${scrollProgress * -18}px) scale(${1 + scrollProgress * 0.018})`,
-            }}
           >
             <MonitorWall />
-            <IdentityToCommandGate
-              active={transitionGateActive}
-              onActivate={activateTransitionGate}
-              scrollArmed={scrollGateArmed}
-            />
             <AvatarCore
               bootReleased={bootComplete}
               isAboutOpen={aboutOpen}
@@ -199,9 +144,6 @@ export function IdentitySnapshotSection() {
 
           <motion.div
             className="z-20 grid gap-3 sm:grid-cols-3 lg:grid-cols-1"
-            style={{
-              transform: `translate3d(${scrollProgress * 14}px, ${scrollProgress * 5}px, 0)`,
-            }}
           >
             {rightCards.map((card) => (
               <IdentityStatCard key={card.label} {...card} />
