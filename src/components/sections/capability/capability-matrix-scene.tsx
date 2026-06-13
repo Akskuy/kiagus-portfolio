@@ -1,7 +1,7 @@
 "use client";
 
 import type { CSSProperties } from "react";
-import { useState } from "react";
+import { memo, useCallback, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type CapabilityMatrixSceneProps = {
@@ -80,6 +80,13 @@ const rackModules = Array.from({ length: 9 }, (_, index) => index);
 const rackLights = Array.from({ length: 6 }, (_, index) => index);
 const deskKeys = Array.from({ length: 42 }, (_, index) => index);
 const deskMeters = Array.from({ length: 8 }, (_, index) => index);
+const glyphBars = [0, 1, 2, 3];
+const glyphNodes = [0, 1, 2, 3, 4];
+const glyphLayers = [0, 1, 2];
+const glyphTeeth = [0, 1, 2, 3, 4, 5, 6, 7];
+const glyphCells = [0, 1, 2, 3, 4, 5];
+const glyphPeople = [0, 1, 2];
+const deskPads = [0, 1, 2, 3, 4, 5];
 
 function clamp01(value: number) {
   return Math.min(1, Math.max(0, value));
@@ -96,6 +103,13 @@ export function CapabilityMatrixScene({
   const titleReady = clamp01(shell * 0.9 + titleMorph * 0.1);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedTerminal = capabilityTerminals[selectedIndex] ?? capabilityTerminals[0]!;
+  const handleSelectTerminal = useCallback((index: number) => {
+    setSelectedIndex((currentIndex) => (currentIndex === index ? currentIndex : index));
+  }, []);
+
+  if (shell <= 0.006) {
+    return null;
+  }
 
   const sceneStyle = {
     opacity: shell,
@@ -129,7 +143,7 @@ export function CapabilityMatrixScene({
       <CapabilityTerminalGrid
         selectedIndex={selectedIndex}
         strength={terminalReveal}
-        onSelect={setSelectedIndex}
+        onSelect={handleSelectTerminal}
       />
       <CapabilityInfoDock strength={terminalReveal} terminal={selectedTerminal} />
       <CommandDesk strength={terminalReveal} floorShift={roomDepth} />
@@ -145,7 +159,7 @@ export function CapabilityMatrixScene({
   );
 }
 
-function TitleRail({ strength }: { strength: number }) {
+const TitleRail = memo(function TitleRail({ strength }: { strength: number }) {
   return (
     <div
       className="absolute left-1/2 top-[3.5%] flex h-[8%] w-[min(52vw,41rem)] items-center justify-center overflow-hidden rounded-[5px] border border-cyan-muted/28 bg-[linear-gradient(90deg,rgba(3,7,10,0.76),rgba(15,31,39,0.92)_50%,rgba(3,7,10,0.76))] shadow-[0_0_36px_rgba(113,217,210,0.16),inset_0_0_24px_rgba(113,217,210,0.08)]"
@@ -164,7 +178,7 @@ function TitleRail({ strength }: { strength: number }) {
       </span>
     </div>
   );
-}
+});
 
 function CapabilityTerminalGrid({
   onSelect,
@@ -197,7 +211,7 @@ function CapabilityTerminalGrid({
   );
 }
 
-function CapabilityTerminalPanel({
+const CapabilityTerminalPanel = memo(function CapabilityTerminalPanel({
   index,
   onSelect,
   selected,
@@ -264,7 +278,7 @@ function CapabilityTerminalPanel({
       </div>
     </button>
   );
-}
+});
 
 function CapabilityInfoDock({
   strength,
@@ -335,7 +349,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
   if (glyph === "statistics") {
     return (
       <span className="relative h-14 w-16">
-        {[0, 1, 2, 3].map((bar) => (
+        {glyphBars.map((bar) => (
           <span
             className="absolute bottom-2 w-2 rounded-t-[2px] border border-cyan-muted/50 bg-cyan-muted/35 shadow-[var(--glow-cyan)]"
             key={bar}
@@ -354,7 +368,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
     return (
       <span className="relative h-14 w-16">
         <span className="absolute left-3 top-2 h-10 w-10 rounded-full border border-cyan-muted/58 shadow-[inset_0_0_16px_rgba(113,217,210,0.18),var(--glow-cyan)]" />
-        {[0, 1, 2, 3, 4].map((node) => (
+        {glyphNodes.map((node) => (
           <span
             className="absolute h-2 w-2 rounded-[2px] bg-cyan-muted shadow-[var(--glow-cyan)]"
             key={node}
@@ -373,7 +387,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
   if (glyph === "data") {
     return (
       <span className="relative h-14 w-16">
-        {[0, 1, 2].map((layer) => (
+        {glyphLayers.map((layer) => (
           <span
             className="absolute left-3 h-5 w-10 rounded-[50%] border border-cyan-muted/56 bg-cyan-muted/18 shadow-[inset_0_0_10px_rgba(113,217,210,0.16)]"
             key={layer}
@@ -389,7 +403,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
     return (
       <span className="relative h-14 w-16">
         <span className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-cyan-muted/42 shadow-[var(--glow-cyan)]" />
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((tooth) => (
+        {glyphTeeth.map((tooth) => (
           <span
             className="absolute left-1/2 top-1/2 h-2 w-3 rounded-[1px] bg-cyan-muted/70"
             key={tooth}
@@ -409,7 +423,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
         <span className="absolute inset-x-0 top-3 h-px bg-cyan-muted/70" />
         <span className="absolute left-2 top-1.5 h-1.5 w-1.5 rounded-[1px] bg-amber-soft/80 shadow-[var(--glow-amber)]" />
         <span className="absolute left-3 right-3 top-6 grid grid-cols-3 gap-1">
-          {[0, 1, 2, 3, 4, 5].map((cell) => (
+          {glyphCells.map((cell) => (
             <span className="h-2 rounded-[1px] bg-cyan-muted/38" key={cell} />
           ))}
         </span>
@@ -419,7 +433,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
 
   return (
     <span className="relative h-14 w-16">
-      {[0, 1, 2].map((person) => (
+      {glyphPeople.map((person) => (
         <span
           className="absolute top-3 h-5 w-5 rounded-full border border-cyan-muted/46 bg-cyan-muted/35 shadow-[var(--glow-cyan)]"
           key={person}
@@ -431,7 +445,7 @@ function CapabilityGlyph({ glyph }: { glyph: CapabilityTerminal["glyph"] }) {
   );
 }
 
-function ServerRack({
+const ServerRack = memo(function ServerRack({
   side,
   strength,
 }: {
@@ -479,9 +493,9 @@ function ServerRack({
       </div>
     </div>
   );
-}
+});
 
-function CommandDesk({
+const CommandDesk = memo(function CommandDesk({
   floorShift,
   strength,
 }: {
@@ -500,7 +514,7 @@ function CommandDesk({
       <span className="absolute inset-3 rounded-t-[12px] border border-foreground/8" />
       <span className="absolute left-[5%] top-[18%] h-[54%] w-[24%] rounded-[8px] border border-cyan-muted/14 bg-cyan-muted/6 shadow-[inset_0_0_22px_rgba(113,217,210,0.05)]">
         <span className="absolute inset-3 grid grid-cols-3 gap-2">
-          {[0, 1, 2, 3, 4, 5].map((pad) => (
+          {deskPads.map((pad) => (
             <span
               className={cn(
                 "rounded-[3px] border shadow-[inset_0_0_10px_rgba(0,0,0,0.26)]",
@@ -543,4 +557,4 @@ function CommandDesk({
       </span>
     </div>
   );
-}
+});
