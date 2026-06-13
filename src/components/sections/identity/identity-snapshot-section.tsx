@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
 import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
+import { IdentityToCommandShellMorph } from "@/components/sections/identity/identity-to-command-shell-morph";
 import { cn } from "@/lib/cn";
 
 const leftCards = [
@@ -66,9 +67,56 @@ const particles = Array.from({ length: 24 }, (_, index) => index);
 const monitorRows = Array.from({ length: 7 }, (_, index) => index);
 const wallScreens = Array.from({ length: 10 }, (_, index) => index);
 
-export function IdentitySnapshotSection() {
+type IdentityCard = (typeof leftCards)[number] | (typeof rightCards)[number];
+
+type IdentitySceneMorph = {
+  floorShift: number;
+  lanyardDock: number;
+  panelCollapse: number;
+  progress: number;
+  roomLighting: number;
+  shellForm: number;
+  titleMorph: number;
+};
+
+type IdentitySnapshotSectionProps = {
+  journeyProgress?: number;
+};
+
+function clamp01(value: number) {
+  return Math.min(1, Math.max(0, value));
+}
+
+function smoothStep(value: number) {
+  const clamped = clamp01(value);
+
+  return clamped * clamped * (3 - 2 * clamped);
+}
+
+function segment(progress: number, start: number, end: number) {
+  return smoothStep((clamp01(progress) - start) / (end - start));
+}
+
+function getIdentitySceneMorph(progress: number): IdentitySceneMorph {
+  const currentProgress = clamp01(progress);
+
+  return {
+    floorShift: segment(currentProgress, 0.65, 1),
+    lanyardDock: segment(currentProgress, 0.45, 0.65),
+    panelCollapse: segment(currentProgress, 0.25, 0.45),
+    progress: currentProgress,
+    roomLighting: segment(currentProgress, 0.65, 1),
+    shellForm: segment(currentProgress, 0.65, 1),
+    titleMorph: segment(currentProgress, 0.55, 0.8),
+  };
+}
+
+export function IdentitySnapshotSection({
+  journeyProgress = 0,
+}: IdentitySnapshotSectionProps) {
   const [aboutOpen, setAboutOpen] = useState(false);
   const [bootComplete, setBootComplete] = useState(false);
+  const morph = getIdentitySceneMorph(journeyProgress);
 
   const toggleAbout = useCallback(() => {
     setAboutOpen((current) => !current);
@@ -83,7 +131,17 @@ export function IdentitySnapshotSection() {
       className="relative isolate h-[100svh] overflow-hidden px-[var(--page-pad)] py-3 md:py-4"
       aria-label="Identity Snapshot"
     >
-      <IdentityDataCenterBackdrop progress={0} />
+      <IdentityDataCenterBackdrop
+        progress={morph.floorShift}
+        shellForm={morph.shellForm}
+      />
+      <IdentityToCommandShellMorph
+        floorShift={morph.floorShift}
+        lanyardDock={morph.lanyardDock}
+        panelCollapse={morph.panelCollapse}
+        shellForm={morph.shellForm}
+        titleMorph={morph.titleMorph}
+      />
 
       <motion.div
         animate={{
@@ -101,6 +159,10 @@ export function IdentitySnapshotSection() {
       >
         <motion.header
           className="relative mx-auto w-full max-w-5xl text-center"
+          style={{
+            transform: `translate3d(0, ${morph.titleMorph * -10}px, 0) scale(${1 - morph.titleMorph * 0.07})`,
+            transformOrigin: "top center",
+          }}
         >
           <span className="absolute left-[8%] right-[8%] top-0 hidden h-px bg-gradient-to-r from-transparent via-cyan-muted/40 to-transparent md:block">
             <span className="absolute top-0 h-px w-20 bg-cyan-muted shadow-[var(--glow-cyan)] animate-[sweep-light_4.4s_linear_infinite]" />
@@ -109,13 +171,46 @@ export function IdentitySnapshotSection() {
             <span className="absolute left-0 top-0 h-5 w-5 border-l border-t border-cyan-muted/45 animate-[corner-spark_4.2s_ease-in-out_infinite]" />
             <span className="absolute right-0 top-0 h-5 w-5 border-r border-t border-cyan-muted/45 animate-[corner-spark_4.2s_ease-in-out_infinite]" />
           </span>
-          <h1 className="font-mono text-[clamp(2.25rem,5.4vw,5.1rem)] font-black uppercase leading-none text-foreground drop-shadow-[0_0_18px_rgba(113,217,210,0.22)]">
+          <h1
+            className="font-mono text-[clamp(2.25rem,5.4vw,5.1rem)] font-black uppercase leading-none text-foreground drop-shadow-[0_0_18px_rgba(113,217,210,0.22)]"
+            style={{
+              clipPath: `inset(0 ${morph.titleMorph * 42}% 0 ${morph.titleMorph * 42}%)`,
+              opacity: 1 - morph.titleMorph,
+              transform: `translate3d(0, ${morph.titleMorph * -12}px, 0)`,
+            }}
+          >
             KIAGUS ARIF RAHMAN
           </h1>
-          <p className="mt-2 font-mono text-[clamp(0.95rem,1.8vw,1.45rem)] uppercase text-cyan-muted">
+          <h2
+            aria-hidden={morph.titleMorph < 0.05}
+            className="pointer-events-none absolute left-1/2 top-1 flex h-12 w-[min(82vw,44rem)] items-center justify-center overflow-hidden rounded-[4px] border border-cyan-muted/24 bg-[linear-gradient(90deg,rgba(4,8,12,0.36),rgba(13,25,33,0.72)_48%,rgba(4,8,12,0.36))] px-6 font-mono text-[clamp(1.25rem,3vw,2.55rem)] font-black uppercase leading-none text-cyan-muted shadow-[0_0_32px_rgba(113,217,210,0.12),inset_0_0_20px_rgba(113,217,210,0.06)]"
+            style={{
+              opacity: morph.titleMorph,
+              transform: `translate3d(-50%, ${(1 - morph.titleMorph) * 12}px, 0) scale(${0.94 + morph.titleMorph * 0.06})`,
+            }}
+          >
+            <span className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/55 to-transparent" />
+            <span className="absolute inset-x-10 bottom-0 h-px bg-gradient-to-r from-transparent via-green-soft/30 to-transparent" />
+            <span className="absolute left-3 top-1/2 h-2 w-2 -translate-y-1/2 rounded-[2px] bg-green-soft/80 shadow-[var(--glow-green)] animate-[node-pulse_3.2s_ease-in-out_infinite]" />
+            <span className="absolute right-3 top-1/2 h-2 w-2 -translate-y-1/2 rounded-[2px] bg-cyan-muted/80 shadow-[var(--glow-cyan)] animate-[node-pulse_3.7s_ease-in-out_infinite]" />
+            <span className="relative z-10">CAPABILITY MATRIX</span>
+          </h2>
+          <p
+            className="mt-2 font-mono text-[clamp(0.95rem,1.8vw,1.45rem)] uppercase text-cyan-muted"
+            style={{
+              opacity: 1 - morph.titleMorph * 0.92,
+              transform: `translate3d(0, ${morph.titleMorph * -6}px, 0)`,
+            }}
+          >
             Data Scientist • AI Product Builder • AI Builder
           </p>
-          <p className="mx-auto mt-2 max-w-3xl text-sm leading-6 text-foreground/75 md:text-base">
+          <p
+            className="mx-auto mt-2 max-w-3xl text-sm leading-6 text-foreground/75 md:text-base"
+            style={{
+              opacity: 1 - morph.titleMorph,
+              transform: `translate3d(0, ${morph.titleMorph * -8}px, 0)`,
+            }}
+          >
             Strong Data Science Foundation for intelligent workflows and AI
             products.
           </p>
@@ -124,16 +219,24 @@ export function IdentitySnapshotSection() {
         <div className="relative grid min-h-0 items-center gap-4 lg:grid-cols-[minmax(12rem,0.72fr)_minmax(20rem,1fr)_minmax(12rem,0.72fr)]">
           <motion.div
             className="z-20 grid gap-3 sm:grid-cols-3 lg:grid-cols-1"
+            style={getPanelColumnStyle("left", morph)}
           >
-            {leftCards.map((card) => (
-              <IdentityStatCard key={card.label} {...card} />
+            {leftCards.map((card, index) => (
+              <MorphingIdentityPanel
+                card={card}
+                collapse={morph.panelCollapse}
+                index={index}
+                key={card.label}
+                side="left"
+              />
             ))}
           </motion.div>
 
           <motion.div
             className="relative z-10 mx-auto grid w-full max-w-[29rem] place-items-center"
+            style={getLanyardDockStyle(morph)}
           >
-            <MonitorWall />
+            <MonitorWall morph={morph} />
             <AvatarCore
               bootReleased={bootComplete}
               isAboutOpen={aboutOpen}
@@ -144,9 +247,16 @@ export function IdentitySnapshotSection() {
 
           <motion.div
             className="z-20 grid gap-3 sm:grid-cols-3 lg:grid-cols-1"
+            style={getPanelColumnStyle("right", morph)}
           >
-            {rightCards.map((card) => (
-              <IdentityStatCard key={card.label} {...card} />
+            {rightCards.map((card, index) => (
+              <MorphingIdentityPanel
+                card={card}
+                collapse={morph.panelCollapse}
+                index={index}
+                key={card.label}
+                side="right"
+              />
             ))}
           </motion.div>
         </div>
@@ -160,37 +270,185 @@ export function IdentitySnapshotSection() {
   );
 }
 
-function MonitorWall() {
+function getPanelColumnStyle(
+  side: "left" | "right",
+  morph: IdentitySceneMorph,
+): CSSProperties {
+  const direction = side === "left" ? -1 : 1;
+  const depth = morph.panelCollapse * -82 + morph.shellForm * -96;
+
+  return {
+    filter: `brightness(${1 - morph.shellForm * 0.14})`,
+    transform: `perspective(1050px) translate3d(${direction * (morph.panelCollapse * 12 + morph.shellForm * 30)}px, ${morph.shellForm * 8}px, ${depth}px) rotateY(${direction * (morph.panelCollapse * 4 + morph.shellForm * 7)}deg) scale(${1 - morph.shellForm * 0.05})`,
+    transformOrigin: side === "left" ? "right center" : "left center",
+    transformStyle: "preserve-3d",
+  };
+}
+
+function getLanyardDockStyle(morph: IdentitySceneMorph): CSSProperties {
+  return {
+    filter: `brightness(${1 - morph.shellForm * 0.13})`,
+    transform: `perspective(1200px) translate3d(0, ${morph.lanyardDock * -50 + morph.shellForm * -34}px, ${morph.lanyardDock * -150 + morph.shellForm * -118}px) scale(${1 - morph.lanyardDock * 0.24 - morph.shellForm * 0.18})`,
+    transformStyle: "preserve-3d",
+  };
+}
+
+function MorphingIdentityPanel({
+  card,
+  collapse,
+  index,
+  side,
+}: {
+  card: IdentityCard;
+  collapse: number;
+  index: number;
+  side: "left" | "right";
+}) {
+  const direction = side === "left" ? 1 : -1;
+  const offsetY = (index - 1) * 7;
+  const panelStyle = {
+    pointerEvents: collapse > 0.72 ? "none" : "auto",
+    transform: `translate3d(${direction * collapse * (9 + index * 2)}px, ${collapse * offsetY}px, 0) scaleX(${1 - collapse * 0.14}) scaleY(${1 - collapse * 0.42})`,
+    transformOrigin: side === "left" ? "right center" : "left center",
+    transformStyle: "preserve-3d",
+  } as CSSProperties;
+  const cardStyle = {
+    clipPath: `polygon(${collapse * 10}px 0, calc(100% - ${collapse * 10}px) 0, 100% ${collapse * 11}px, 100% calc(100% - ${collapse * 11}px), calc(100% - ${collapse * 10}px) 100%, ${collapse * 10}px 100%, 0 calc(100% - ${collapse * 11}px), 0 ${collapse * 11}px)`,
+    opacity: 1 - collapse,
+    transform: `translateZ(${(1 - collapse) * 14}px)`,
+  } as CSSProperties;
+
+  return (
+    <motion.div className="relative min-h-[5.7rem]" style={panelStyle}>
+      <div className="relative" style={cardStyle}>
+        <IdentityStatCard {...card} />
+      </div>
+      <TerminalSocketShell collapse={collapse} index={index} side={side} />
+    </motion.div>
+  );
+}
+
+function TerminalSocketShell({
+  collapse,
+  index,
+  side,
+}: {
+  collapse: number;
+  index: number;
+  side: "left" | "right";
+}) {
+  const direction = side === "left" ? 1 : -1;
+  const slotNumber = side === "left" ? index + 1 : index + 4;
+
+  return (
+    <span
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 block overflow-hidden rounded-[8px] border border-cyan-muted/20 bg-[linear-gradient(135deg,rgba(113,217,210,0.12),rgba(5,9,13,0.82)_48%,rgba(1,4,7,0.92))] shadow-[0_18px_44px_rgba(0,0,0,0.42),inset_0_0_24px_rgba(113,217,210,0.07)]"
+      style={{
+        clipPath:
+          "polygon(12px 0, calc(100% - 16px) 0, 100% 14px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 14px), 0 12px)",
+        opacity: collapse,
+        transform: `translate3d(${direction * (1 - collapse) * 18}px, 0, ${collapse * 20}px)`,
+      }}
+    >
+      <span className="absolute inset-1 rounded-[5px] border border-foreground/8" />
+      <span className="absolute inset-0 micro-grid opacity-45" />
+      <span
+        className={cn(
+          "absolute top-3 h-2 w-2 rounded-[2px] shadow-[var(--glow-cyan)] animate-[node-pulse_3.4s_ease-in-out_infinite]",
+          index === 1 ? "bg-green-soft" : "bg-cyan-muted",
+          side === "left" ? "right-3" : "left-3",
+        )}
+      />
+      <span
+        className={cn(
+          "absolute top-3 h-2 w-10 rounded-sm border border-cyan-muted/15 bg-cyan-muted/8",
+          side === "left" ? "left-3" : "right-3",
+        )}
+      />
+      <span
+        className={cn(
+          "absolute top-6 rounded-[3px] border border-cyan-muted/14 bg-background/50 px-2 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.16em] text-cyan-muted/75",
+          side === "left" ? "left-3" : "right-3",
+        )}
+      >
+        SLOT {String(slotNumber).padStart(2, "0")}
+      </span>
+      <span className="absolute left-4 right-4 top-1/2 h-px bg-gradient-to-r from-transparent via-cyan-muted/50 to-transparent" />
+      <span className="absolute left-[18%] right-[18%] bottom-4 h-px bg-gradient-to-r from-transparent via-green-soft/28 to-transparent" />
+      <span className="absolute bottom-3 left-4 grid h-8 w-20 grid-cols-5 items-end gap-1">
+        {wallScreens.slice(0, 5).map((screen) => (
+          <span
+            className="rounded-[1px] bg-cyan-muted/45 animate-[screen-flicker_4.8s_steps(4,end)_infinite]"
+            key={`${side}-${index}-${screen}`}
+            style={{
+              animationDelay: `${screen * 0.12 + index * 0.08}s`,
+              height: `${24 + ((screen + index) * 13) % 58}%`,
+              opacity: 0.5 + collapse * 0.35,
+            }}
+          />
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function MonitorWall({ morph }: { morph: IdentitySceneMorph }) {
+  const shell = morph.shellForm;
+
   return (
     <div
       className="pointer-events-none absolute inset-x-[-32%] top-[2%] z-0 hidden h-[64%] md:block"
       aria-hidden="true"
+      style={{
+        opacity: 1 - shell * 0.08,
+        transform: `translate3d(0, ${shell * -14}px, 0) scale(${1 + shell * 0.12})`,
+        transformOrigin: "50% 40%",
+      }}
     >
       <div className="absolute inset-x-[18%] top-[8%] h-[74%] rounded-sm border border-cyan-muted/10 bg-surface-0/50 shadow-[inset_0_0_70px_rgba(113,217,210,0.08)]" />
       <ScreenFrame
-        className="left-[6%] top-[22%] h-[42%] w-[23%] -skew-y-3"
+        className="left-[6%] top-[22%] h-[42%] w-[23%]"
         label="SIG-A"
+        style={{
+          transform: `skewY(-3deg) translate3d(${shell * -30}px, ${shell * 9}px, 0) scale(${1 - shell * 0.08})`,
+        }}
         tone="cyan"
       />
       <ScreenFrame
-        className="left-[28%] top-[7%] h-[48%] w-[20%] -skew-y-1"
+        className="left-[28%] top-[7%] h-[48%] w-[20%]"
         label="MAP"
+        style={{
+          transform: `skewY(-1deg) translate3d(${shell * -16}px, ${shell * -15}px, 0) scale(${1 - shell * 0.05})`,
+        }}
         tone="blue"
         dense
       />
       <ScreenFrame
         className="left-[49%] top-[5%] h-[50%] w-[23%]"
         label="CORE"
+        style={{
+          transform: `translate3d(0, ${shell * -18}px, 0) scale(${1 + shell * 0.08})`,
+        }}
         tone="cyan"
         dense
       />
       <ScreenFrame
-        className="right-[7%] top-[20%] h-[44%] w-[24%] skew-y-3"
+        className="right-[7%] top-[20%] h-[44%] w-[24%]"
         label="FLOW"
+        style={{
+          transform: `skewY(3deg) translate3d(${shell * 30}px, ${shell * 9}px, 0) scale(${1 - shell * 0.08})`,
+        }}
         tone="green"
         reverse
       />
-      <div className="absolute left-[18%] right-[18%] bottom-[18%] h-10 rounded-sm border border-cyan-muted/10 bg-surface-1/70 shadow-[var(--shadow-panel)]">
+      <div
+        className="absolute left-[18%] right-[18%] bottom-[18%] h-10 rounded-sm border border-cyan-muted/10 bg-surface-1/70 shadow-[var(--shadow-panel)]"
+        style={{
+          opacity: 1 - shell * 0.32,
+          transform: `translate3d(0, ${shell * 18}px, 0) scaleX(${1 + shell * 0.12})`,
+        }}
+      >
         <span className="absolute inset-x-6 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-cyan-muted/40 to-transparent" />
         <span className="absolute left-[18%] top-1/2 h-2 w-2 -translate-y-1/2 rounded-[2px] bg-cyan-muted shadow-[var(--glow-cyan)] animate-[node-pulse_2.5s_ease-in-out_infinite]" />
         <span className="absolute right-[20%] top-1/2 h-2 w-2 -translate-y-1/2 rounded-[2px] bg-amber-soft shadow-[var(--glow-amber)] animate-[node-pulse_3s_ease-in-out_infinite]" />
@@ -204,12 +462,14 @@ function ScreenFrame({
   dense = false,
   reverse = false,
   label,
+  style,
   tone,
 }: {
   className: string;
   dense?: boolean;
   reverse?: boolean;
   label: string;
+  style?: CSSProperties;
   tone: "cyan" | "green" | "blue";
 }) {
   const ledClass =
@@ -225,6 +485,7 @@ function ScreenFrame({
         "alive-border absolute overflow-hidden rounded-sm border border-cyan-muted/20 bg-surface-1/70 p-1 shadow-[var(--shadow-panel)]",
         className,
       )}
+      style={style}
     >
       <div className="relative h-full overflow-hidden rounded-[2px] border border-foreground/10 bg-background/70 p-3">
         <span className="absolute inset-0 micro-grid opacity-60" />
@@ -297,7 +558,13 @@ function ReadoutBars({ tone }: { tone: "cyan" | "green" | "blue" }) {
   );
 }
 
-function IdentityDataCenterBackdrop({ progress }: { progress: number }) {
+function IdentityDataCenterBackdrop({
+  progress,
+  shellForm,
+}: {
+  progress: number;
+  shellForm: number;
+}) {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
       <motion.div
@@ -306,9 +573,24 @@ function IdentityDataCenterBackdrop({ progress }: { progress: number }) {
           transform: `scale(${1 + progress * 0.035})`,
         }}
       />
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_46%,rgba(113,217,210,0.1),transparent_24rem),linear-gradient(180deg,rgba(2,4,7,0.08),rgba(1,3,6,0.76))]"
+        style={{ opacity: shellForm * 0.86 }}
+      />
 
-      <div className="absolute inset-x-[5%] top-[8%] h-[78%] rounded-[18px] border border-cyan-muted/10 bg-surface-0/30 shadow-[inset_0_0_90px_rgba(113,217,210,0.08)]" />
-      <div className="absolute left-[24%] right-[24%] top-[7%] hidden h-8 rounded-b-sm border-x border-b border-cyan-muted/15 bg-surface-2/70 shadow-[var(--glow-cyan)] md:block">
+      <div
+        className="absolute inset-x-[5%] top-[8%] h-[78%] rounded-[18px] border border-cyan-muted/10 bg-surface-0/30 shadow-[inset_0_0_90px_rgba(113,217,210,0.08)]"
+        style={{
+          transform: `scaleX(${1 + shellForm * 0.035}) translateY(${shellForm * -5}px)`,
+        }}
+      />
+      <div
+        className="absolute left-[24%] right-[24%] top-[7%] hidden h-8 rounded-b-sm border-x border-b border-cyan-muted/15 bg-surface-2/70 shadow-[var(--glow-cyan)] md:block"
+        style={{
+          opacity: 1 - shellForm * 0.22,
+          transform: `translateY(${shellForm * -10}px) scaleX(${1 + shellForm * 0.1})`,
+        }}
+      >
         <span className="absolute inset-x-8 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-cyan-muted/50 to-transparent animate-[sweep-light_5s_linear_infinite]" />
         <span className="absolute left-1/2 top-1/2 h-2 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-muted/30 blur-sm animate-[node-pulse_3.8s_ease-in-out_infinite]" />
       </div>
@@ -325,7 +607,8 @@ function IdentityDataCenterBackdrop({ progress }: { progress: number }) {
       <div
         className="absolute inset-x-[9%] bottom-[9%] h-[36%] origin-bottom border-t border-cyan-muted/20 bg-[linear-gradient(rgba(113,217,210,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(113,217,210,0.16)_1px,transparent_1px)] bg-[length:44px_26px] opacity-65"
         style={{
-          transform: `perspective(760px) rotateX(64deg) translateY(${progress * 20}px)`,
+          opacity: 0.65 + shellForm * 0.18,
+          transform: `perspective(820px) rotateX(${64 + progress * 5}deg) translateY(${progress * -24}px) scaleX(${1 + progress * 0.18})`,
         }}
       >
         <FloorSignalNodes />
@@ -346,10 +629,16 @@ function IdentityDataCenterBackdrop({ progress }: { progress: number }) {
         ))}
       </div>
 
-      <div className="absolute inset-x-[14%] top-[44%] h-px overflow-hidden bg-cyan-muted/20">
+      <div
+        className="absolute inset-x-[14%] top-[44%] h-px overflow-hidden bg-cyan-muted/20"
+        style={{ opacity: 1 - shellForm }}
+      >
         <span className="absolute top-0 h-px w-28 bg-cyan-muted shadow-[var(--glow-cyan)] animate-[data-packet-x_4.8s_linear_infinite]" />
       </div>
-      <div className="absolute inset-x-[12%] top-[72%] h-px overflow-hidden bg-amber-soft/20">
+      <div
+        className="absolute inset-x-[12%] top-[72%] h-px overflow-hidden bg-amber-soft/20"
+        style={{ opacity: 1 - shellForm }}
+      >
         <span className="absolute top-0 h-px w-24 bg-amber-soft shadow-[var(--glow-amber)] animate-[data-packet-x_5.6s_linear_infinite]" />
       </div>
     </div>
