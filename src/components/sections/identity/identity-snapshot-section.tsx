@@ -2,10 +2,10 @@
 
 import { useCallback, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { CapabilityMatrixScene } from "@/components/sections/capability/capability-matrix-scene";
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
 import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
-import { IdentityToCommandShellMorph } from "@/components/sections/identity/identity-to-command-shell-morph";
 import { cn } from "@/lib/cn";
 
 const leftCards = [
@@ -161,10 +161,8 @@ export function IdentitySnapshotSection({
         progress={morph.floorShift}
         shellForm={morph.shellForm}
       />
-      <IdentityToCommandShellMorph
+      <CapabilityMatrixScene
         floorShift={morph.floorShift}
-        lanyardDock={morph.lanyardDock}
-        panelCollapse={morph.panelCollapse}
         shellForm={morph.shellForm}
         titleMorph={morph.titleMorph}
       />
@@ -211,7 +209,7 @@ export function IdentitySnapshotSection({
             aria-hidden={morph.titleMorph < 0.05}
             className="pointer-events-none absolute left-1/2 top-1 flex h-12 w-[min(82vw,44rem)] items-center justify-center overflow-hidden rounded-[4px] border border-cyan-muted/24 bg-[linear-gradient(90deg,rgba(4,8,12,0.36),rgba(13,25,33,0.72)_48%,rgba(4,8,12,0.36))] px-6 font-mono text-[clamp(1.25rem,3vw,2.55rem)] font-black uppercase leading-none text-cyan-muted shadow-[0_0_32px_rgba(113,217,210,0.12),inset_0_0_20px_rgba(113,217,210,0.06)]"
             style={{
-              opacity: morph.titleMorph,
+              opacity: morph.titleMorph * (1 - morph.shellForm),
               transform: `translate3d(-50%, ${(1 - morph.titleMorph) * 12}px, 0) scale(${0.94 + morph.titleMorph * 0.06})`,
             }}
           >
@@ -305,6 +303,7 @@ function getPanelColumnStyle(
 
   return {
     filter: `brightness(${1 - morph.shellForm * 0.14})`,
+    opacity: Math.max(0, 1 - morph.shellForm * 1.08),
     transform: `perspective(1050px) translate3d(${direction * (morph.panelCollapse * 12 + morph.shellForm * 30)}px, ${morph.shellForm * 8}px, ${depth}px) rotateY(${direction * (morph.panelCollapse * 4 + morph.shellForm * 7)}deg) scale(${1 - morph.shellForm * 0.05})`,
     transformOrigin: side === "left" ? "right center" : "left center",
     transformStyle: "preserve-3d",
@@ -314,8 +313,11 @@ function getPanelColumnStyle(
 function getLanyardDockStyle(morph: IdentitySceneMorph): CSSProperties {
   return {
     filter: `brightness(${1 - morph.shellForm * 0.14})`,
+    opacity: Math.max(0, 1 - morph.shellForm * 1.2),
+    pointerEvents: morph.shellForm > 0.62 ? "none" : "auto",
     transform: `perspective(1200px) translate3d(0, ${morph.lanyardDock * -108 + morph.shellForm * -112}px, ${morph.lanyardDock * -210 + morph.shellForm * -120}px) scale(${1 - morph.lanyardDock * 0.3 - morph.shellForm * 0.24})`,
     transformStyle: "preserve-3d",
+    visibility: morph.shellForm > 0.98 ? "hidden" : "visible",
   };
 }
 
