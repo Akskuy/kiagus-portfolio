@@ -11,7 +11,6 @@ type IdentityToCommandShellMorphProps = {
 
 const consoleRows = Array.from({ length: 5 }, (_, index) => index);
 const consoleNodes = Array.from({ length: 7 }, (_, index) => index);
-const consoleModules = Array.from({ length: 6 }, (_, index) => index);
 const wallRibs = Array.from({ length: 8 }, (_, index) => index);
 
 function clamp01(value: number) {
@@ -28,7 +27,6 @@ export function IdentityToCommandShellMorph({
   const shell = clamp01(shellForm);
   const dock = clamp01(lanyardDock);
   const collapse = clamp01(panelCollapse);
-  const ready = clamp01((shell - 0.72) / 0.28);
   const atmosphere = clamp01(shell * 0.9 + titleMorph * 0.15);
   const shellStyle = {
     opacity: shell,
@@ -74,9 +72,9 @@ export function IdentityToCommandShellMorph({
       <CentralCommandConsole dock={dock} shell={shell} />
 
       <div
-        className="absolute left-1/2 bottom-[8%] h-[28%] w-[min(64vw,42rem)] rounded-t-[18px] border border-cyan-muted/16 bg-[linear-gradient(180deg,rgba(16,25,35,0.54),rgba(2,5,8,0.92)_70%)] shadow-[0_26px_80px_rgba(0,0,0,0.6),inset_0_0_44px_rgba(113,217,210,0.07)]"
+        className="absolute left-1/2 bottom-[4%] h-[24%] w-[min(64vw,42rem)] rounded-t-[18px] border border-cyan-muted/16 bg-[linear-gradient(180deg,rgba(16,25,35,0.54),rgba(2,5,8,0.92)_70%)] shadow-[0_26px_80px_rgba(0,0,0,0.6),inset_0_0_44px_rgba(113,217,210,0.07)]"
         style={{
-          opacity: shell,
+          opacity: shell * 0.42,
           transform: `translateX(-50%) perspective(900px) rotateX(${58 - floorShift * 11}deg) translateY(${(1 - shell) * 32}px) scale(${0.88 + shell * 0.12})`,
           transformOrigin: "50% 100%",
         }}
@@ -121,19 +119,6 @@ export function IdentityToCommandShellMorph({
       />
 
       <div
-        className={cn(
-          "absolute right-[4.6%] bottom-[6%] rounded-[3px] border border-green-soft/18 bg-background/55 px-3 py-2 font-mono text-[0.58rem] font-bold uppercase tracking-[0.16em] text-green-soft/75 shadow-[0_0_22px_rgba(141,225,156,0.1)]",
-          ready > 0.6 && "animate-[micro-breathe_3.4s_ease-in-out_infinite]",
-        )}
-        style={{
-          opacity: ready,
-          transform: `translate3d(${(1 - ready) * 10}px, 0, 0)`,
-        }}
-      >
-        CAPABILITY MATRIX READY
-      </div>
-
-      <div
         className="absolute left-[6%] top-[20%] h-[62%] w-[9%] rounded-[3px] border border-cyan-muted/10 bg-surface-0/35 shadow-[inset_0_0_34px_rgba(113,217,210,0.06)]"
         style={{ opacity: collapse * shell * 0.45 }}
       />
@@ -156,27 +141,34 @@ function CentralCommandConsole({
 
   return (
     <div
-      className="absolute left-1/2 top-[42%] h-[27%] w-[min(58vw,39rem)] overflow-hidden rounded-[12px] border border-cyan-muted/20 bg-[linear-gradient(180deg,rgba(14,25,33,0.62),rgba(3,7,10,0.92)_72%)] shadow-[0_28px_80px_rgba(0,0,0,0.54),inset_0_0_44px_rgba(113,217,210,0.08)]"
+      className="absolute left-1/2 top-[40%] h-[37%] w-[min(42vw,42.5rem)] overflow-hidden rounded-[14px] border border-cyan-muted/22 bg-[linear-gradient(180deg,rgba(14,25,33,0.74),rgba(3,7,10,0.94)_72%)] shadow-[0_32px_90px_rgba(0,0,0,0.62),inset_0_0_54px_rgba(113,217,210,0.08)]"
       style={{
         opacity: shell,
-        transform: `translate3d(-50%, ${24 - consoleReady * 24 - dock * 8}px, 0) scale(${0.88 + consoleReady * 0.12})`,
+        transform: `translate3d(-50%, ${30 - consoleReady * 30 + dock * 2}px, 0) scale(${0.92 + consoleReady * 0.08})`,
       }}
     >
       <span className="absolute inset-2 rounded-[8px] border border-foreground/8" />
       <span className="absolute inset-0 micro-grid opacity-35" />
-      <span className="absolute left-4 right-4 top-3 flex h-8 items-center rounded-[4px] border border-cyan-muted/16 bg-background/52 px-3 shadow-[inset_0_0_16px_rgba(113,217,210,0.05)]">
+      <span className="absolute left-4 right-4 top-4 flex h-10 items-center rounded-[5px] border border-cyan-muted/16 bg-background/56 px-4 shadow-[inset_0_0_18px_rgba(113,217,210,0.05)]">
         <span className="h-2 w-2 rounded-[2px] bg-green-soft/80 shadow-[var(--glow-green)] animate-[node-pulse_3.3s_ease-in-out_infinite]" />
-        <span className="ml-3 font-mono text-[0.58rem] font-bold uppercase tracking-[0.18em] text-cyan-muted/72">
+        <span className="ml-3 font-mono text-[0.68rem] font-bold uppercase tracking-[0.2em] text-cyan-muted/78">
           COMMAND CONSOLE
         </span>
-        <span className="ml-auto font-mono text-[0.52rem] font-bold uppercase tracking-[0.16em] text-green-soft/62">
+        <span className="ml-auto rounded-[3px] border border-green-soft/14 bg-green-soft/7 px-2 py-1 font-mono text-[0.54rem] font-bold uppercase tracking-[0.16em] text-green-soft/72">
           STANDBY
         </span>
       </span>
 
-      <span className="absolute left-6 right-6 top-14 h-px bg-gradient-to-r from-transparent via-cyan-muted/38 to-transparent" />
+      <span className="absolute left-6 right-6 top-[4.35rem] h-px bg-gradient-to-r from-transparent via-cyan-muted/38 to-transparent" />
 
-      <span className="absolute left-6 top-[42%] h-[42%] w-[36%] rounded-[6px] border border-cyan-muted/14 bg-cyan-muted/6 shadow-[inset_0_0_20px_rgba(113,217,210,0.05)]">
+      <span className="absolute left-6 right-6 top-[31%] flex h-[36%] items-center justify-center rounded-[8px] border border-cyan-muted/16 bg-[linear-gradient(135deg,rgba(113,217,210,0.08),rgba(5,10,14,0.6))] shadow-[inset_0_0_28px_rgba(113,217,210,0.06)]">
+        <span className="absolute inset-2 rounded-[5px] border border-foreground/8" />
+        <span className="relative rounded-[4px] border border-cyan-muted/16 bg-background/46 px-5 py-3 font-mono text-[0.72rem] font-bold uppercase tracking-[0.22em] text-cyan-muted/78 shadow-[inset_0_0_18px_rgba(113,217,210,0.04)]">
+          MODULE PREVIEW READY
+        </span>
+      </span>
+
+      <span className="absolute bottom-8 left-8 h-[17%] w-[34%] rounded-[6px] border border-cyan-muted/12 bg-cyan-muted/5 shadow-[inset_0_0_18px_rgba(113,217,210,0.04)]">
         {consoleRows.map((row) => (
           <span
             className="absolute left-4 h-1.5 rounded-full bg-cyan-muted/24"
@@ -190,25 +182,13 @@ function CentralCommandConsole({
         ))}
       </span>
 
-      <span className="absolute right-6 top-[42%] grid h-[42%] w-[44%] grid-cols-3 gap-2">
-        {consoleModules.map((module) => (
-          <span
-            className="relative overflow-hidden rounded-[4px] border border-cyan-muted/12 bg-background/46 shadow-[inset_0_0_14px_rgba(113,217,210,0.04)]"
-            key={module}
-          >
-            <span className="absolute left-2 top-2 h-1.5 w-1.5 rounded-[2px] bg-cyan-muted/60 shadow-[var(--glow-cyan)]" />
-            <span className="absolute bottom-2 left-2 right-2 h-px bg-gradient-to-r from-cyan-muted/24 via-green-soft/18 to-transparent" />
-            <span
-              className="absolute left-2 right-2 top-1/2 h-px bg-cyan-muted/18"
-              style={{ opacity: 0.45 + (module % 2) * 0.2 }}
-            />
-          </span>
-        ))}
+      <span className="absolute bottom-8 right-8 h-[17%] w-[34%] rounded-[6px] border border-cyan-muted/12 bg-background/42 shadow-[inset_0_0_18px_rgba(113,217,210,0.04)]">
+        <span className="absolute left-4 right-4 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-cyan-muted/18 via-green-soft/18 to-transparent" />
+        <span className="absolute left-4 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-[2px] bg-amber-soft/70 shadow-[var(--glow-amber)]" />
+        <span className="absolute right-4 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-[2px] bg-cyan-muted/70 shadow-[var(--glow-cyan)]" />
       </span>
 
       <span className="absolute bottom-3 left-6 right-6 h-px bg-gradient-to-r from-transparent via-green-soft/28 to-transparent" />
-      <span className="absolute bottom-5 left-[18%] h-1.5 w-1.5 rounded-[2px] bg-amber-soft/70 shadow-[var(--glow-amber)]" />
-      <span className="absolute bottom-5 right-[18%] h-1.5 w-1.5 rounded-[2px] bg-cyan-muted/70 shadow-[var(--glow-cyan)]" />
     </div>
   );
 }

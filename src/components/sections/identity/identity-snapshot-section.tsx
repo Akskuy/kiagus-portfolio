@@ -287,8 +287,8 @@ function getPanelColumnStyle(
 
 function getLanyardDockStyle(morph: IdentitySceneMorph): CSSProperties {
   return {
-    filter: `brightness(${1 - morph.shellForm * 0.13})`,
-    transform: `perspective(1200px) translate3d(0, ${morph.lanyardDock * -50 + morph.shellForm * -34}px, ${morph.lanyardDock * -150 + morph.shellForm * -118}px) scale(${1 - morph.lanyardDock * 0.24 - morph.shellForm * 0.18})`,
+    filter: `brightness(${1 - morph.shellForm * 0.14})`,
+    transform: `perspective(1200px) translate3d(0, ${morph.lanyardDock * -108 + morph.shellForm * -112}px, ${morph.lanyardDock * -210 + morph.shellForm * -120}px) scale(${1 - morph.lanyardDock * 0.3 - morph.shellForm * 0.24})`,
     transformStyle: "preserve-3d",
   };
 }
@@ -307,10 +307,13 @@ function MorphingIdentityPanel({
   const direction = side === "left" ? 1 : -1;
   const offsetY = (index - 1) * 7;
   const panelStyle = {
+    marginLeft: side === "left" ? `${collapse * -5.7}rem` : undefined,
+    minHeight: `${5.7 + collapse * 2.25}rem`,
     pointerEvents: collapse > 0.72 ? "none" : "auto",
-    transform: `translate3d(${direction * collapse * (9 + index * 2)}px, ${collapse * offsetY}px, 0) scaleX(${1 - collapse * 0.14}) scaleY(${1 - collapse * 0.42})`,
+    transform: `translate3d(${direction * collapse * (9 + index * 2)}px, ${collapse * offsetY}px, 0) scaleX(${1 - collapse * 0.04}) scaleY(${1 - collapse * 0.08})`,
     transformOrigin: side === "left" ? "right center" : "left center",
     transformStyle: "preserve-3d",
+    width: `calc(100% + ${collapse * 5.7}rem)`,
   } as CSSProperties;
   const cardStyle = {
     clipPath: `polygon(${collapse * 10}px 0, calc(100% - ${collapse * 10}px) 0, 100% ${collapse * 11}px, 100% calc(100% - ${collapse * 11}px), calc(100% - ${collapse * 10}px) 100%, ${collapse * 10}px 100%, 0 calc(100% - ${collapse * 11}px), 0 ${collapse * 11}px)`,
@@ -319,7 +322,7 @@ function MorphingIdentityPanel({
   } as CSSProperties;
 
   return (
-    <motion.div className="relative min-h-[5.7rem]" style={panelStyle}>
+    <motion.div className="relative" style={panelStyle}>
       <div className="relative" style={cardStyle}>
         <IdentityStatCard {...card} />
       </div>
@@ -366,18 +369,17 @@ function TerminalSocketShell({
           side === "left" ? "left-3" : "right-3",
         )}
       />
-      <span
-        className={cn(
-          "absolute top-6 rounded-[3px] border border-cyan-muted/14 bg-background/50 px-2 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.16em] text-cyan-muted/75",
-          side === "left" ? "left-3" : "right-3",
-        )}
-      >
+      <span className="absolute left-4 right-4 top-[2.7rem] h-px bg-gradient-to-r from-transparent via-cyan-muted/24 to-transparent" />
+      <span className="absolute left-4 right-4 top-[3.18rem] rounded-[4px] border border-cyan-muted/14 bg-background/42 px-3 py-2 text-center font-mono text-[0.82rem] font-bold uppercase tracking-[0.2em] text-cyan-muted/86 shadow-[inset_0_0_18px_rgba(113,217,210,0.05)]">
         SLOT {String(slotNumber).padStart(2, "0")}
       </span>
-      <span className="absolute left-4 right-4 top-1/2 h-px bg-gradient-to-r from-transparent via-cyan-muted/50 to-transparent" />
-      <span className="absolute left-[18%] right-[18%] bottom-4 h-px bg-gradient-to-r from-transparent via-green-soft/28 to-transparent" />
-      <span className="absolute bottom-3 left-4 grid h-8 w-20 grid-cols-5 items-end gap-1">
-        {wallScreens.slice(0, 5).map((screen) => (
+      <span className="absolute left-4 right-4 top-[58%] h-px bg-gradient-to-r from-transparent via-cyan-muted/46 to-transparent" />
+      <span className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-[3px] border border-green-soft/14 bg-green-soft/7 px-2.5 py-1 font-mono text-[0.52rem] font-bold uppercase tracking-[0.16em] text-green-soft/72">
+        <span className="h-1.5 w-1.5 rounded-[2px] bg-green-soft/80 shadow-[var(--glow-green)]" />
+        MODULE READY
+      </span>
+      <span className="absolute bottom-3 left-4 grid h-7 w-16 grid-cols-4 items-end gap-1 opacity-40">
+        {wallScreens.slice(0, 4).map((screen) => (
           <span
             className="rounded-[1px] bg-cyan-muted/45 animate-[screen-flicker_4.8s_steps(4,end)_infinite]"
             key={`${side}-${index}-${screen}`}
