@@ -1,825 +1,786 @@
 # PROJECT BRIEF — KIAGUS ARIF RAHMAN PORTFOLIO
 
-## 1. Project Identity
+## Premium One-Viewport Cinematic Portfolio
 
-This project is a premium interactive portfolio website for:
+---
 
-**Kiagus Arif Rahman**
+# 0. Project Identity
+
+Project name:
+
+Kiagus Arif Rahman Portfolio
+
+Main subject:
+
+KIAGUS ARIF RAHMAN
 
 Primary positioning:
 
-* Data Scientist
-* AI Product Builder
-* AI Builder with strong Data Science foundation
+Data Scientist
+AI Product Builder
+AI Builder
 
-Secondary positioning:
+Main subtitle:
 
-* System Analyst mindset
-* End-to-end data workflow thinker
-* Project-based technical builder
+Data Scientist • AI Product Builder • AI Builder
 
-The portfolio should communicate that Kiagus is not only someone who studies Data Science, but also someone who can think in systems, design workflows, understand users, and translate data/AI ideas into usable digital products.
+Core statement:
 
-The website must feel professional, technically mature, immersive, and memorable.
+Strong Data Science foundation for intelligent workflows and AI products.
 
-It should not feel like a normal student portfolio template.
+The portfolio should present Kiagus as a technically mature Data Science and AI Product Builder profile.
 
----
+The site must feel premium, cinematic, interactive, and implementation-ready.
 
-## 2. Main Experience Goal
-
-The final website should feel like an interactive game-like journey through Kiagus's professional identity.
-
-The user should feel like they are entering a designed digital world, not just reading a vertical landing page.
-
-The website must feel like:
-
-* an interactive game interface
-* a data science mission journey
-* a premium pixel-art system
-* a connected portfolio world
-* a professional technical showcase
-* a live interface with meaningful motion
-
-The website should not feel like:
-
-* a normal portfolio template
-* a generic landing page
-* a stack of sections
-* a boring dashboard
-* a text-heavy resume page
-* a static image gallery
-* a basic scroll website
-
-The target feeling is:
-
-**“This looks professional, unique, technically mature, and difficult to build.”**
+It must not feel like a basic student portfolio.
 
 ---
 
-## 3. Core Rule — Not a Normal Vertical Website
+# 1. Main Goal
 
-This website must not feel like stacked vertical sections.
+Build a full-scale professional portfolio website that feels like a cinematic interactive system.
 
-Do not build it as:
+The site must communicate:
 
-* Section 1
-* Section 2
-* Section 3
-* Section 4
+* identity
+* capabilities
+* knowledge foundation
+* experience
+* projects
+* achievements
+* skill graph
+* future direction
+* contact access
 
-with simple scroll-down movement.
+The site must look visually premium while staying honest.
 
-Even if the code structure uses sections internally, the final experience should behave like connected interactive scenes.
+The portfolio should feel:
 
-Scroll should not act only as page movement.
-
-Scroll should act as a scene controller.
-
-Scroll should control:
-
-* camera movement
-* scene activation
-* object transformation
-* UI state progression
-* environmental motion
-* transition gates
-* panel activation
-* visual continuity between scenes
-
-The user should feel like they are moving through a designed world.
-
-Each scene should feel connected to the previous scene and the next scene.
-
-The correct experience is:
-
-1. Enter a scene
-2. See live UI elements
-3. Interact with objects
-4. Reveal portfolio information through creative panel behavior
-5. Trigger a transition gate
-6. Transform into the next scene
-
-The wrong experience is:
-
-1. Scroll down
-2. New section fades in
-3. Read text
-4. Scroll again
-5. Another section appears
-
-Avoid ordinary landing page rhythm.
+* professional
+* technically mature
+* cinematic
+* data-driven
+* system-oriented
+* AI/product-oriented
+* not fake
+* not generic
+* not basic
 
 ---
 
-## 4. Scene Journey Structure
+# 2. Mandatory Experience Direction
 
-The portfolio consists of 8 connected scenes.
+The portfolio must use a one-viewport cinematic journey.
 
-Use slide numbers only for organization.
+The user should feel like they are controlling a scene transformation inside one screen.
 
-Final website behavior should feel like scenes, rooms, systems, or levels.
+The user must not feel like they are scrolling down a normal website.
 
-## Scene 1 — Identity Room
+Correct feeling:
+
+User scrolls
+→ viewport stays visually pinned
+→ objects transform
+→ next scene assembles inside the same screen
+
+Wrong feeling:
+
+User scrolls
+→ page moves downward
+→ next section appears below
+→ it feels like PDF / Figma / PowerPoint / normal landing page
+
+The wrong feeling is forbidden.
+
+---
+
+# 3. Source of Truth Documents
+
+All development must follow these files.
+
+## SCENE_ARCHITECTURE.md
+
+Defines:
+
+* 8-scene architecture
+* final visual composition
+* scene identity
+* transition story
+* clean-target matching rules
+* one-viewport layout rules
+
+This is the main source for visual structure.
+
+## MOTION_RULES.md
+
+Defines:
+
+* one-viewport motion
+* scroll-as-timeline behavior
+* transition uniqueness
+* object transformation rules
+* forbidden animation patterns
+* scene idle motion rules
+
+This is the main source for motion behavior.
+
+## ASSET_MAP.md
+
+Defines:
+
+* asset paths
+* clean-target usage
+* concept-board usage
+* portrait path
+* resume path
+* placeholder rules
+* evidence rules
+
+This is the main source for asset usage.
+
+## CONTENT_SOURCE.md
+
+Defines:
+
+* approved text
+* approved claims
+* approved skills
+* approved projects
+* approved achievements
+* safe wording
+* forbidden content
+
+This is the main source for website copy and factual claims.
+
+## SECTION_PLAN.md
+
+Defines:
+
+* scene order
+* scene purpose
+* final content intent
+* high-level scene map
+
+This is the main source for overall journey order.
+
+---
+
+# 4. Hard Non-Negotiable Rules
+
+These rules must not be broken.
+
+## Rule 1 — One Viewport
+
+The portfolio must be built as one cinematic viewport journey.
+
+No normal vertical section scrolling as the main experience.
+
+## Rule 2 — Clean Target Must Be Followed
+
+Each scene has a clean-target reference.
+
+Clean-target images are visual law.
+
+The final UI must match their composition and mood.
+
+## Rule 3 — Do Not Render Clean Targets
+
+Clean-target images are references only.
+
+Do not use them as static backgrounds.
+
+Do not paste screenshots as the website.
+
+Build the scenes using real components.
+
+## Rule 4 — No Fake Claims
+
+The portfolio must not invent achievements, project outcomes, user metrics, technology stacks, production claims, or certificates.
+
+Use CONTENT_SOURCE.md.
+
+## Rule 5 — No Basic Animation
+
+Do not use simple fade/slide/zoom as the main transition.
+
+Every transition must have object role change.
+
+## Rule 6 — No Repeated Transition Trick
+
+No major transition concept may be reused more than two times.
+
+Each scene transition must feel distinct.
+
+## Rule 7 — No Generic Student Portfolio
+
+Avoid:
+
+* basic cards
+* resume timeline
+* project grid
+* ordinary skill bars
+* certificate gallery
+* course dump
+* normal contact footer
+* SaaS landing page layout
+
+## Rule 8 — Premium but Honest
+
+The website may look expert and technically mature.
+
+It must not lie.
+
+Use:
+
+* prototype
+* workflow concept
+* implementation-ready direction
+* compatible stack
+* demo placeholder
+* verified achievement
+
+Do not use unverified production claims.
+
+---
+
+# 5. Visual Style Direction
+
+The visual style should be:
+
+* luxury dark mode
+* premium pixel-inspired interface
+* cinematic data system
+* professional technology environment
+* subtle game-like interaction
+* not childish
+* not fantasy-heavy
+* not noisy cyberpunk
+* not basic corporate
+
+The site may use:
+
+* terminal panels
+* glowing HUD elements
+* pixel-inspired details
+* dark technical rooms
+* city/district interface
+* archive machine UI
+* trophy analytics museum
+* graph interface
+* future lab
+
+But the tone must remain:
+
+professional first, game-like second.
+
+The intended ratio:
+
+80% professional portfolio
+20% game / cinematic interactive system
+
+---
+
+# 6. Technical Stack Direction
+
+Current project direction:
+
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* GSAP if needed for timeline motion
+
+Current known journey components:
+
+* src/components/journey/cinematic-journey.tsx
+* src/components/journey/pinned-journey-stage.tsx
+* src/components/journey/use-cinematic-scroll-progress.ts
+
+Reusable UI components may include:
+
+* InteractiveRevealPanel
+* AnimatedBorder
+* StatusLed
+* ScannerBeam
+* DataPacketLine
+* PixelSeparator
+* IconTile
+* MicroLabel
+* PremiumPlaceholder
+* PixelPanel
+* PixelButton
+
+Implementation must be component-based.
+
+Do not build the site by placing full mockup images as backgrounds.
+
+---
+
+# 7. The 8 Scene Journey
+
+The portfolio contains exactly 8 main scenes.
+
+## Scene 1 — Identity Snapshot
 
 Purpose:
 
-Introduce Kiagus as the main character / professional identity.
+Introduce Kiagus identity.
 
-Main object:
+Clean target:
 
-Premium lanyard identity card / collectible trainer-card-inspired hero object.
+public/reference/clean-target/slide-1-identity-snapshot.png
 
-Important:
+Main elements:
 
-Do not use official Pokémon branding, logo, characters, or exact copied card layout.
+* Kiagus name
+* Data Scientist / AI Product Builder positioning
+* lanyard photo card
+* six identity panels
+* premium dark identity room
 
-The card should only take inspiration from premium collectible card energy, lanyard badge design, holographic frame, acrylic case, and game identity object feeling.
+Core content:
 
-Core visual elements:
+KIAGUS ARIF RAHMAN
+Data Scientist • AI Product Builder • AI Builder
 
-* large name
-* concise subtitle
-* center premium lanyard / identity card
-* 3 information modules on the left
-* 3 information modules on the right
-* dark data-center / monitor-wall background
-* bottom interaction bar
-* subtle next-scene hook
-
-Main interaction:
-
-Clicking the identity card reveals About Kiagus.
-
-This reveal must not be a basic flip only.
-
-It should feel like an access scan:
-
-1. click/tap activates card status
-2. LED or scanner state turns on
-3. scanner beam or holographic layer moves across the card
-4. card frame unlocks or rotates
-5. about content is revealed as compiled identity data
-6. opened card remains alive with subtle glow and scanline
-
-Transition gate:
-
-Identity data from the lanyard card activates the command center for Scene 2.
-
----
-
-## Scene 2 — Capability Command Center
+## Scene 2 — Capability Matrix
 
 Purpose:
 
-Show Kiagus's capabilities as interactive technical terminals.
+Show six capability domains.
 
-Core visual elements:
+Clean target:
 
-* command center background
-* capability terminal grid
-* active terminal detail panel
-* animated data cables or signal lines
-* terminal hover/click states
-* system-like navigation
+public/reference/clean-target/slide-2-capability-matrix.png
 
-Main interaction:
+Main elements:
 
-Each title-only terminal opens into a capability detail using terminal-execute reveal.
+* title rail
+* six terminal panels in 2x3 grid
+* server racks
+* command desk
+* small docked identity token
 
-The terminal reveal should feel like:
+Capability terminals:
 
-1. user clicks command label
-2. terminal runs a command
-3. cursor blinks
-4. short loading / compiling state appears
-5. panel expands into structured detail
-6. active terminal stays alive with cursor, data flow, or status pulse
-
-Transition gate:
-
-Terminal UI deconstructs into data blocks that rebuild into the Knowledge Library.
-
----
+1. Statistical Thinking
+2. AI Product Logic
+3. Data Workflow
+4. System Analysis
+5. Web-Based Solution
+6. Leadership & Team Direction
 
 ## Scene 3 — Knowledge Library
 
 Purpose:
 
-Show academic foundation, course clusters, and knowledge areas.
+Show academic and technical foundation as curated knowledge pillars.
 
-Core visual elements:
+Clean target:
 
-* dark pixel knowledge library
-* shelves / books / modules
-* category pillars
-* course-to-skill relationships
-* interactive knowledge cards
-* book/page-inspired UI
+public/reference/clean-target/slide-3-knowledge-library.png
 
-Main interaction:
+Main elements:
 
-Clicking a knowledge module opens a book/page reveal.
+* knowledge category tabs
+* active pillar panel
+* modules and foundations panel
+* pillar overview
+* bottom sentence bar
+* warm archive/library atmosphere
 
-The reveal should feel like:
+Important:
 
-1. book or module is selected
-2. page edge glows
-3. page opens or unfolds
-4. text/data appears as structured knowledge
-5. skill tags activate
-6. opened module remains alive with page glow, cursor, or data line
+Do not show full course list.
 
-Transition gate:
-
-Book pages transform into roads and buildings of the Experience District.
-
----
+Use curated knowledge domains only.
 
 ## Scene 4 — Experience District
 
 Purpose:
 
-Show work experience, organizational roles, leadership, and project-based roles as a city/district.
+Show experiences as a living district map.
 
-Core visual elements:
+Clean target:
 
-* pixel city map
-* experience buildings
-* timeline rail
-* role detail window
-* roads/data paths
-* animated building lights
+public/reference/clean-target/slide-4-experience-district.png
 
-Main interaction:
+Main elements:
 
-Clicking a building opens role detail through building/window unlock reveal.
+* district categories
+* six experience districts
+* city/building interface
+* selected district detail panel
+* district navigation
 
-The reveal should feel like:
+Default active district:
 
-1. building lights turn on
-2. window or door unlocks
-3. UI frame expands from the building
-4. role detail appears
-5. timeline signals activate
-6. opened role stays alive with city lights and data traffic
-
-Transition gate:
-
-A selected building compresses into a project cartridge for the Project Archive.
-
----
+Avalon AI Community
 
 ## Scene 5 — Project Archive
 
 Purpose:
 
-Show main projects through an interactive archive machine.
+Show main projects as cartridges inside a project archive machine.
 
-Core visual elements:
+Clean target:
 
-* project cartridges
-* archive scanner
-* project viewer
-* architecture diagram area
-* code snippet / pseudo-code panel
-* screenshot or demo placeholder
-* project system details
+public/reference/clean-target/slide-5-project-archive.png
 
-Main interaction:
+Main approved projects:
 
-Clicking a project cartridge inserts it into scanner and reveals project detail.
+1. Automated Clipping Website
+2. Skyholic Universe Recruitment & Scoring System
+3. Cooperative UMKM Survey Data Project
+4. Content Performance Editing System
+5. Avalon AI AR Fashion Try-On Concept
 
-The reveal should feel like:
+Default active project:
 
-1. cartridge is selected
-2. slot lights activate
-3. cartridge inserts or locks
-4. scanner beam reads the project
-5. project architecture appears
-6. detail panel stays alive with scanline, code cursor, and system labels
+Automated Clipping Website
 
-Important honesty rule:
+Important:
 
-Do not invent fake production claims, fake users, fake metrics, fake stack, fake deployment, or fake client results.
-
-If something is not confirmed, present it as:
-
-* concept
-* prototype
-* pre-release
-* workflow direction
-* compatible stack
-* implementation-ready design
-* demo placeholder
-* recommended architecture
-
-Transition gate:
-
-Scanner output transforms into achievement metrics and trophy analytics.
-
----
+Do not use minor submodules as main portfolio projects.
 
 ## Scene 6 — Achievement Analytics
 
 Purpose:
 
-Show achievements, credibility, competitions, and results through analytics-style visual storytelling.
+Show verified achievements as museum analytics.
 
-Core visual elements:
+Clean target:
 
-* achievement dashboard
-* trophy or award objects
-* metric cards
-* documentation slots
-* credibility panels
-* animated counters
-* data visualization elements
+public/reference/clean-target/slide-6-achievement-analytics.png
 
-Main interaction:
+Verified achievements:
 
-Clicking an achievement opens detail through decrypt, x-ray, or metric analysis reveal.
+1. COMPFEST 16 — AI Innovation Challenge — Champion
+2. ICONIC IT — UI/UX Competition — Runner-up
+3. Bangkit Program — Best 2nd Product / Top 2 of 600+ products
 
-The reveal should feel like:
+Additional visual slots must be labeled:
 
-1. achievement card activates
-2. trophy or metric beam turns on
-3. evidence/detail area decrypts
-4. achievement context appears
-5. related metric indicators pulse
-6. active card remains alive with subtle analytic motion
+Documentation Slot
+Replace With Verified Proof
 
-Transition gate:
-
-Trophy reflections and metric lines shatter into connected knowledge nodes.
-
----
+Do not invent additional awards.
 
 ## Scene 7 — Knowledge Map
 
 Purpose:
 
-Show how skills, courses, projects, and experience connect into one technical identity.
+Show skill relationships as a knowledge graph.
 
-Core visual elements:
+Clean target:
 
-* node graph
-* skill clusters
-* animated edges
-* central data core
-* node detail panels
-* data flow between nodes
+public/reference/clean-target/slide-7-knowledge-map.png
 
-Main interaction:
+Central node:
 
-Clicking a node opens a hologram detail panel.
+DATA SCIENCE & AI BUILDER
 
-The reveal should feel like:
-
-1. node pulses
-2. connection lines activate
-3. hologram panel projects from the node
-4. related nodes highlight
-5. description appears as knowledge data
-6. open node stays alive with signal transfer
-
-Transition gate:
-
-Knowledge nodes collapse into one central data core.
-
----
+Skill graph should use translated skill domains, not raw course list.
 
 ## Scene 8 — Future Laboratory
 
 Purpose:
 
-Close the portfolio with future direction, contact action, and final professional impression.
+Close with future direction, mission, and contact.
 
-Core visual elements:
+Clean target:
 
-* future lab
-* data core
-* roadmap panels
-* CTA station
-* final contact console
-* portfolio completion state
+public/reference/clean-target/slide-8-future-laboratory.png
 
-Main interaction:
+Main elements:
 
-User activates final roadmap or contact console.
+* central holographic data core
+* AI Products
+* Data Platforms
+* Decision Intelligence
+* Automation Systems
+* system status panel
+* lab context panel
+* mission panel
+* connect console
+* contact strip
 
-The reveal should feel like:
+Important:
 
-1. data core activates
-2. final system unlocks
-3. contact console opens
-4. CTA buttons become active
-5. final scene reaches completion state
+Scene 8 is not a normal footer.
 
-The final scene should feel like the end of a journey, not a normal contact section.
-
----
-
-## 5. Visual Direction
-
-The visual style should be:
-
-* premium dark mode
-* pixel-art inspired
-* game UI inspired
-* data-center atmosphere
-* readable and professional
-* cinematic but controlled
-* dense with intentional interface details
-* not childish
-* not messy
-* not cyberpunk overload
-* not generic dashboard
-
-The website should have a controlled dark palette with glowing accents, pixel edges, segmented frames, scanlines, data lines, monitor depth, and premium UI chrome.
-
-The design should feel custom-built.
-
-It must not look like an ordinary Tailwind template.
+It is the final laboratory screen.
 
 ---
 
-## 6. No Stingy UI Rule
+# 8. The 9 Main Selling Skills
 
-Do not be visually stingy.
+These skills are translated from coursework, experience, and project direction.
 
-Every visible UI element should feel intentionally designed.
+Do not display the full course list.
 
-Do not leave elements as plain rectangles, plain borders, generic dividers, or default cards.
+Display these capability domains instead:
 
-This applies to:
+1. Statistical Reasoning
+2. Data Workflow
+3. Data Engineering Foundation
+4. Machine Learning Thinking
+5. System Analysis
+6. Web-Based Solution Logic
+7. Research and Validation
+8. Decision Intelligence
+9. Team and Product Direction
 
-* panels
-* cards
-* buttons
-* title bars
-* columns
-* dividers
-* labels
-* chips
-* icon boxes
-* nav nodes
-* separators
-* progress rails
-* thumbnails
-* placeholders
-* terminal rows
-* bottom bars
-* detail panels
-* CTA areas
+These skills should appear across:
 
-Every small UI element should include some theme treatment, such as:
+* Scene 2 Capability Matrix
+* Scene 3 Knowledge Library
+* Scene 7 Knowledge Map
+* Scene 8 Future Laboratory
 
-* pixel corner brackets
-* segmented borders
-* inset frames
-* layered panel depth
-* micro labels
-* tiny icon tiles
-* status LEDs
-* scanline overlays
-* animated border traces
-* endpoint glows
-* data packets
-* circuit lines
-* hover energy
-* terminal captions
-* hologram accents
-* subtle game-like chrome
-
-The goal is not to make the UI crowded.
-
-The goal is to make the UI feel custom-designed and alive.
-
-Bad examples:
-
-* plain card
-* plain text box
-* plain button
-* simple border-only rectangle
-* empty dark container
-* default dashboard block
-* generic grid layout
-* basic accordion
-
-Good examples:
-
-* stat card with icon tile, corner bracket, animated border, and LED
-* separator line with glowing endpoints and moving data packet
-* button with segmented frame, press feel, and edge light
-* panel with scanline overlay and system status label
-* title-only panel that opens through scanner, terminal, hatch, or hologram reveal
-* placeholder with premium frame, icon, label, scanline, and replace-later note
-
-Final rule:
-
-Every section must feel like a designed game screen.
-
-Every panel must feel custom-built.
-
-Every small UI element must visually belong to the theme.
+Do not turn the site into a transcript or course catalog.
 
 ---
 
-## 7. Animation Direction
+# 9. Approved Main Projects
 
-Animation must not be basic.
+Only these five projects are approved as main project cartridges:
 
-The website should avoid relying on:
+## Project 1
 
-* simple fade in
-* simple slide up
-* simple slide left
-* simple scale in
-* ordinary hover shadow
-* basic dropdown
-* plain accordion
-* static panels
-* hard cuts
-* generic scroll reveal
+Automated Clipping Website
 
-These can only be used as tiny supporting details, never as the main animation language.
+Safe label:
 
-Main animation language should use:
+Pre-Release Automated Workflow System
 
-* object activation
-* scanner reveal
-* terminal execution
-* mechanical hatch unlock
-* hologram projection
-* data compile
-* pixel assembly
-* x-ray scanner reveal
-* circuit activation
-* lanyard access scan
-* cartridge insertion
-* node connection drawing
-* object morph
-* transition gates
-* scroll-controlled scene progression
-* ambient life effects
+## Project 2
 
-Every important element should feel alive.
+Skyholic Universe Recruitment & Scoring System
 
-Every scene should have idle motion even when the user does nothing.
+Safe label:
 
-Motion should be visible but controlled.
+Registration, Verification, Scoring, Ranking
 
-Do not make animation chaotic or unreadable.
+## Project 3
 
----
+Cooperative UMKM Survey Data Project
 
-## 8. Interactive Panel Rule
+Safe label:
 
-Many portfolio details should start as title-only panels.
+Collection, Cleaning, Validation, Packaging
 
-When clicked, they reveal descriptions.
+## Project 4
 
-However, title-only panels must not open with a basic dropdown, simple fade, simple slide, or plain accordion behavior.
+Content Performance Editing System
 
-When a title-only panel is clicked, the opening should feel like a system interaction.
+Safe label:
 
-Every important reveal should have four stages:
+Editing, Review, Output Organization
 
-1. Trigger
-   The click activates LED, icon, scanner, command, chip, lock, or node.
+## Project 5
 
-2. Transformation
-   The panel frame changes shape, unlocks, scans, expands, assembles, or opens.
+Avalon AI AR Fashion Try-On Concept
 
-3. Content Reveal
-   The description appears through terminal output, scanline read, hologram projection, decryption, data compile, x-ray reveal, or pixel assembly.
+Safe label:
 
-4. Active Idle
-   The opened panel stays alive with glow, cursor blink, border trace, data line, scanline, node pulse, or status light.
+Camera-Based Fashion Preview Concept
 
-Accepted reveal patterns:
-
-* access scan reveal
-* terminal execute reveal
-* hatch unlock reveal
-* data chip insert reveal
-* hologram projection reveal
-* file decryption reveal
-* inventory slot expand
-* x-ray scanner reveal
-* circuit activation reveal
-* pixel assembly reveal
-* book/page unfold reveal
-* building/window unlock reveal
-* cartridge scanner reveal
-* node hologram expand
-
-Do not use plain accordion behavior.
+Project descriptions and claim safety must follow CONTENT_SOURCE.md.
 
 ---
 
-## 9. Transition Philosophy
+# 10. Achievement Safety
 
-Transitions between scenes must be creative.
+Only verified achievements may be shown as real achievements.
 
-Do not overuse zoom.
+Verified achievements:
 
-Do not make every transition a camera zoom into an object.
+* COMPFEST 16 AI Innovation Challenge — Champion
+* ICONIC IT UI/UX Competition — Runner-up
+* Bangkit Program — Best 2nd Product / Top 2 of 600+ products
 
-Transitions should vary and feel like advanced object transformations.
+Do not invent:
 
-Allowed transition styles:
+* Data Science Summit
+* Leadership Award
+* AI Hackathon
+* fake certificate
+* fake placement
+* fake judge score
+* fake year
+* fake participant count
 
-* lanyard access scan
-* holographic layer peel
-* UI deconstruction
-* data block reassembly
-* book-to-city extrusion
-* building-to-cartridge compression
-* x-ray scanner reveal
-* trophy shatter into nodes
-* magnetic node connection
-* knowledge reactor activation
-* circuit-path transformation
-* pixel object morph
-* object compression
-* object expansion
-* scene reconstruction
+unless the user later provides verified proof.
 
-Each transition should make the user feel:
+If visual space requires more slots, use:
 
-**“How was this made?”**
-
-Every transition must have:
-
-* object continuity
-* motion direction
-* visual transformation
-* connection to the next scene
-* scroll or interaction control
-* lighting change
-* depth change
-* scene identity change
-
-Do not use:
-
-* hard cut
-* plain fade
-* fade to black
-* ordinary slide transition
-* normal section reveal
-* jump scroll
+Documentation Slot
+Replace With Verified Proof
 
 ---
 
-## 10. Content Honesty Rule
+# 11. Banned Content
 
-The portfolio must look expert and technically mature without inventing fake claims.
+Do not use the following education/campus content:
 
-Allowed:
+* Bachelor Communication
+* 10+ campus events
+* webinars and skills training workshops
+* Business Orientation Camp Cluster Head
+* Values-In-Action Ambassador
+* Co-Curricular Activity Tennis
 
-* project architecture that is reasonable
-* workflow diagram
-* pseudo-code or conceptual code snippet
-* implementation-ready design
-* demo placeholder
-* prototype preview
-* recommended stack
-* compatible stack
-* technical direction
-* pre-release workflow
-* system concept
-* project simulation
+Reason:
 
-Not allowed:
+This content does not match the intended premium Data Science / AI Product Builder positioning.
 
-* fake production deployment
-* fake number of users
-* fake business results
-* fake metrics
-* fake clients
-* fake exact tech stack if not confirmed
-* fake certificates
-* fake screenshots
-* fake documentation photos
-* fake project evidence
-
-If evidence is missing, use premium placeholders and label them clearly.
-
-Use content from CONTENT_SOURCE.md as the main structured content source.
-
-Use the resume PDF only as supporting source.
-
-Do not invent facts outside the available source material.
+Do not include it anywhere in the portfolio.
 
 ---
 
-## 11. Technical Direction
+# 12. Contact Data
 
-Use the current Next.js project architecture.
+Approved contact values:
 
-Preferred implementation tools:
+Email:
 
-* React components
-* TypeScript
-* Tailwind CSS
-* Framer Motion for interactive states
-* GSAP ScrollTrigger for scroll-driven scene progression
-* CSS animations for scanlines, blinking, glowing, data packets, and idle loops
-* SVG or canvas where useful for data lines, node maps, or particle effects
+[Arifkiagus577@gmail.com](mailto:Arifkiagus577@gmail.com)
 
-The website should be component-based.
+GitHub:
 
-Avoid rendering reference images as static backgrounds.
+github.com/Akskuy
 
-Reference images are visual guides only.
+LinkedIn:
 
-Final UI should be built as real components.
+linkedin.com/in/Kiagusarifrahman
 
----
+Phone:
 
-## 12. Performance and Responsiveness
+085175376593
 
-The website must be usable and responsive.
+Location:
 
-Desktop:
+Tangerang Selatan, Indonesia
 
-* full cinematic scene behavior
-* rich hover states
-* pinned scenes where appropriate
-* layered UI depth
+Resume path:
 
-Tablet:
+public/docs/kiagus-arif-rahman-resume.pdf
 
-* reduce density
-* preserve core visual identity
-* maintain tap interaction
-* keep text readable
+Do not use Selvi’s contact data.
 
-Mobile:
-
-* reduce heavy effects
-* preserve main identity
-* use tap instead of hover
-* avoid horizontal overflow
-* keep text readable
-* simplify but do not remove all life effects
-
-Support reduced motion.
-
-If reduced motion is enabled:
-
-* reduce heavy camera moves
-* reduce parallax
-* reduce particles
-* keep lightweight UI states
-* preserve usability
+Do not invent additional links.
 
 ---
 
-## 13. Current Build Priority
+# 13. Motion and Transition Direction
 
-Current priority:
+Each transition must have a distinct visual story.
 
-1. Strengthen project rules and documentation
-2. Rebuild Scene 1 / Slide 1 into a premium identity scene
-3. Make the center identity object feel like a premium lanyard / collectible card
-4. Make title-only panels open through creative reveal behavior
-5. Make UI elements rich, not plain
-6. Avoid plain vertical website behavior
-7. Prepare scene transition logic before building all scenes
+Main transition sequence:
 
-Do not rush into building all 8 scenes at once.
+1. Identity Room → Capability Command Center
+2. Capability Command Center → Knowledge Library
+3. Knowledge Library → Experience District
+4. Experience District → Project Archive
+5. Project Archive → Achievement Analytics
+6. Achievement Analytics → Knowledge Map
+7. Knowledge Map → Future Laboratory
 
-Build carefully:
+Transition details must follow MOTION_RULES.md and SCENE_ARCHITECTURE.md.
 
-1. Rules
-2. Scene 1 visual quality
-3. Scene 1 interactions
-4. Scene 1 to Scene 2 transition prototype
-5. Scene 2
-6. Continue scene by scene
+Forbidden transition behavior:
+
+* normal scroll down
+* fade only
+* slide only
+* zoom only
+* repeated portal effect
+* repeated scanline effect
+* generic section reveal
+* static image swap
 
 ---
 
-## 14. Acceptance Criteria
+# 14. Implementation Direction
 
-A scene is not complete unless:
+Recommended implementation order:
 
-* it matches the clean target visual direction
-* it excludes concept-board annotation text
-* it has rich game-like UI details
-* important objects are alive
-* panels have non-basic reveal behavior
-* hover/tap states feel meaningful
-* motion is more advanced than fade/slide
-* text remains readable
-* layout fits at 100% browser zoom
-* placeholders are polished
-* scene prepares the next transition gate
-* it does not feel like a normal website section
+1. Verify all markdown source files are aligned.
+2. Build or refine the one-viewport pinned journey architecture.
+3. Implement Scene 1 final state.
+4. Implement Scene 1 to Scene 2 transition.
+5. Implement Scene 2 final state matching clean-target.
+6. Continue scene-by-scene.
+7. Do not build all scenes randomly at once.
+8. Do not move forward if current scene does not match clean-target.
+9. Use placeholders only when clearly labeled.
+10. Keep build and lint passing.
 
-The final website should feel like:
+Priority:
 
-**a premium interactive data-science game interface portfolio.**
+Correct architecture first.
+Correct scene composition second.
+Correct motion third.
+Micro-interactions last.
+
+---
+
+# 15. Quality Bar
+
+The finished website should feel like:
+
+* a premium interactive data system
+* a cinematic portfolio
+* a professional AI/Data Science identity
+* a high-effort custom build
+* a serious technical product preview
+
+It must not feel like:
+
+* a basic student CV page
+* a template portfolio
+* a static screenshot gallery
+* a normal scroll website
+* a PowerPoint deck
+* a Figma prototype
+* a fake expert site
+* a noisy cyberpunk demo
+
+---
+
+# 16. Final Acceptance Checklist
+
+Before accepting the portfolio, check:
+
+1. Does the site feel like one pinned viewport?
+2. Does it avoid normal section scrolling?
+3. Does every scene match its clean-target direction?
+4. Are clean-target images used only as references?
+5. Are all scenes built with components?
+6. Does Scene 5 use the five approved main projects?
+7. Does Scene 6 show only verified achievements plus placeholder slots?
+8. Does Scene 7 sell translated skills, not raw course lists?
+9. Does Scene 8 feel like a future lab, not a footer?
+10. Are fake metrics avoided?
+11. Are fake technologies avoided?
+12. Are fake deployment claims avoided?
+13. Is banned education content excluded?
+14. Is the motion cinematic and non-basic?
+15. Is the tone premium, professional, and honest?
+
+If any answer is no, revise before moving forward.
+
+---
+
+# 17. Final Project Rule
+
+This portfolio must sell capability without lying.
+
+It must feel expert without inventing proof.
+
+It must feel cinematic without becoming childish.
+
+It must feel interactive without becoming messy.
+
+It must stay inside one premium one-viewport journey from Scene 1 to Scene 8.
