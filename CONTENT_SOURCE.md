@@ -1,129 +1,431 @@
 # CONTENT SOURCE — KIAGUS ARIF RAHMAN PORTFOLIO
 
-## 1. Main Content Rule
+## Source of Truth for Text, Claims, Skills, Projects, Achievements, and Safe Wording
 
-This file is the main structured content source for the portfolio website.
+---
 
-Use this file as the primary content reference.
+# 0. Purpose
 
-Do not invent facts outside this file.
+This file defines the approved content source for the Kiagus Arif Rahman portfolio.
 
-Do not create fake metrics, fake users, fake production deployment, fake clients, fake certificates, fake project screenshots, or fake technical stack claims.
+This file prevents the AI from inventing:
 
-If a detail is not confirmed, use safe wording such as:
+* fake project facts
+* fake deployment claims
+* fake production metrics
+* fake user counts
+* fake client results
+* fake technology stacks
+* fake achievements
+* fake certificates
+* fake analytics
+* fake contact data
+* fake education details
+* fake work history details
 
-* concept
-* prototype
-* pre-release
-* workflow direction
-* implementation-ready design
-* compatible stack
-* recommended architecture
-* demo placeholder
+Visual layout is defined in:
+
+SCENE_ARCHITECTURE.md
+
+Scene order is defined in:
+
+SECTION_PLAN.md
+
+Motion behavior is defined in:
+
+MOTION_RULES.md
+
+Asset paths are defined in:
+
+ASSET_MAP.md
+
+This file defines what may be written in the UI.
+
+If a claim is not listed here or not clearly approved, it must not be written as fact.
+
+---
+
+# 1. Absolute Truthfulness Rule
+
+The portfolio must look expert, premium, and technically mature.
+
+But it must not lie.
+
+Allowed:
+
+* project architecture that is realistic
+* implementation-ready workflow
 * system concept
-* project simulation
+* prototype preview
+* demo placeholder
+* recommended stack
+* compatible stack
+* technical direction
+* UI mock/project viewer
+* safe summary of work
+* evidence slots clearly labeled as placeholders
+* skills inferred from approved coursework and experience, without listing every course
 
-The portfolio should look technically mature without making false claims.
+Forbidden unless verified:
 
----
+* deployed production system
+* served real users
+* increased performance by a specific percentage
+* used PostgreSQL / Redis / Whisper / OpenCV / YOLO / PyTorch / TensorFlow as fact if not confirmed
+* real client result
+* official certificate image if not available
+* real dashboard screenshot if it is only placeholder
+* exact number of users if not verified
+* fake analytics
+* fake awards
+* fake dates
+* fake company impact
+* fake revenue/result claims
 
-## 2. Identity
+If unsure, use safe wording:
 
-Name:
-
-Kiagus Arif Rahman
-
-Location:
-
-Tangerang Selatan, Indonesia
-
-Email:
-
-[arifkiagus577@gmail.com](mailto:arifkiagus577@gmail.com)
-
-LinkedIn:
-
-https://www.linkedin.com/in/arifkiagus
-
-GitHub:
-
-https://github.com/Akskuy
-
-Phone:
-
-085175376593
-
-Primary positioning:
-
-Data Scientist • AI Product Builder • AI Builder
-
-Secondary positioning:
-
-System Analyst mindset • End-to-end data workflow thinker • Project-based technical builder
-
-Short headline options:
-
-1. Data Scientist & AI Product Builder
-2. AI Builder with Strong Data Science Foundation
-3. Data Science Student Building Intelligent Workflow Systems
-4. Data, AI, and System Workflow Builder
-
-Preferred main headline:
-
-Data Scientist & AI Product Builder
-
-Preferred subtitle:
-
-Strong Data Science foundation for intelligent workflows, AI systems, and project-based digital solutions.
+* Prototype Preview
+* Demo Placeholder
+* Output Preview Placeholder
+* Workflow Concept
+* Pre-Release System
+* Implementation-Ready Direction
+* Compatible Stack
+* Recommended Stack
+* Evidence Placeholder
+* To Be Verified
 
 ---
 
-## 3. Professional Summary
+# 2. Content That Must Not Be Used
 
-Use this as the main summary:
+Do not use this education/content block in the final portfolio:
 
-Kiagus Arif Rahman is an undergraduate Data Science student with a strong foundation in statistics, data systems, and AI problem formulation. He has experience in both individual and team-based projects involving data processing, system design, workflow automation, and web-based solution implementation. His work focuses on turning data and AI ideas into structured, usable, and decision-oriented digital systems.
+* Institut Teknologi Sepuluh Nopember - Surabaya, Indonesia Aug 2023 - Jul 2027 (Expected)
+* Bachelor Communication
+* Actively participates in more than 10+ campus events, such as webinars and skills training workshops
+* Business Orientation Camp Cluster Head for 6 months
+* Values-In-Action (VIA) Ambassador
+* Executive Committee of Co-Curricular Activity (CCA) Tennis for 6 months
 
-Short version:
+Reason:
 
-Undergraduate Data Science student focused on data workflows, AI product logic, system design, and project-based digital solutions.
+This content does not match the premium positioning of the portfolio.
 
-More portfolio-like version:
+It feels cheap, generic, and unrelated to the intended Data Science / AI Product Builder positioning.
 
-Kiagus combines data science fundamentals, AI product thinking, and system workflow design to build practical solutions from problem formulation to usable digital outputs.
+Do not use it in:
 
-Avoid overly inflated wording.
+* Scene 1
+* Scene 3
+* Scene 4
+* Scene 7
+* Scene 8
+* resume summary text
+* about text
+* metadata
+* hidden UI labels
+* placeholder text
 
-Do not say:
+Correct education/identity direction:
 
-* senior engineer
-* expert full-stack developer
-* production AI engineer
-* served thousands of users
-* deployed enterprise system
-* scaled production infrastructure
-
-unless confirmed later.
+Undergraduate Data Science Student
+Data Scientist
+AI Product Builder
+AI Builder
 
 ---
 
-## 4. Scene 1 — Identity Room Content
+# 3. Main Identity
 
-## Main Title
+Full name:
 
 KIAGUS ARIF RAHMAN
 
-## Subtitle
+Primary positioning:
+
+Data Scientist
+AI Product Builder
+AI Builder
+
+Recommended subtitle:
 
 Data Scientist • AI Product Builder • AI Builder
 
-## Supporting Line
+Alternative subtitle:
+
+Data Science | AI Product Builder | System-Oriented AI Builder
+
+Short identity statement:
 
 Strong Data Science foundation for intelligent workflows and AI products.
 
-## Left Title-Only Panels
+Longer identity statement:
 
-## Panel 1
+Kiagus Arif Rahman is an undergraduate Data Science student and AI product builder focused on transforming data, workflows, and system ideas into structured, useful, and implementation-ready solutions.
+
+Tone:
+
+* professional
+* technical
+* premium
+* confident
+* not exaggerated
+* not fake expert
+* not overly formal
+* not childish
+
+Do not use:
+
+* world-class expert
+* top 1% programmer
+* senior engineer
+* production-scale architect
+* enterprise-grade system builder
+
+unless there is verified proof.
+
+---
+
+# 4. Coursework-to-Skill Translation Rule
+
+Do not display the full course list on the website.
+
+The full coursework history is used only as an internal source to infer skill domains.
+
+The website should sell translated capabilities, not raw course names.
+
+Correct approach:
+
+Coursework and academic foundation
+→ translated into premium skill domains
+→ displayed as capability, knowledge, and graph nodes
+
+Wrong approach:
+
+Showing a long list of courses directly in the UI.
+
+Forbidden UI pattern:
+
+* long academic course list
+* semester-by-semester course dump
+* transcript-style display
+* “I studied Course A, Course B, Course C” layout
+
+Allowed UI pattern:
+
+* knowledge pillars
+* capability domains
+* skill clusters
+* module labels
+* knowledge map nodes
+* concise foundation statements
+
+---
+
+# 5. The 9 Main Selling Skills
+
+These 9 skill domains are the main skills that should be sold throughout the portfolio.
+
+They are translated from approved coursework, CV direction, and previous project discussion.
+
+Use these as the main skill source.
+
+Do not replace them with a raw course list.
+
+## Skill 1 — Statistical Reasoning
+
+Meaning:
+
+Ability to reason with uncertainty, probability, inference, sampling, modeling, and analytical interpretation.
+
+Use in UI as:
+
+* Statistical Thinking
+* Statistical Reasoning
+* Uncertainty Modeling
+* Inference & Probability
+
+Related scenes:
+
+* Scene 2 Capability Matrix
+* Scene 3 Knowledge Library
+* Scene 7 Knowledge Map
+
+## Skill 2 — Data Workflow
+
+Meaning:
+
+Ability to understand data from collection, cleaning, validation, wrangling, processing, analysis, and delivery into usable outputs.
+
+Use in UI as:
+
+* Data Workflow
+* End-to-End Data Flow
+* Data Processing Pipeline
+* Analysis-Ready Data
+
+Related scenes:
+
+* Scene 2 Capability Matrix
+* Scene 5 Project Archive
+* Scene 7 Knowledge Map
+
+## Skill 3 — Data Engineering Foundation
+
+Meaning:
+
+Ability to understand database structure, data schema, query logic, data warehouse concepts, pipelines, and scalable data organization.
+
+Use in UI as:
+
+* Data Engineering
+* Data Systems
+* Database Design
+* Data Pipeline Foundation
+
+Related scenes:
+
+* Scene 3 Knowledge Library
+* Scene 7 Knowledge Map
+* Scene 8 Future Laboratory
+
+## Skill 4 — Machine Learning Thinking
+
+Meaning:
+
+Ability to frame machine learning problems, understand model logic, classify ML use cases, and connect AI capability to real workflows.
+
+Use in UI as:
+
+* Machine Learning
+* AI Logic
+* AI Problem Formulation
+* Predictive Systems
+
+Related scenes:
+
+* Scene 2 Capability Matrix
+* Scene 7 Knowledge Map
+* Scene 8 Future Laboratory
+
+## Skill 5 — System Analysis
+
+Meaning:
+
+Ability to break down problems into requirements, actors, workflows, data movement, system behavior, and solution structure.
+
+Use in UI as:
+
+* System Analysis
+* Requirement Thinking
+* System Design
+* Workflow Structure
+
+Related scenes:
+
+* Scene 2 Capability Matrix
+* Scene 4 Experience District
+* Scene 5 Project Archive
+
+## Skill 6 — Web-Based Solution Logic
+
+Meaning:
+
+Ability to turn workflows and system requirements into web-based interfaces, portals, dashboards, and interactive tools.
+
+Use in UI as:
+
+* Web-Based Solution
+* Web Workflow
+* Interface System
+* Digital Product Workflow
+
+Related scenes:
+
+* Scene 2 Capability Matrix
+* Scene 5 Project Archive
+* Scene 8 Future Laboratory
+
+## Skill 7 — Research and Validation
+
+Meaning:
+
+Ability to formulate problems, design survey/data collection logic, validate data, evaluate usability, and connect research results to decision-making.
+
+Use in UI as:
+
+* Research
+* Data Validation
+* Survey Design
+* Analytical Usability
+
+Related scenes:
+
+* Scene 3 Knowledge Library
+* Scene 4 Experience District
+* Scene 7 Knowledge Map
+
+## Skill 8 — Decision Intelligence
+
+Meaning:
+
+Ability to transform analysis, modeling, and data interpretation into decision support, business reasoning, and actionable insight.
+
+Use in UI as:
+
+* Decision Intelligence
+* Business Analytics
+* Decision Support
+* Insight Delivery
+
+Related scenes:
+
+* Scene 7 Knowledge Map
+* Scene 8 Future Laboratory
+
+## Skill 9 — Team and Product Direction
+
+Meaning:
+
+Ability to guide teams, structure product logic, coordinate execution, mentor members, and keep technical work aligned with user or community value.
+
+Use in UI as:
+
+* Leadership & Team Direction
+* Product Direction
+* Team Execution
+* AI Product Logic
+
+Related scenes:
+
+* Scene 2 Capability Matrix
+* Scene 4 Experience District
+* Scene 8 Future Laboratory
+
+---
+
+# 6. Scene 1 — Identity Snapshot Content
+
+Scene 1 purpose:
+
+Introduce Kiagus identity and positioning.
+
+Approved title:
+
+KIAGUS ARIF RAHMAN
+
+Approved subtitle:
+
+Data Scientist • AI Product Builder • AI Builder
+
+Approved supporting line:
+
+Strong Data Science foundation for intelligent workflows and AI products.
+
+## 6.1 Six Identity Panels
+
+### Panel 1
 
 Title:
 
@@ -131,13 +433,13 @@ Data Science Student
 
 Short label:
 
-Academic Foundation
+FOUNDATION
 
-Description:
+Safe body:
 
-Undergraduate Data Science student with foundations in statistics, data systems, probabilistic reasoning, and AI problem formulation.
+Built on a Data Science academic foundation with exposure to statistics, data systems, machine learning, and analytical problem-solving.
 
-## Panel 2
+### Panel 2
 
 Title:
 
@@ -145,13 +447,13 @@ Project-Based Experience
 
 Short label:
 
-Practical Builder
+EXECUTION
 
-Description:
+Safe body:
 
-Experienced in team-based and individual projects involving data processing, workflow design, web-based solutions, and system-oriented implementation.
+Experienced in shaping ideas into structured projects, from data workflow planning to web-based system concepts and implementation-ready previews.
 
-## Panel 3
+### Panel 3
 
 Title:
 
@@ -159,15 +461,13 @@ National-Level Achievement
 
 Short label:
 
-Competition Credibility
+RECOGNITION
 
-Description:
+Safe body:
 
-Achievement record includes Champion at COMPFEST 16 AI Innovation Challenge, Runner-up at ICONIC IT UI/UX Competition, and Best 2nd Product in Bangkit Program.
+Recognized through national-level competitions and achievement-oriented programs, with emphasis on AI innovation, product thinking, and team execution.
 
-## Right Title-Only Panels
-
-## Panel 4
+### Panel 4
 
 Title:
 
@@ -175,13 +475,13 @@ Leadership Experience
 
 Short label:
 
-Team Direction
+LEADERSHIP
 
-Description:
+Safe body:
 
-Led and coordinated technical and organizational teams, including roles in Avalon AI Community, regional student forum activities, and project-based team collaboration.
+Led and coordinated team-based work across data, AI, software, UI/UX, community, and project execution contexts.
 
-## Panel 5
+### Panel 5
 
 Title:
 
@@ -189,13 +489,13 @@ End-to-End Data Workflow
 
 Short label:
 
-Data to Output
+DATA FLOW
 
-Description:
+Safe body:
 
-Experienced in processing, cleaning, validating, structuring, and packaging raw data into usable outputs aligned with stakeholder or project needs.
+Understands the flow from raw data collection, cleaning, validation, analysis, modeling, and delivery into useful outputs.
 
-## Panel 6
+### Panel 6
 
 Title:
 
@@ -203,1125 +503,1563 @@ System Design & AI Solutions
 
 Short label:
 
-System Thinking
+SYSTEMS
 
-Description:
+Safe body:
 
-Focuses on translating problems into structured workflows, AI product logic, system concepts, and implementation-ready digital solution designs.
+Focused on building structured system concepts where data, automation, AI logic, and user workflows work together.
 
-## Center Card About Content
+## 6.2 Lanyard / Identity Card Back Face
 
-Title:
+Heading:
 
-About Kiagus
+Compiled Identity Data
 
-Description:
+Body:
 
-Kiagus Arif Rahman is a Data Science undergraduate focused on data workflows, AI product direction, and system-based problem solving. His portfolio connects academic foundations, leadership experience, project execution, and technical product thinking into one professional identity.
+A Data Science student and AI product builder with a strong interest in intelligent workflows, data-driven systems, and practical solution design.
 
-Micro stats:
+Chips:
 
-* Data Science Student
-* AI Product Builder
-* Project-Based Experience
-* National Achievement Record
-* Leadership Background
-* System Workflow Thinker
+* Data Science
+* AI Product Logic
+* Workflow Systems
+* Team Direction
 
-Bottom interaction copy:
+Do not write:
 
-CLICK CARD TO KNOW MORE ABOUT KIAGUS
+* senior programmer
+* production engineer
+* enterprise AI architect
+* deployed many real systems
 
-SCROLL TO EXPLORE
-
-NEXT: CAPABILITY MATRIX
+unless verified.
 
 ---
 
-## 5. Scene 2 — Capability Command Center Content
+# 7. Scene 2 — Capability Matrix Content
 
-Scene purpose:
+Scene 2 purpose:
 
-Show capability areas as interactive terminals.
+Show six major capability domains.
 
-Main title:
+Scene title:
 
 CAPABILITY MATRIX
 
-Subtitle:
+## 7.1 Capability Terminals
 
-Core technical and strategic capabilities behind Kiagus's project workflow.
-
-Suggested capability terminals:
-
-## Terminal 1
+### Terminal 1
 
 Title:
 
-Statistical Thinking
+STATISTICAL THINKING
 
 Command label:
 
 RUN_STATISTICAL_LOGIC
 
-Description:
+Short safe description for later interaction:
 
-Applies statistical reasoning, probability concepts, data interpretation, and analytical thinking to understand problems and support decision-making.
+Builds reasoning from uncertainty, probability, inference, sampling, and statistical modeling.
 
-Safe skill tags:
+Related selling skill:
 
-* Statistics
-* Probability
-* Multivariate Analysis
-* Data Interpretation
-* Analytical Reasoning
+Statistical Reasoning
 
-## Terminal 2
+### Terminal 2
 
 Title:
 
-Data Workflow
-
-Command label:
-
-RUN_DATA_PIPELINE
-
-Description:
-
-Works with data processing workflows, including cleaning, validation, structuring, schema thinking, and packaging data into usable outputs.
-
-Safe skill tags:
-
-* Data Cleaning
-* Data Validation
-* Data Structuring
-* Data Packaging
-* Data Pipeline Thinking
-
-## Terminal 3
-
-Title:
-
-AI Product Logic
+AI PRODUCT LOGIC
 
 Command label:
 
 RUN_AI_PRODUCT_FLOW
 
-Description:
+Short safe description for later interaction:
 
-Translates AI ideas into product workflows by defining problems, system behavior, input-output logic, and implementation direction.
+Connects AI possibilities with product direction, user needs, workflow value, and solution framing.
 
-Safe skill tags:
+Related selling skills:
 
-* AI Problem Formulation
-* Product Logic
-* Workflow Design
-* Prototype Thinking
-* Solution Mapping
+Machine Learning Thinking
+Team and Product Direction
 
-## Terminal 4
+### Terminal 3
 
 Title:
 
-System Analysis
+DATA WORKFLOW
+
+Command label:
+
+RUN_DATA_PIPELINE
+
+Short safe description for later interaction:
+
+Structures data from collection and cleaning into analysis-ready and decision-ready outputs.
+
+Related selling skill:
+
+Data Workflow
+
+### Terminal 4
+
+Title:
+
+SYSTEM ANALYSIS
 
 Command label:
 
 RUN_SYSTEM_ANALYSIS
 
-Description:
+Short safe description for later interaction:
 
-Breaks down user needs, workflow requirements, and system processes into structured modules that can guide technical implementation.
+Breaks down problems into requirements, processes, actors, data flow, and system behavior.
 
-Safe skill tags:
+Related selling skill:
 
-* System Mapping
-* Requirement Thinking
-* Process Design
-* User Flow
-* System Logic
+System Analysis
 
-## Terminal 5
+### Terminal 5
 
 Title:
 
-Web-Based Solution
+WEB-BASED SOLUTION
 
 Command label:
 
 RUN_WEB_SOLUTION
 
-Description:
+Short safe description for later interaction:
 
-Has basic to intermediate experience in web-based solution implementation, especially for registration, data collection, workflow, and dashboard-style systems.
+Frames digital workflows into web-based tools, dashboards, portals, and interactive system concepts.
 
-Safe skill tags:
+Related selling skill:
 
-* Web Development
-* Data Collection
-* Dashboard Logic
-* Workflow Interface
-* Basic Backend Fundamentals
+Web-Based Solution Logic
 
-## Terminal 6
+### Terminal 6
 
 Title:
 
-Leadership & Team Direction
+LEADERSHIP & TEAM DIRECTION
 
 Command label:
 
 RUN_TEAM_DIRECTION
 
-Description:
+Short safe description for later interaction:
 
-Experienced in leading and coordinating teams, defining technical direction, mentoring members, and maintaining project feasibility and output quality.
+Supports team execution through direction, coordination, quality control, mentoring, and collaboration.
 
-Safe skill tags:
+Related selling skill:
 
-* Team Direction
-* Mentoring
-* Coordination
-* Quality Standard
-* Project Feasibility
+Team and Product Direction
 
-Transition hook copy:
+Do not add long descriptions in the default terminal state.
 
-ARCHIVE KNOWLEDGE ROUTE READY
-
-NEXT: KNOWLEDGE LIBRARY
+Long descriptions may appear only in later interaction states.
 
 ---
 
-## 6. Scene 3 — Knowledge Library Content
+# 8. Scene 3 — Knowledge Library Content
 
-Scene purpose:
+Scene 3 purpose:
 
-Show academic and technical foundations as a knowledge library.
+Show knowledge foundation as an archive library.
 
-Main title:
+Scene title:
 
 KNOWLEDGE LIBRARY
 
-Subtitle:
+Important:
 
-Academic and practical knowledge areas that support data, AI, and system workflow development.
+Scene 3 should not display the complete course list.
 
-Main categories:
+Scene 3 should display curated knowledge categories and modules that represent capability domains.
 
-## Category 1
+## 8.1 Knowledge Category Tabs
 
-Title:
+### Category 1
 
-Statistics & Probability
+Number:
 
-Description:
-
-Foundation for reasoning under uncertainty, interpreting data behavior, and supporting analytical decision-making.
-
-Possible modules:
-
-* Statistical Modeling
-* Probabilistic Reasoning
-* Multivariate Analysis
-* Data Interpretation
-
-## Category 2
+1
 
 Title:
 
-Data Systems
+MATHEMATICAL & STATISTICAL FOUNDATION
 
-Description:
+State:
 
-Knowledge related to structuring, storing, organizing, validating, and preparing data for practical use.
+active by default
 
-Possible modules:
+Purpose:
 
-* Database Design
-* Data Schema Structuring
-* Query Optimization
-* Data Pipeline Thinking
-* Data Packaging
+Represents statistical reasoning, probability, uncertainty, modeling, and analytical interpretation.
 
-## Category 3
+### Category 2
 
-Title:
+Number:
 
-AI & Machine Learning
-
-Description:
-
-Conceptual and applied foundation for AI problem formulation, model-oriented thinking, and intelligent workflow design.
-
-Possible modules:
-
-* AI Problem Formulation
-* Machine Learning Logic
-* Data-Driven Solutions
-* AI Product Direction
-
-## Category 4
+2
 
 Title:
 
-Product & Workflow Thinking
+COMPUTING, PROGRAMMING & DATA SYSTEMS
 
-Description:
+State:
 
-Ability to connect technical logic with user needs, project flow, decision objectives, and real implementation constraints.
+inactive by default
 
-Possible modules:
+Purpose:
 
-* System Design
-* Workflow Automation
-* User Need Mapping
-* Implementation-Ready Design
-* Project Delivery Thinking
+Represents data engineering foundation, database thinking, programming logic, data pipelines, and web workflow.
 
-Detail panel safe copy:
+### Category 3
 
-Knowledge areas are presented as learning and project foundations, not as claims of senior-level specialization.
+Number:
 
-Transition hook copy:
+3
 
-OPEN EXPERIENCE MAP
+Title:
 
-NEXT: EXPERIENCE DISTRICT
+MACHINE LEARNING, AI & ADVANCED ANALYTICS
+
+State:
+
+inactive by default
+
+Purpose:
+
+Represents machine learning thinking, AI problem formulation, model reasoning, and advanced analytical methods.
+
+### Category 4
+
+Number:
+
+4
+
+Title:
+
+BUSINESS, RESEARCH, LEADERSHIP & DIGITAL TRANSFORMATION
+
+State:
+
+inactive by default
+
+Purpose:
+
+Represents research, validation, decision intelligence, team direction, and product/system thinking.
+
+## 8.2 Active Pillar Panel
+
+Title:
+
+MATHEMATICAL & STATISTICAL FOUNDATION
+
+Supporting label:
+
+FOUNDATION PILLAR
+
+## 8.3 Center Panel
+
+Panel title:
+
+MODULES & FOUNDATIONS
+
+Modules:
+
+01 Calculus
+02 Linear Algebra
+03 Probability
+04 Statistical Inference
+05 Statistical Modeling
+06 Bayesian Thinking
+07 Sampling
+08 Data Wrangling
+09 Multivariate Analysis
+10 Stochastic Process
+11 Forecasting
+12 Simulation
+13 Optimization
+14 Metaheuristics
+
+Active module:
+
+04 Statistical Inference
+
+Note:
+
+This module list is curated for UI clarity.
+
+Do not expand it into a full transcript or all coursework.
+
+## 8.4 Right Overview Panel
+
+Panel title:
+
+PILLAR OVERVIEW
+
+Body:
+
+Comprehensive coverage of mathematical theories and statistical methods that form the backbone of data analysis, modeling, and decision science.
+
+## 8.5 Bottom Sentence Bar
+
+Text:
+
+Foundation for modeling uncertainty, analyzing complex data, and supporting decision-making.
 
 ---
 
-## 7. Scene 4 — Experience District Content
+# 9. Scene 4 — Experience District Content
 
-Scene purpose:
+Scene 4 purpose:
 
-Show experiences and roles as buildings in a pixel district.
+Show experience as a living district/city map.
 
-Main title:
+Accepted scene direction:
 
 EXPERIENCE DISTRICT
 
-Subtitle:
+## 9.1 Left Category Panel
 
-A map of leadership, data workflow, project execution, and digital content experience.
+Panel title:
 
-## Experience 1
+DISTRICT CATEGORIES >>>
+
+Categories:
+
+1. Community & Non-Profit
+2. Academic & Department
+3. Project & Team
+4. Content & Systems
+5. Operations & Service
+6. Leadership & Initiative
+
+Status block title:
+
+DISTRICT STATUS
+
+Rows:
+
+Total Districts
+6
+
+Active Lights
+6/6
+
+Stories Unlocked
+0/6
+
+## 9.2 Districts
+
+### District 01
+
+ID:
+
+01
 
 Title:
 
-Avalon AI Community
+AVALON AI COMMUNITY
 
-Location / Context:
+Subtitle:
 
-Institut Teknologi Sepuluh Nopember
+Head of Data Science
+& Artificial Intelligence
 
-Period:
+Category:
 
-Mar 2023 - Mar 2024
+Community & Non-Profit
 
-Role:
+Default state:
+
+active
+
+Bottom detail title:
+
+AVALON AI COMMUNITY
+
+Bottom detail role:
 
 Head of Data Science & Artificial Intelligence
 
-Description:
+Safe description:
 
-Led cross-functional technical teams across Data, AI, Software, and UI/UX. Helped define technical direction, quality standards, and feasibility for applied AI and data-driven projects.
+Leading the Data Science & AI division in a community of 200+ active members. Managed data, AI, software, and UI/UX teams to deliver high-quality solutions and meaningful impact.
 
-Safe highlights:
+Tags:
 
-* Led technical teams
-* Defined project direction
-* Mentored members
-* Supported problem formulation
-* Maintained feasibility and output quality
+* Leadership
+* Team Management
+* AI Direction
+* Mentorship
+* Quality Control
+* Community Impact
 
-Related achievements:
+Key responsibilities:
 
-* Champion — COMPFEST 16 AI Innovation Challenge
-* Runner-up — ICONIC IT UI/UX Competition
-* Best 2nd Product — Bangkit Program
+* Defined technical direction and AI roadmap
+* Managed Data, AI, Software, and UI/UX teams
+* Set quality standards and solution architecture
+* Mentored members from problem to solution
+* Ensured accuracy, efficiency, and impact
 
-## Experience 2
+Impact & outcome:
 
-Title:
+200+
+Active Community Members
 
-Department of Statistics ITS
+Multiple
+Projects & Initiatives
 
-Location / Context:
+Improved
+Team Quality & Output
 
-Institut Teknologi Sepuluh Nopember
+Strong
+Collaboration Culture
 
-Period:
+Evidence preview text:
 
-Mar 2024 - Jun 2024
+Reports, project docs, and community activities
 
-Role:
+Evidence button:
 
-Independent Team Project
+VIEW FULL EVIDENCE
 
-Description:
+Truth status:
 
-Conducted structured surveys and processed raw survey data into clean, validated, and business-ready datasets based on company-specific requirements.
+User-approved claim.
 
-Safe highlights:
+### District 02
 
-* Designed survey instruments
-* Processed and cleaned raw data
-* Validated data consistency
-* Structured datasets for business use
-* Delivered finalized data outputs
+ID:
 
-## Experience 3
-
-Title:
-
-Independent Team Project
-
-Location / Context:
-
-Remote
-
-Period:
-
-Oct 2025 - Present
-
-Role:
-
-Data & System Analyst
-
-Description:
-
-Worked on team-based data and system development projects focused on data packaging, workflow automation, and pre-release web-based solution development.
-
-Safe highlights:
-
-* Processed and structured datasets
-* Packaged data into usable information products
-* Built a pre-release automated clipping website
-* Designed workflow automation direction
-* Worked from link input to upload process concept
-
-## Experience 4
+02
 
 Title:
 
-TernakUang
-
-Location / Context:
-
-Remote
-
-Period:
-
-Nov 2025 - Present
-
-Role:
-
-Clipper / Content Editor
-
-Description:
-
-Worked on performance-oriented short-form video clipping by identifying high-impact moments and adapting pacing and structure for platform-specific distribution.
-
-Safe highlights:
-
-* Short-form video clipping
-* Content pacing
-* Audience engagement focus
-* Platform-specific structure
-* Performance-oriented editing
-
-## Experience 5
-
-Title:
-
-Dessydiniyanti
-
-Location / Context:
-
-Remote
-
-Period:
-
-Dec 2025 - Present
-
-Role:
-
-Video Editor
-
-Description:
-
-Edited short-form and long-form video content with attention to visual structure, pacing, typography, and delivery under deadline.
-
-Safe highlights:
-
-* Video editing
-* Visual pacing
-* Typography structure
-* Deadline-based delivery
-* Content production support
-
-## Experience 6
-
-Title:
-
-GTmurah
-
-Location / Context:
-
-Remote
-
-Period:
-
-Sep 2019 - Jan 2021
-
-Role:
-
-Customer Service
-
-Description:
-
-Handled customer communication and transaction flow for a digital marketplace focused on in-game currency and virtual items.
-
-Safe highlights:
-
-* Customer communication
-* Transaction support
-* Order records
-* Trust and accuracy
-* Marketplace operations
-
-## Experience 7
-
-Title:
-
-Forum Daerah Tangerang Raya BENEFITS ITS
-
-Location / Context:
-
-Surabaya, Indonesia
-
-Period:
-
-Sep 2023 - Sep 2024
-
-Role:
-
-Head / Ketua Forum Daerah
-
-Description:
-
-Led regional student coordination, internal communication, member engagement, and represented regional student interests within institutional forums.
-
-Safe highlights:
-
-* Regional coordination
-* Member engagement
-* Internal communication
-* Student representation
-* Organizational leadership
-
-## Experience 8
-
-Title:
-
-Podcast Panjul
-
-Location / Context:
-
-Tangerang Selatan, Indonesia
-
-Period:
-
-Jan 2023 - Present
-
-Role:
-
-Founder & Head of Podcast
-
-Description:
-
-Founded and led a school-based podcast initiative from concept to execution, including content planning, recording, editing, publication, promotion, and audience engagement.
-
-Safe highlights:
-
-* Founded podcast initiative
-* Led content planning
-* Managed recording and editing
-* Coordinated publication
-* Supported audience engagement
-
-Transition hook copy:
-
-COMPRESS EXPERIENCE INTO PROJECT CARTRIDGE
-
-NEXT: PROJECT ARCHIVE
-
----
-
-## 8. Scene 5 — Project Archive Content
-
-Scene purpose:
-
-Show main projects as cartridges inside an archive system.
-
-Main title:
-
-PROJECT ARCHIVE
+DEPARTMENT OF STATISTICS ITS
 
 Subtitle:
 
-Selected projects presented as system concepts, prototypes, workflows, and implementation-ready project directions.
+Structured Survey &
+Data Packaging Project
 
-Important project honesty rule:
+Category:
 
-Do not invent confirmed tech stack, deployment status, user count, business result, or production metric.
+Academic & Department
 
-If details are not confirmed, use recommended or compatible architecture language.
+Safe description:
 
-## Project 1
+Worked on structured survey data and data packaging activities connected to academic or departmental data needs.
 
-Title:
+### District 03
 
-Automated Clipping Website
+ID:
 
-Type:
-
-Pre-release / workflow automation concept
-
-Short description:
-
-A web-based workflow concept for automating the clipping process from link input to upload-oriented workflow stages.
-
-Safe detail:
-
-This project can be presented as a pre-release automated clipping website and workflow automation direction. It should not be described as a fully deployed production platform unless confirmed later.
-
-Suggested architecture display:
-
-* Link input
-* Content queue
-* Processing workflow
-* Review stage
-* Upload preparation
-* Status tracking
-
-Safe technical direction:
-
-* Web interface
-* Workflow automation
-* Queue-based process
-* Dashboard-style tracking
-* Recommended backend integration
-* Compatible storage/database layer
-
-Do not claim:
-
-* real users
-* production deployment
-* revenue impact
-* exact API integration
-* exact database stack
-
-unless confirmed.
-
-## Project 2
+03
 
 Title:
 
-Skyholic Universe Recruitment & Scoring System
+INDEPENDENT TEAM PROJECT
 
-Type:
+Subtitle:
 
-Recruitment and scoring system concept / prototype workflow
+Data & System Analyst
+Multiple Web Systems
 
-Short description:
+Category:
 
-A structured recruitment and scoring system concept for managing applicants, assessment flow, and scoring output.
+Project & Team
 
-Safe detail:
+Safe description:
 
-Present as a system workflow and interface concept unless confirmed as production deployment.
+Contributed to team-based web and data system projects with emphasis on analysis, workflow structure, and system direction.
 
-Suggested architecture display:
+### District 04
 
-* Applicant registration
-* Data collection
-* Assessment input
-* Scoring logic
-* Ranking / review dashboard
-* Final output
+ID:
 
-Safe technical direction:
-
-* Registration system
-* Scoring dashboard
-* Data validation
-* Role-based workflow
-* Structured applicant data
-
-Do not invent:
-
-* exact number of applicants
-* official production usage
-* exact scoring formula
-* confirmed tech stack
-
-unless confirmed.
-
-## Project 3
+04
 
 Title:
 
-Cooperative UMKM Survey Data Project
+CONTENT SYSTEMS
 
-Type:
+Subtitle:
 
-Survey data processing and business-ready data output
+Dessydiniyanti &
+TernakUang
 
-Short description:
+Category:
 
-A structured data project involving survey instrument design, raw data processing, validation, cleaning, and packaging into business-ready outputs.
+Content & Systems
 
-Safe detail:
+Safe description:
 
-This project can be presented as a real structured data workflow based on the Department of Statistics ITS project.
+Experience connected to content systems, editing workflows, and content performance organization.
 
-Suggested workflow display:
+### District 05
 
-* Requirement mapping
-* Survey instrument design
-* Data collection
-* Raw data cleaning
-* Validation
-* Structured dataset packaging
-* Final output delivery
+ID:
 
-Safe technical direction:
-
-* Data cleaning
-* Data validation
-* Dataset structuring
-* Analytical usability
-* Business-ready data packaging
-
-## Project 4
+05
 
 Title:
 
-Content Performance Editing System
+CUSTOMER OPERATIONS
 
-Type:
+Subtitle:
 
-Content workflow and editing system
+GTmurah
 
-Short description:
+Category:
 
-A content workflow system concept based on short-form and long-form editing experience, focused on pacing, high-impact moments, platform-specific structure, and performance-oriented content distribution.
+Operations & Service
 
-Safe detail:
+Safe description:
 
-Present this as a workflow system derived from content editing work, not as a deployed software platform unless later confirmed.
+Experience connected to service, operations, and customer-facing workflow support.
 
-Suggested workflow display:
+### District 06
 
-* Source video review
-* High-impact moment detection
-* Clip selection
-* Pacing edit
-* Typography structure
-* Platform adaptation
-* Output review
+ID:
 
-Safe technical direction:
-
-* Content pipeline
-* Editorial workflow
-* Performance-oriented structure
-* Visual pacing system
-* Upload-ready output
-
-## Project 5
+06
 
 Title:
 
-Avalon AI AR Fashion Try-On Concept
+LEADERSHIP & COMMUNITY
 
-Type:
+Subtitle:
 
-AI / AR product concept
+BENEFITS &
+Podcast Panjul
 
-Short description:
+Category:
 
-An AI/AR fashion try-on concept where users can preview clothing through a camera-based interaction flow.
+Leadership & Initiative
 
-Safe detail:
+Safe description:
 
-Present as a concept/system direction developed with team context. Do not claim production deployment or advanced computer vision implementation unless confirmed.
+Experience connected to leadership, community coordination, communication, and initiative-building.
 
-Suggested architecture display:
+## 9.3 Bottom Navigation
 
-* Camera input
-* Clothing selection
-* Body/pose reference
-* AR preview layer
-* Fit visualization concept
-* User feedback loop
+Label:
 
-Safe technical direction:
+DISTRICT NAVIGATION
 
-* AR try-on concept
-* AI product workflow
-* Camera-based interaction
-* Prototype preview
-* Recommended computer vision direction
-* Implementation-ready concept
+Mini selector:
 
-Do not claim:
+01 02 03 04 05 06
 
-* OpenCV used
-* production AR engine
-* exact ML model
-* real-time deployed system
-* live user testing
+Next destination title:
 
-unless confirmed.
+NEXT DESTINATION
 
-Transition hook copy:
+Next destination text:
 
-SCAN PROJECT OUTPUT INTO ACHIEVEMENT ANALYTICS
+Building window detected.
+Preparing to enter project archive...
 
-NEXT: ACHIEVEMENT ANALYTICS
+Do not write exaggerated job titles.
+
+Do not invent companies, dates, or measurable outcomes unless verified.
 
 ---
 
-## 9. Scene 6 — Achievement Analytics Content
+# 10. Scene 5 — Project Archive Content
 
-Scene purpose:
+Scene 5 purpose:
 
-Show achievements as credible analytics objects.
+Show the five main projects as cartridges inside a project archive machine.
 
-Main title:
+Scene title:
+
+PROJECT ARCHIVE
+
+Important:
+
+Scene 5 must use the five main portfolio projects.
+
+Do not replace them with minor submodules as main cartridges.
+
+The approved five main projects are:
+
+1. Automated Clipping Website
+2. Skyholic Universe Recruitment & Scoring System
+3. Cooperative UMKM Survey Data Project
+4. Content Performance Editing System
+5. Avalon AI AR Fashion Try-On Concept
+
+## 10.1 Project Cartridge Rack
+
+Panel title:
+
+PROJECT CARTRIDGES
+
+### Cartridge 01
+
+ID:
+
+01
+
+Title:
+
+AUTOMATED CLIPPING WEBSITE
+
+State:
+
+active by default
+
+Category:
+
+Web Automation
+
+Short label:
+
+Pre-Release Automated Workflow System
+
+### Cartridge 02
+
+ID:
+
+02
+
+Title:
+
+SKYHOLIC UNIVERSE RECRUITMENT & SCORING SYSTEM
+
+State:
+
+inactive
+
+Category:
+
+Recruitment / Scoring System
+
+Short label:
+
+Registration, Verification, Scoring, Ranking
+
+### Cartridge 03
+
+ID:
+
+03
+
+Title:
+
+COOPERATIVE UMKM SURVEY DATA PROJECT
+
+State:
+
+inactive
+
+Category:
+
+Survey Data / Business Data Packaging
+
+Short label:
+
+Collection, Cleaning, Validation, Packaging
+
+### Cartridge 04
+
+ID:
+
+04
+
+Title:
+
+CONTENT PERFORMANCE EDITING SYSTEM
+
+State:
+
+inactive
+
+Category:
+
+Content Workflow / Performance System
+
+Short label:
+
+Editing, Review, Output Organization
+
+### Cartridge 05
+
+ID:
+
+05
+
+Title:
+
+AVALON AI AR FASHION TRY-ON CONCEPT
+
+State:
+
+inactive
+
+Category:
+
+AR Interaction / Retail Concept
+
+Short label:
+
+Camera-Based Fashion Preview Concept
+
+Bottom count:
+
+5 / 5 PROJECTS
+
+## 10.2 Active Project Viewer
+
+Panel title:
+
+PROJECT VIEWER MACHINE
+
+Active project title:
+
+AUTOMATED CLIPPING WEBSITE
+
+Subtitle:
+
+PRE-RELEASE AUTOMATED WORKFLOW SYSTEM
+
+Workflow blocks:
+
+1. LINK INPUT
+2. PROCESSING ENGINE
+3. CLIPPING OUTPUT
+4. UPLOAD FLOW
+
+System state label:
+
+SYSTEM IDLE
+
+System message:
+
+Insert cartridge or click details to begin.
+
+Insertion slot label:
+
+INSERT CARTRIDGE
+
+## 10.3 Project Summary Panel
+
+Panel title:
+
+PROJECT SUMMARY
+
+Rows:
+
+STATUS
+Pre-Release
+
+CATEGORY
+Web Automation
+
+STAGE
+Prototype / Workflow Concept
+
+CONFIDENTIALITY
+Internal Use / Demo Preview
+
+VER.
+0.9 Preview
+
+Truth note:
+
+Use these values as display metadata.
+
+Do not present this as a deployed production system.
+
+## 10.4 Workflow Preview Panel
+
+Panel title:
+
+WORKFLOW PREVIEW (DIAGRAM)
+
+Blocks:
+
+1. LINK INPUT
+2. PROCESSING ENGINE
+3. CLIPPING OUTPUT
+4. UPLOAD FLOW
+
+Step labels:
+
+1. INPUT
+2. PROCESS
+3. OUTPUT
+4. UPLOAD
+
+## 10.5 Proof / Output Preview Panel
+
+Panel title:
+
+PROJECT PROOF / OUTPUT PREVIEW
+
+Preview slots:
+
+1. DASHBOARD OVERVIEW
+2. CLIPPING RESULT SAMPLE
+3. UPLOAD LOG SAMPLE
+
+If no real screenshots are available, label as:
+
+Output Preview Placeholder
+
+Do not pretend placeholders are real product screenshots.
+
+## 10.6 Tip Bar
+
+Text:
+
+TIP: Click any cartridge or viewer area to explore project details and workflow.
+
+## 10.7 Project Detail Source
+
+### Project 1 — Automated Clipping Website
+
+Safe description:
+
+A web-based workflow concept for turning long-form video sources into shorter clip outputs through a structured input, processing, output, and upload flow.
+
+Allowed labels:
+
+* Pre-Release Automated Workflow System
+* Web Automation
+* Workflow Concept
+* Prototype Preview
+* Internal Use
+* Implementation-Ready Direction
+
+Forbidden unless verified:
+
+* production system
+* deployed product
+* real users
+* actual AI clipping model in production
+* real upload automation success
+* real client impact
+* specific AI/video tools as fact
+
+### Project 2 — Skyholic Universe Recruitment & Scoring System
+
+Safe description:
+
+A recruitment and scoring system concept for organizing applicant registration, profile verification, judge scoring, ranking, and review workflows.
+
+Possible modules:
+
+* registration form
+* applicant profile
+* e-signature
+* device/time logging
+* social profile verification
+* judge scoring
+* average score calculation
+* CV summary
+* ranking dashboard
+* appeal/review flow
+* KPI tracking
+
+Allowed labels:
+
+* Recruitment Workflow System
+* Scoring System
+* Verification Workflow
+* Ranking Dashboard Concept
+* Implementation-Ready Direction
+
+Forbidden unless verified:
+
+* production deployment
+* exact number of applicants
+* exact KPI improvement
+* real Discord/Instagram/LinkedIn API integration
+* real automatic verification as fact
+
+### Project 3 — Cooperative UMKM Survey Data Project
+
+Safe description:
+
+A structured data project involving UMKM survey data collection, cleaning, validation, and packaging into business-ready data outputs.
+
+Allowed labels:
+
+* Structured Survey Data
+* Business-Ready Data Packaging
+* Data Collection
+* Data Validation Workflow
+* Cooperative UMKM Data Project
+
+Forbidden unless verified:
+
+* official government result
+* confidential client metrics
+* exact number of UMKM
+* business impact percentages
+
+### Project 4 — Content Performance Editing System
+
+Safe description:
+
+A content workflow system direction based on editing experience, performance observation, and content output organization.
+
+Allowed labels:
+
+* Content System
+* Editing Workflow
+* Performance Review
+* Media Output Organization
+
+Forbidden unless verified:
+
+* exact growth metrics
+* exact revenue impact
+* guaranteed performance improvement
+* real analytics dashboard as proof if only placeholder
+
+### Project 5 — Avalon AI AR Fashion Try-On Concept
+
+Safe description:
+
+A collaborative AR fashion try-on concept enabling users to preview clothing through camera-based interaction.
+
+Allowed labels:
+
+* AR Fashion Try-On Concept
+* Prototype Direction
+* Retail Interaction Concept
+* Camera-Based Preview Concept
+
+Forbidden unless verified:
+
+* production AR system
+* real commercial deployment
+* specific computer vision stack
+* exact user testing metrics
+
+---
+
+# 11. Scene 6 — Achievement Analytics Content
+
+Scene 6 purpose:
+
+Show achievements as a museum analytics display.
+
+Scene title:
 
 ACHIEVEMENT ANALYTICS
 
 Subtitle:
 
-Selected competition and product achievements represented through an analytics-style credibility system.
+A museum of milestones. Data that proves impact.
 
-## Achievement 1
+Important:
 
-Title:
+Only the verified achievements below may be shown as real achievements.
 
-Champion — COMPFEST 16
+Do not invent additional achievement names.
 
-Category:
+If more slots are needed visually, use documentation slots clearly labeled as replaceable placeholders.
 
-AI Innovation Challenge
+## 11.1 Verified Achievement List
 
-Description:
+Panel title:
 
-Awarded Champion in COMPFEST 16 AI Innovation Challenge.
+ACHIEVEMENTS
 
-Safe context:
-
-Use as competition achievement. Do not invent detailed project result, judge comment, or official certificate image unless provided later.
-
-Suggested metric labels:
-
-* Rank: Champion
-* Field: AI Innovation
-* Scope: Competition Achievement
-* Evidence: Documentation placeholder
-
-## Achievement 2
+### Verified Achievement 01
 
 Title:
 
-Runner-up — ICONIC IT
-
-Category:
-
-UI/UX Competition
-
-Description:
-
-Awarded Runner-up in ICONIC IT UI/UX Competition.
-
-Safe context:
-
-Use as UI/UX competition achievement. Do not invent official documentation images or judging details unless provided later.
-
-Suggested metric labels:
-
-* Rank: Runner-up
-* Field: UI/UX
-* Scope: Competition Achievement
-* Evidence: Documentation placeholder
-
-## Achievement 3
-
-Title:
-
-Best 2nd Product — Bangkit Program
-
-Category:
-
-Product Achievement
-
-Description:
-
-Received Best 2nd Product recognition in Bangkit Program.
-
-Safe context:
-
-Can mention Top 2 of 600+ products only if already included in the provided resume/source. Do not invent additional product traction or user metrics.
-
-Suggested metric labels:
-
-* Rank: Best 2nd Product
-* Field: Product
-* Scope: Program Achievement
-* Evidence: Documentation placeholder
-
-Documentation rule:
-
-If actual documentation photos are not available in public/evidence/, use premium placeholders labeled clearly as replace-later documentation slots.
-
-Do not show fake certificate images.
-
-Transition hook copy:
-
-SHATTER ACHIEVEMENT SIGNALS INTO KNOWLEDGE MAP
-
-NEXT: KNOWLEDGE MAP
-
----
-
-## 10. Scene 7 — Knowledge Map Content
-
-Scene purpose:
-
-Show connection between skills, experience, projects, and achievements.
-
-Main title:
-
-KNOWLEDGE MAP
+COMPFEST 16
 
 Subtitle:
 
-A connected map of technical foundations, workflow thinking, leadership, and project execution.
+AI INNOVATION CHALLENGE
 
-Main node clusters:
+State:
 
-## Cluster 1
+active by default
+
+Rank:
+
+Champion
+
+Status:
+
+Verified from user-approved CV/context.
+
+### Verified Achievement 02
 
 Title:
 
-Statistics
+ICONIC IT
 
-Related to:
+Subtitle:
 
-* Statistical modeling
+UI/UX COMPETITION
+
+State:
+
+inactive
+
+Rank:
+
+Runner-up
+
+Status:
+
+Verified from user-approved CV/context.
+
+### Verified Achievement 03
+
+Title:
+
+BANGKIT PROGRAM
+
+Subtitle:
+
+BEST 2ND PRODUCT
+
+State:
+
+inactive
+
+Rank:
+
+Best 2nd Product
+
+Additional safe label:
+
+Top 2 of 600+ products
+
+Status:
+
+Verified from user-approved CV/context.
+
+### Documentation Slot 04
+
+Title:
+
+DOCUMENTATION SLOT
+
+Subtitle:
+
+Replace With Verified Proof
+
+State:
+
+placeholder
+
+Status:
+
+Not a real achievement until replaced with verified proof.
+
+### Documentation Slot 05
+
+Title:
+
+DOCUMENTATION SLOT
+
+Subtitle:
+
+Replace With Verified Proof
+
+State:
+
+placeholder
+
+Status:
+
+Not a real achievement until replaced with verified proof.
+
+### Documentation Slot 06
+
+Title:
+
+DOCUMENTATION SLOT
+
+Subtitle:
+
+Replace With Verified Proof
+
+State:
+
+placeholder
+
+Status:
+
+Not a real achievement until replaced with verified proof.
+
+Bottom count:
+
+03 VERIFIED / 06 DISPLAY SLOTS
+
+## 11.2 Central Trophy
+
+Plaque text:
+
+COMPFEST 16
+CHAMPION
+
+Recognition label:
+
+RECOGNITION. IMPACT. GROWTH.
+
+## 11.3 Selected Achievement Panel
+
+Panel title:
+
+SELECTED ACHIEVEMENT
+
+Selected title:
+
+COMPFEST 16
+AI INNOVATION CHALLENGE
+
+Metadata:
+
+RANK
+Champion
+
+SCALE
+National-level competition
+
+DOMAIN
+AI Innovation
+
+RELATED CAPABILITY
+AI Problem Formulation, Innovation, Team Execution
+
+OUTCOME
+National-level recognition
+
+## 11.4 Performance Analytics
+
+Section title:
+
+PERFORMANCE ANALYTICS
+
+Use safe analytics labels.
+
+Metric 1:
+
+VERIFIED WINS
+3
+Confirmed
+
+Metric 2:
+
+ACHIEVEMENT SLOTS
+6
+Display Slots
+
+Metric 3:
+
+RECOGNITION LEVEL
+National
+Highest Level
+
+Metric 4:
+
+DOMAINS COVERED
+3
+AI, UI/UX, Product
+
+Metric 5:
+
+GROWTH SIGNAL
+Strong
+Competition-Based
+
+Metric 6:
+
+EVIDENCE STATUS
+Partial
+To Be Completed
+
+Bottom note:
+
+Metrics summarize verified achievements and placeholder evidence slots. Replace placeholders with verified proof before final publishing.
+
+Action:
+
+VIEW EVIDENCE
+
+Truth note:
+
+Do not use fake values like 91% impact score or +34% growth trend unless verified.
+
+Do not present conceptual metrics as real measured data.
+
+---
+
+# 12. Scene 7 — Knowledge Map Content
+
+Scene 7 purpose:
+
+Show skill and capability relationships as a knowledge graph.
+
+Scene title:
+
+KNOWLEDGE MAP INTERFACE
+
+Central node:
+
+DATA SCIENCE
+& AI BUILDER
+
+Instruction bar:
+
+EXPLORE CONNECTIONS BETWEEN SKILLS.
+CLICK ANY DOMAIN TO VIEW SUBSKILLS AND EVIDENCE.
+
+## 12.1 Domain Nodes and Subskills
+
+### Statistics
+
+Domain title:
+
+STATISTICS
+
+Subskills:
+
+* Inference
 * Probability
-* Multivariate analysis
-* Data interpretation
-* Survey data project
+* Bayesian
+* Sampling
+* Forecasting
+* Multivariate
+* Stochastic
+* Optimization
 
-## Cluster 2
+Related selling skill:
 
-Title:
+Statistical Reasoning
 
-Data Engineering
+### Research
 
-Related to:
+Domain title:
 
-* Data cleaning
-* Data validation
-* Data structuring
-* Database design
-* Data schema thinking
-* Pipeline thinking
+RESEARCH
 
-## Cluster 3
+Subskills:
 
-Title:
+* Problem Formulation
+* Survey Design
+* Data Validation
+* Analytical Usability
 
-AI Product Logic
+Related selling skill:
 
-Related to:
+Research and Validation
 
-* AI problem formulation
-* Avalon AI Community
-* AR Try-On Concept
-* AI Innovation Challenge
-* Product workflow design
+### Business Analytics
 
-## Cluster 4
+Domain title:
 
-Title:
+BUSINESS
+ANALYTICS
 
-System Design
+Subskills:
 
-Related to:
+* Decision Support
+* Financial Risk
+* Product Thinking
 
-* System analysis
-* Workflow automation
-* Recruitment scoring system
-* Automated clipping website
-* Web-based solution implementation
+Related selling skill:
 
-## Cluster 5
+Decision Intelligence
 
-Title:
+### Leadership
 
-Web Workflow
+Domain title:
 
-Related to:
+LEADERSHIP
 
-* Basic to intermediate web development
-* Registration system
-* Data collection website
-* Dashboard-style interface
-* Workflow tools
+Subskills:
 
-## Cluster 6
-
-Title:
-
-Leadership
-
-Related to:
-
-* Head of DSAI Avalon AI
-* Head of regional student forum
-* Founder of Podcast Panjul
-* Team coordination
+* Technical Direction
 * Mentoring
+* Community Leadership
 
-## Cluster 7
+Related selling skill:
 
-Title:
+Team and Product Direction
 
-Project Execution
+### Systems
 
-Related to:
+Domain title:
 
-* Team projects
-* Feasibility thinking
-* Quality standard
-* Output delivery
-* Practical implementation
+SYSTEMS
 
-## Cluster 8
+Subskills:
 
-Title:
+* System Design
+* Workflow Automation
+* Web Solutions
+* Backend Fundamentals
 
-Content Systems
+Related selling skills:
 
-Related to:
+System Analysis
+Web-Based Solution Logic
 
-* Clipping workflow
-* Video editing
-* Platform-specific pacing
-* Performance-oriented content structure
-* Content production
+### Data Engineering
 
-Detail panel rule:
+Domain title:
 
-Node descriptions should be concise.
+DATA
+ENGINEERING
 
-Do not turn the node map into a long text section.
+Subskills:
 
-Transition hook copy:
+* Database Design
+* Data Schema Structuring
+* Data Warehouse
+* Big Data
+* Data Pipelines
+* Query Optimization
+* Cloud Computing
 
-COLLAPSE KNOWLEDGE NODES INTO FUTURE CORE
+Related selling skill:
 
-NEXT: FUTURE LABORATORY
+Data Engineering Foundation
+
+### Machine Learning
+
+Domain title:
+
+MACHINE
+LEARNING
+
+Subskills:
+
+* Supervised Learning
+* Unsupervised Learning
+* Classification
+* Regression
+* Clustering
+* Text Mining
+* Computer Vision
+
+Related selling skill:
+
+Machine Learning Thinking
+
+Do not add unsupported tools.
+
+Do not add fake programming languages, frameworks, or platforms unless verified.
 
 ---
 
-## 11. Scene 8 — Future Laboratory Content
+# 13. Scene 8 — Future Laboratory Content
 
-Scene purpose:
+Scene 8 purpose:
 
-Close with professional direction and contact actions.
+Close the portfolio with future direction, mission, and contact access.
 
-Main title:
+## 13.1 Left Future Focus Panels
 
-FUTURE LABORATORY
+### Panel 1
+
+Title:
+
+AI PRODUCTS
 
 Subtitle:
 
-Building practical data, AI, and workflow systems from strong analytical foundations.
+Build intelligent applications.
 
-Main closing statement:
-
-Kiagus is focused on growing as a Data Scientist and AI Product Builder who can connect data, system logic, and user needs into practical digital solutions.
-
-Roadmap panels:
-
-## Roadmap 1
+### Panel 2
 
 Title:
 
-Data Science Foundation
+DATA PLATFORMS
 
-Description:
+Subtitle:
 
-Strengthening statistical reasoning, data modeling, data systems, and analytical decision-making.
+Scalable. Reliable. Secure data platforms.
 
-## Roadmap 2
-
-Title:
-
-AI Product Direction
-
-Description:
-
-Exploring AI system ideas, product workflows, and implementation-ready intelligent solutions.
-
-## Roadmap 3
+### Panel 3
 
 Title:
 
-System Workflow Builder
+DECISION INTELLIGENCE
 
-Description:
+Subtitle:
 
-Designing structured workflows from user needs into usable web-based and data-driven systems.
+Actionable insights and predictive support.
 
-## Roadmap 4
+### Panel 4
 
 Title:
 
-Project Execution
+AUTOMATION SYSTEMS
 
-Description:
+Subtitle:
 
-Continuing to build practical projects, team-based systems, and portfolio-ready technical outputs.
+Automate workflows and pipelines.
 
-CTA buttons:
+## 13.2 Right System Status Panel
 
-1. View Resume
-2. Open GitHub
-3. Open LinkedIn
-4. Contact by Email
+Panel title:
 
-Contact panel:
+SYSTEM STATUS
+
+Rows:
+
+DATA PIPELINE
+ONLINE
+
+MODELS
+ACTIVE
+
+SERVICES
+HEALTHY
+
+SECURITY
+SECURE
+
+Truth note:
+
+These are lab-interface status labels.
+
+Do not present them as real production status unless verified.
+
+## 13.3 Right Lab Context Panel
+
+Panel title:
+
+LAB CONTEXT
+
+Rows:
+
+ACTIVE PROJECTS
+5 Main Projects
+
+DATA DOMAINS
+9 Skill Domains
+
+SYSTEM MODES
+Portfolio Preview
+
+TEAM MODE
+Builder Direction
+
+Truth note:
+
+These are portfolio-context values, not production system metrics.
+
+## 13.4 Right Environment Panel
+
+Panel title:
+
+ENVIRONMENT
+
+Rows:
+
+TEMP
+22°C
+
+LOAD
+36%
+
+Truth note:
+
+These are decorative lab ambience values, not real performance claims.
+
+## 13.5 Mission Panel
+
+Panel title:
+
+OUR MISSION
+
+Mission text:
+
+Build intelligent systems and data-driven solutions that transform raw information into structured workflows, valuable insights, and decision-making support.
+
+## 13.6 Connect Console
+
+Title:
+
+LET’S CONNECT
+
+### LinkedIn Card
+
+Title:
+
+LINKEDIN
+
+Detail:
+
+linkedin.com/in/Kiagusarifrahman
+
+### GitHub Card
+
+Title:
+
+GITHUB
+
+Detail:
+
+github.com/Akskuy
+
+### Email Card
+
+Title:
+
+EMAIL
+
+Detail:
+
+[Arifkiagus577@gmail.com](mailto:Arifkiagus577@gmail.com)
+
+### Resume Card
+
+Title:
+
+RESUME
+
+Detail:
+
+Download
+My Resume
+
+Resume path:
+
+public/docs/kiagus-arif-rahman-resume.pdf
+
+## 13.7 Contact Strip
+
+Title:
+
+CONTACT STRIP
+
+Items:
 
 Email:
 
-[arifkiagus577@gmail.com](mailto:arifkiagus577@gmail.com)
+[Arifkiagus577@gmail.com](mailto:Arifkiagus577@gmail.com)
 
 GitHub:
 
-https://github.com/Akskuy
+github.com/Akskuy
 
 LinkedIn:
 
-https://www.linkedin.com/in/arifkiagus
+linkedin.com/in/Kiagusarifrahman
 
 Phone:
 
@@ -1331,154 +2069,129 @@ Location:
 
 Tangerang Selatan, Indonesia
 
-Final system status copy:
+Truth status:
 
-PORTFOLIO JOURNEY COMPLETE
-
-READY FOR COLLABORATION
+User-approved.
 
 ---
 
-## 12. Skill Vocabulary
+# 14. Contact and Link Safety
 
-Use these skill words where relevant:
+Known contact/link values used in current portfolio plan:
 
-Hard skills:
+Email:
 
-* Statistical modeling
-* Probabilistic reasoning
-* Multivariate analysis
-* Database design
-* Data schema structuring
-* Query optimization
-* End-to-end data pipelines
-* Backend fundamentals
-* Basic to intermediate web development
-* Data cleaning
-* Data validation
-* Data packaging
-* Workflow automation
-* System design
-* AI problem formulation
-* Product workflow thinking
+[Arifkiagus577@gmail.com](mailto:Arifkiagus577@gmail.com)
 
-Soft / leadership skills:
+GitHub:
 
-* Team leadership
-* Technical direction
-* Project coordination
-* Mentoring
-* Communication
-* Feasibility thinking
-* Quality standards
-* Member engagement
-* Organizational leadership
-* Content planning
-* Audience engagement
+github.com/Akskuy
 
-Do not overuse all skills at once.
+LinkedIn:
 
-Use them based on scene context.
+linkedin.com/in/Kiagusarifrahman
+
+Resume path:
+
+public/docs/kiagus-arif-rahman-resume.pdf
+
+Phone:
+
+085175376593
+
+Location:
+
+Tangerang Selatan, Indonesia
+
+Rules:
+
+* Do not invent other contact data.
+* Do not use Selvi’s personal email/contact data.
+* Do not use assistant/user account email as Kiagus contact.
+* Use the resume PDF path from ASSET_MAP.md.
 
 ---
 
-## 13. Safe Technical Wording Bank
+# 15. Words to Prefer
 
-Use these phrases to sound technical without fake claims:
+Use these words often:
 
-* system workflow
-* implementation-ready design
-* prototype direction
-* modular architecture concept
-* user flow mapping
-* data flow mapping
-* workflow automation direction
-* structured input-output logic
-* dashboard-style interface
-* compatible architecture
-* recommended stack direction
-* pre-release web workflow
-* project simulation
-* demo placeholder
-* data validation flow
-* scoring logic concept
-* architecture preview
-* conceptual code snippet
-* pseudo-code module
-* process pipeline
-* system behavior map
-
-Avoid unsafe phrases unless confirmed:
-
-* production-grade platform
-* deployed system
-* real users
-* increased revenue
-* reduced cost by X%
-* served X users
-* scaled infrastructure
-* enterprise client
-* official production dashboard
-* exact tech stack
-* exact database
-* exact AI model
-* real-time computer vision
-* live AR engine
-* official certificate image
+* structured
+* workflow
+* system
+* data-driven
+* intelligent
+* analytical
+* implementation-ready
+* prototype
+* pre-release
+* concept
+* direction
+* evidence placeholder
+* verified achievement
+* decision support
+* product logic
+* system thinking
+* team direction
+* data workflow
+* capability domain
+* knowledge graph
+* portfolio preview
 
 ---
 
-## 14. Tone and Writing Style
+# 16. Words to Avoid Unless Verified
 
-The portfolio tone should be:
+Avoid these as factual claims:
 
-* professional
-* concise
-* technical
-* confident
-* not exaggerated
-* not childish
-* not too formal
-* not too casual
+* deployed
+* production-ready
+* enterprise-grade
+* served users
+* increased by X%
+* reduced by X%
+* real-time at scale
+* official client impact
+* proven ROI
+* fully automated AI
+* used by thousands
+* production database
+* cloud deployed
+* PostgreSQL
+* Redis
+* Whisper
+* OpenCV
+* YOLO
+* TensorFlow
+* PyTorch
 
-Use short lines.
+These may be used only if verified or explicitly labeled as:
 
-Avoid long paragraphs.
-
-Each scene should prioritize visual storytelling.
-
-Text should support the UI, not dominate the UI.
-
-Good text style:
-
-* clear title
-* short label
-* concise description
-* skill tags
-* system status copy
-* micro interaction copy
-
-Avoid:
-
-* long essay blocks
-* overclaiming
-* generic motivational text
-* buzzwords without meaning
-* fake expert language
+* recommended stack
+* compatible stack
+* future direction
+* possible implementation
 
 ---
 
-## 15. Final Content Checklist
+# 17. Final Content Acceptance Checklist
 
-Before using any content, check:
+Before writing any text into the UI, check:
 
-1. Is this fact present in the source or safely derived from project context?
-2. Does the wording avoid fake claims?
-3. Is the text concise enough for game UI?
-4. Does the content support the visual interaction?
-5. Is the detail hidden behind interactive reveal when appropriate?
-6. Does the section avoid becoming text-heavy?
-7. Are placeholders clearly labeled if evidence is missing?
-8. Are technical terms reasonable and not overclaimed?
-9. Does the content support Kiagus's positioning?
-10. Does the portfolio still feel professional?
+1. Is this text approved in CONTENT_SOURCE.md?
+2. Is this a factual claim?
+3. If factual, is it verified or user-approved?
+4. If unverified, is it clearly labeled as placeholder/concept?
+5. Does it avoid fake metrics?
+6. Does it avoid fake deployment claims?
+7. Does it avoid fake evidence?
+8. Does it avoid the banned education block?
+9. Does it avoid raw full-course-list display?
+10. Does it match the 9 selling skills?
+11. Does Scene 5 use the five approved main projects?
+12. Does Scene 6 use only verified achievements plus placeholder slots?
+13. Does Scene 8 use approved contact data?
+14. Is it concise enough for the UI?
+15. Does it support premium Data Science / AI Product Builder positioning?
+
+If the answer is unclear, use safer wording.
