@@ -34,7 +34,8 @@ Before making any code changes, read these files in this order:
 4. MOTION_RULES.md
 5. ASSET_MAP.md
 6. CONTENT_SOURCE.md
-7. AGENTS.md
+7. CONCEPT_BOARD_RULES.md
+8. AGENTS.md
 
 Do not start coding before understanding these files.
 
@@ -42,6 +43,7 @@ Do not rely only on the user prompt if it conflicts with the source-of-truth doc
 
 If there is conflict:
 
+CONCEPT_BOARD_RULES.md wins for board-specific interaction behavior, click states, detail panels, tooltip/evidence behavior, and transition hooks.
 SCENE_ARCHITECTURE.md wins for layout and scene structure.
 MOTION_RULES.md wins for animation and transition behavior.
 ASSET_MAP.md wins for asset usage.
