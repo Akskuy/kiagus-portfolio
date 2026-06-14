@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useCallback, useState, type CSSProperties, type ReactNode } from "react";
@@ -36,15 +37,6 @@ type District = {
   title: string;
 };
 
-const districtCategories = [
-  "Community & Non-Profit",
-  "Academic & Department",
-  "Project & Team",
-  "Content & Systems",
-  "Operations & Service",
-  "Leadership & Initiative",
-] as const;
-
 const districts: District[] = [
   {
     accent: "teal",
@@ -62,7 +54,7 @@ const districts: District[] = [
       { value: "Improved", label: "Team Quality & Output" },
       { value: "Strong", label: "Collaboration Culture" },
     ],
-    position: { left: "22%", top: "14%", width: "16%", height: "35%" },
+    position: { left: "7.5%", top: "17.2%", width: "22%", height: "23.6%" },
     responsibilities: [
       "Defined technical direction and AI roadmap",
       "Managed Data, AI, Software, and UI/UX teams",
@@ -92,7 +84,7 @@ const districts: District[] = [
       { value: "To Be Verified", label: "Outcome Evidence" },
       { value: "Placeholder", label: "Documentation Slot" },
     ],
-    position: { left: "43%", top: "13%", width: "18%", height: "36%" },
+    position: { left: "39%", top: "16.4%", width: "22%", height: "24.5%" },
     responsibilities: [
       "Worked with structured survey data context",
       "Supported academic data packaging activities",
@@ -121,7 +113,7 @@ const districts: District[] = [
       { value: "Analysis", label: "Requirement Thinking" },
       { value: "To Be Verified", label: "Delivery Evidence" },
     ],
-    position: { left: "67%", top: "15%", width: "18%", height: "34%" },
+    position: { left: "70.5%", top: "17.2%", width: "22%", height: "23.6%" },
     responsibilities: [
       "Analyzed web and data system workflows",
       "Supported system direction and requirements",
@@ -150,7 +142,7 @@ const districts: District[] = [
       { value: "Review", label: "Performance Observation" },
       { value: "Placeholder", label: "Evidence Slot" },
     ],
-    position: { left: "24%", top: "43%", width: "16%", height: "24%" },
+    position: { left: "7.5%", top: "40.6%", width: "22%", height: "22.3%" },
     responsibilities: [
       "Supported editing workflow organization",
       "Connected content output to system direction",
@@ -179,7 +171,7 @@ const districts: District[] = [
       { value: "Structured", label: "Support Direction" },
       { value: "To Be Verified", label: "Outcome Proof" },
     ],
-    position: { left: "47%", top: "46%", width: "17%", height: "23%" },
+    position: { left: "39%", top: "41.3%", width: "22%", height: "21.6%" },
     responsibilities: [
       "Supported service and operations workflow",
       "Connected customer-facing needs to structured action",
@@ -208,7 +200,7 @@ const districts: District[] = [
       { value: "Communication", label: "Podcast Context" },
       { value: "Placeholder", label: "Verified Proof Slot" },
     ],
-    position: { left: "70%", top: "44%", width: "19%", height: "25%" },
+    position: { left: "70.5%", top: "40.6%", width: "22%", height: "22.3%" },
     responsibilities: [
       "Supported leadership and community coordination",
       "Connected initiatives to communication flow",
@@ -291,8 +283,6 @@ const midCityBlocks = Array.from({ length: 22 }, (_, index) => ({
 
 const cityLights = Array.from({ length: 70 }, (_, index) => index);
 const windowCells = Array.from({ length: 24 }, (_, index) => index);
-const statusBars = Array.from({ length: 14 }, (_, index) => index);
-const navRailDots = Array.from({ length: 7 }, (_, index) => index);
 const roadLines = Array.from({ length: 7 }, (_, index) => index);
 const transitionWindows = Array.from({ length: 22 }, (_, index) => index);
 
@@ -343,14 +333,11 @@ export function ExperienceDistrictScene({ progress }: ExperienceDistrictScenePro
 
       <div className="relative z-10 mx-auto h-full w-full max-w-[var(--shell-max)] px-[clamp(0.45rem,1.35vw,1rem)] py-[clamp(0.35rem,0.9vw,0.65rem)]">
         <ExperienceTitleRail strength={settle} />
-        <DistrictCategoryPanel activeCategory={activeDistrict.category} strength={settle} />
         <DistrictMapStage
           activeDistrictId={activeDistrict.id}
           buildingsForm={buildingsForm}
           onSelect={handleSelectDistrict}
         />
-        <JourneyIndicator strength={settle} />
-        <ScrollPrompt strength={settle} />
         <SelectedDistrictPanel district={activeDistrict} strength={settle} />
         <DistrictNavigationStrip
           activeDistrictId={activeDistrict.id}
@@ -569,110 +556,20 @@ function TransitionMapLines({ open, side }: { open: number; side: "left" | "righ
 function ExperienceTitleRail({ strength }: { strength: number }) {
   return (
     <div
-      className="pointer-events-none absolute left-1/2 top-[1.2%] z-30 flex h-[6.2%] w-[min(45vw,35rem)] -translate-x-1/2 items-center justify-center overflow-hidden rounded-[5px] border border-cyan-muted/22 bg-[linear-gradient(90deg,rgba(2,9,15,0.78),rgba(9,31,41,0.88)_50%,rgba(2,9,15,0.78))] shadow-[0_0_36px_rgba(113,217,210,0.13),inset_0_0_28px_rgba(113,217,210,0.08)]"
+      className="pointer-events-none absolute inset-x-[9%] top-[1.1%] z-30 flex h-[9.5%] items-center justify-center overflow-hidden rounded-[7px] border border-cyan-muted/16 bg-[linear-gradient(90deg,rgba(1,6,12,0.42),rgba(7,22,31,0.84)_38%,rgba(9,31,38,0.9)_50%,rgba(7,22,31,0.84)_62%,rgba(1,6,12,0.42))] shadow-[0_0_34px_rgba(63,185,170,0.1),inset_0_0_24px_rgba(113,217,210,0.05)]"
       style={{
         opacity: strength,
-        transform: `translateX(-50%) translateY(${(1 - strength) * -14}px) scale(${0.96 + strength * 0.04})`,
+        transform: `translateY(${(1 - strength) * -14}px) scale(${0.97 + strength * 0.03})`,
       }}
     >
-      <span className="absolute inset-1 rounded-[3px] border border-foreground/8" />
-      <span className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/70 to-transparent" />
-      <span className="absolute inset-x-12 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-soft/38 to-transparent" />
-      <span className="absolute left-4 top-1/2 h-2 w-2 -translate-y-1/2 rounded-[2px] bg-green-soft/80 shadow-[var(--glow-green)] animate-[node-pulse_3.4s_ease-in-out_infinite]" />
-      <span className="absolute right-4 top-1/2 h-2 w-2 -translate-y-1/2 rounded-[2px] bg-cyan-muted/80 shadow-[var(--glow-cyan)] animate-[node-pulse_3.8s_ease-in-out_infinite]" />
-      <span className="relative z-10 font-mono text-[clamp(1rem,2.25vw,2rem)] font-black uppercase leading-none tracking-[0.12em] text-cyan-muted drop-shadow-[0_0_16px_rgba(113,217,210,0.22)]">
+      <span className="absolute inset-1 rounded-[5px] border border-foreground/6" />
+      <span className="absolute inset-x-[8%] top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/60 to-transparent" />
+      <span className="absolute inset-x-[18%] bottom-0 h-px bg-gradient-to-r from-transparent via-amber-soft/30 to-transparent" />
+      <span className="absolute left-[8%] top-1/2 h-1.5 w-16 -translate-y-1/2 bg-gradient-to-r from-transparent via-cyan-muted/30 to-transparent" />
+      <span className="absolute right-[8%] top-1/2 h-1.5 w-16 -translate-y-1/2 bg-gradient-to-r from-transparent via-amber-soft/24 to-transparent" />
+      <span className="relative z-10 text-center font-mono text-[clamp(1.05rem,2.1vw,1.9rem)] font-black uppercase leading-none tracking-[0.14em] text-foreground drop-shadow-[0_0_18px_rgba(113,217,210,0.2)]">
         EXPERIENCE DISTRICT
       </span>
-    </div>
-  );
-}
-
-function DistrictCategoryPanel({
-  activeCategory,
-  strength,
-}: {
-  activeCategory: string;
-  strength: number;
-}) {
-  return (
-    <aside
-      className="absolute left-[1.1%] top-[2.3%] z-40 h-[43%] w-[16%] overflow-hidden rounded-[6px] border border-cyan-muted/20 bg-[linear-gradient(180deg,rgba(4,16,23,0.88),rgba(2,8,13,0.94))] p-[clamp(0.45rem,0.8vw,0.75rem)] shadow-[0_22px_70px_rgba(0,0,0,0.54),inset_0_0_28px_rgba(113,217,210,0.06)]"
-      style={{
-        opacity: strength,
-        transform: `translateX(${(1 - strength) * -24}px)`,
-      }}
-    >
-      <span className="absolute inset-1 rounded-[4px] border border-foreground/8" />
-      <span className="absolute inset-0 micro-grid opacity-20" />
-      <span className="absolute inset-x-4 top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/70 to-transparent" />
-      <div className="relative z-10 flex h-full flex-col">
-        <h2 className="font-mono text-[clamp(0.55rem,0.86vw,0.76rem)] font-black uppercase leading-none tracking-[0.1em] text-cyan-muted">
-          District Categories &gt;&gt;&gt;
-        </h2>
-        <div className="mt-3 grid gap-1.5">
-          {districtCategories.map((category, index) => {
-            const active = activeCategory === category;
-            const district = districts[index]!;
-            const accent = accentStyles[district.accent];
-
-            return (
-              <div
-                className={cn(
-                  "relative flex min-h-7 items-center gap-2 rounded-[4px] border px-2 py-1.5 transition-[border-color,filter,background-color] duration-300",
-                  active
-                    ? cn(accent.border, accent.mutedBg, "brightness-110")
-                    : "border-cyan-muted/10 bg-black/22",
-                )}
-                key={category}
-              >
-                <span
-                  className={cn(
-                    "grid h-5 w-5 shrink-0 place-items-center rounded-[3px] border font-mono text-[0.55rem] font-black",
-                    active ? cn(accent.bg, accent.border, accent.text) : "border-cyan-muted/14 bg-cyan-muted/6 text-cyan-muted/54",
-                  )}
-                >
-                  {district.id}
-                </span>
-                <span className="min-w-0 truncate text-[clamp(0.5rem,0.72vw,0.64rem)] font-bold leading-none text-foreground/72">
-                  {category}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="mt-auto border-t border-cyan-muted/14 pt-3">
-          <h3 className="font-mono text-[clamp(0.52rem,0.78vw,0.68rem)] font-black uppercase tracking-[0.14em] text-cyan-muted/82">
-            District Status
-          </h3>
-          <div className="mt-2 grid gap-1.5 font-mono text-[clamp(0.48rem,0.68vw,0.6rem)] uppercase tracking-[0.05em] text-foreground/66">
-            <StatusRow label="Total Districts" value="6" />
-            <StatusRow label="Active Lights" value="6/6" />
-            <StatusRow label="Stories Unlocked" value="0/6" />
-          </div>
-          <div className="mt-3 grid grid-cols-[repeat(14,minmax(0,1fr))] gap-1">
-            {statusBars.map((bar) => (
-              <span
-                className={cn(
-                  "h-4 rounded-[1px] border border-cyan-muted/12 animate-[screen-flicker_5s_steps(4,end)_infinite]",
-                  bar < 6 ? "bg-cyan-muted/54" : "bg-cyan-muted/10",
-                )}
-                key={bar}
-                style={{ animationDelay: `${bar * 0.11}s` }}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </aside>
-  );
-}
-
-function StatusRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between gap-2">
-      <span className="truncate">{label}</span>
-      <span className="shrink-0 text-cyan-muted">{value}</span>
     </div>
   );
 }
@@ -694,6 +591,7 @@ function DistrictMapStage({
         transform: `translateY(${(1 - buildingsForm) * 16}px) scale(${0.98 + buildingsForm * 0.02})`,
       }}
     >
+      <span className="pointer-events-none absolute inset-x-[3.2%] bottom-[1%] top-[12%] rounded-[14px] border border-cyan-muted/8 bg-[radial-gradient(circle_at_50%_24%,rgba(63,185,170,0.08),transparent_22rem),linear-gradient(180deg,rgba(4,13,20,0.32),rgba(1,5,9,0.74))] shadow-[inset_0_0_60px_rgba(0,0,0,0.42)]" />
       <RoadGrid />
       {districts.map((district) => (
         <DistrictBuildingButton
@@ -709,20 +607,42 @@ function DistrictMapStage({
 
 function RoadGrid() {
   return (
-    <div className="pointer-events-none absolute inset-x-[17%] bottom-[2%] h-[44%]" aria-hidden="true">
+    <div className="pointer-events-none absolute inset-x-[5.2%] bottom-[0.8%] top-[13.2%]" aria-hidden="true">
+      <span className="absolute left-[4%] right-[4%] top-[49%] h-8 -translate-y-1/2 rounded-full bg-[linear-gradient(90deg,transparent,rgba(113,217,210,0.07)_20%,rgba(241,185,90,0.08)_50%,rgba(113,217,210,0.07)_80%,transparent)] blur-[1px]" />
+      {[0, 1, 2].map((lane) => (
+        <span
+          className="absolute h-px bg-gradient-to-r from-transparent via-cyan-muted/22 to-transparent"
+          key={`horizontal-lane-${lane}`}
+          style={{ top: `${26 + lane * 24}%`, left: "3%", right: "3%" }}
+        />
+      ))}
+      {[0, 1, 2, 3].map((lane) => (
+        <span
+          className="absolute bottom-[5%] top-[12%] w-px bg-gradient-to-b from-transparent via-cyan-muted/18 to-transparent"
+          key={`vertical-lane-${lane}`}
+          style={{ left: `${15 + lane * 23}%` }}
+        />
+      ))}
       {roadLines.map((line) => (
         <span
-          className="absolute h-px bg-gradient-to-r from-transparent via-cyan-muted/28 to-transparent"
+          className="absolute h-px bg-gradient-to-r from-transparent via-teal-muted/22 to-transparent"
           key={line}
           style={{
-            left: `${line * 4}%`,
-            top: `${18 + line * 9}%`,
-            transform: `rotate(${line % 2 === 0 ? -4 : 5}deg)`,
-            width: `${70 - line * 3}%`,
+            left: `${4 + line * 3}%`,
+            top: `${20 + line * 8}%`,
+            transform: `rotate(${line % 2 === 0 ? -3 : 4}deg)`,
+            width: `${82 - line * 4}%`,
           }}
         />
       ))}
-      <span className="absolute inset-x-[2%] bottom-[12%] h-3 rounded-full bg-cyan-muted/6 blur-[2px]" />
+      {[0, 1, 2, 3, 4, 5].map((node) => (
+        <span
+          className="absolute h-2 w-2 rounded-[2px] border border-amber-soft/28 bg-amber-soft/10 shadow-[0_0_12px_rgba(241,185,90,0.18)]"
+          key={`road-node-${node}`}
+          style={{ left: `${12 + node * 15}%`, top: `${35 + (node % 2) * 26}%` }}
+        />
+      ))}
+      <span className="absolute inset-x-[8%] bottom-[8%] h-3 rounded-full bg-cyan-muted/5 blur-[2px]" />
     </div>
   );
 }
@@ -742,15 +662,23 @@ function DistrictBuildingButton({
     <button
       aria-label={`Select ${district.title}`}
       aria-pressed={active}
-      className="group/district absolute isolate cursor-pointer text-left outline-none"
+      className="group/district absolute isolate cursor-pointer text-left outline-none transition-[filter,transform] duration-300 hover:brightness-110 focus-visible:ring-2 focus-visible:ring-cyan-muted/70"
       onClick={onSelect}
       style={district.position as CSSProperties}
       type="button"
     >
       <span
         className={cn(
-          "absolute left-1/2 top-0 z-20 w-full -translate-x-1/2 overflow-hidden rounded-[6px] border bg-[linear-gradient(180deg,rgba(4,12,18,0.92),rgba(1,7,12,0.96))] px-3 py-2 shadow-[0_16px_46px_rgba(0,0,0,0.52),inset_0_0_22px_rgba(113,217,210,0.06)] transition-[border-color,filter,box-shadow,transform] duration-300 group-hover/district:-translate-y-1 group-hover/district:brightness-125 group-focus-visible/district:ring-2 group-focus-visible/district:ring-cyan-muted/70",
-          active ? cn(accent.border, accent.glow) : "border-cyan-muted/18 group-hover/district:border-cyan-muted/48",
+          "absolute inset-x-[7%] bottom-[-2%] z-0 h-[13%] rounded-[50%] bg-black/64 blur-lg transition-opacity duration-300",
+          active ? "opacity-95" : "opacity-60",
+        )}
+      />
+      <span
+        className={cn(
+          "absolute left-1/2 top-0 z-30 grid w-[92%] -translate-x-1/2 grid-cols-[2.4rem_minmax(0,1fr)] items-center gap-2 overflow-hidden rounded-[6px] border px-2.5 py-2 shadow-[0_14px_34px_rgba(0,0,0,0.5),inset_0_0_18px_rgba(113,217,210,0.04)] transition-[border-color,filter,box-shadow,transform,background-color] duration-300 group-hover/district:-translate-y-1",
+          active
+            ? "border-teal-muted/70 bg-[linear-gradient(180deg,rgba(12,52,57,0.95),rgba(2,13,18,0.96))] shadow-[0_0_34px_rgba(63,185,170,0.28),0_14px_34px_rgba(0,0,0,0.55),inset_0_0_24px_rgba(113,217,210,0.1)]"
+            : "border-cyan-muted/14 bg-[linear-gradient(180deg,rgba(3,12,18,0.82),rgba(1,6,11,0.94))] group-hover/district:border-cyan-muted/38",
         )}
         style={{
           clipPath:
@@ -761,21 +689,33 @@ function DistrictBuildingButton({
         <span className="absolute inset-0 micro-grid opacity-20" />
         <span
           className={cn(
-            "relative z-10 mr-2 inline-grid h-7 w-8 place-items-center rounded-[3px] border font-mono text-[0.7rem] font-black leading-none",
-            active ? cn(accent.bg, accent.border, accent.text) : "border-cyan-muted/18 bg-cyan-muted/7 text-cyan-muted/66",
+            "relative z-10 grid h-8 place-items-center rounded-[3px] border font-mono text-[0.72rem] font-black leading-none",
+            active ? "border-teal-muted/64 bg-teal-muted/18 text-teal-muted shadow-[var(--glow-cyan)]" : cn(accent.mutedBg, "border-cyan-muted/16 text-cyan-muted/62"),
           )}
         >
           {district.id}
         </span>
-        <span className="relative z-10 inline-block align-top">
-          <span className="line-clamp-2 block max-w-[10rem] font-mono text-[clamp(0.55rem,0.82vw,0.74rem)] font-black uppercase leading-[1.15] tracking-[0.08em] text-cyan-muted">
+        <span className="relative z-10 block min-w-0">
+          <span
+            className={cn(
+              "line-clamp-2 block font-mono text-[clamp(0.52rem,0.76vw,0.7rem)] font-black uppercase leading-[1.12] tracking-[0.08em]",
+              active ? "text-foreground" : "text-cyan-muted/78",
+            )}
+          >
             {district.title}
           </span>
-          <span className="mt-1 line-clamp-2 block max-w-[10rem] text-[clamp(0.43rem,0.64vw,0.56rem)] font-semibold leading-[1.25] text-foreground/68">
+          <span className="mt-1 line-clamp-2 block text-[clamp(0.4rem,0.58vw,0.52rem)] font-semibold leading-[1.2] text-foreground/58">
             {district.subtitle}
           </span>
         </span>
       </span>
+
+      <span
+        className={cn(
+          "absolute left-1/2 top-[24%] z-20 h-[18%] w-px -translate-x-1/2 bg-gradient-to-b from-cyan-muted/34 to-transparent transition-opacity duration-300",
+          active ? "opacity-100" : "opacity-45",
+        )}
+      />
 
       <DistrictBuilding active={active} district={district} />
     </button>
@@ -783,22 +723,34 @@ function DistrictBuildingButton({
 }
 
 function DistrictBuilding({ active, district }: { active: boolean; district: District }) {
-  const accent = accentStyles[district.accent];
+  const shapeClass = {
+    community: "h-[66%] w-[86%] rounded-t-[10px]",
+    institution: "h-[66%] w-[90%] rounded-t-[8px]",
+    office: "h-[69%] w-[82%] rounded-t-[6px]",
+    store: "h-[63%] w-[88%] rounded-t-[5px]",
+    studio: "h-[64%] w-[84%] rounded-t-[12px]",
+    tower: "h-[72%] w-[74%] rounded-t-[9px]",
+  }[district.shape];
 
   return (
     <span
       className={cn(
-        "absolute bottom-0 left-1/2 z-10 block w-[78%] -translate-x-1/2 overflow-hidden border bg-[linear-gradient(180deg,rgba(20,48,58,0.92),rgba(4,12,18,0.98))] shadow-[0_20px_48px_rgba(0,0,0,0.54),inset_0_0_24px_rgba(113,217,210,0.04)] transition-[filter,box-shadow,transform] duration-300 group-hover/district:-translate-y-1 group-hover/district:brightness-125",
-        active ? cn(accent.border, accent.glow) : "border-cyan-muted/14",
-        district.shape === "institution" ? "h-[62%] rounded-t-[7px]" : "h-[58%] rounded-t-[5px]",
+        "absolute bottom-0 left-1/2 z-10 block -translate-x-1/2 overflow-hidden border bg-[linear-gradient(180deg,rgba(15,44,55,0.88),rgba(3,10,16,0.98))] shadow-[0_20px_48px_rgba(0,0,0,0.56),inset_0_0_24px_rgba(113,217,210,0.035)] transition-[filter,box-shadow,transform] duration-300 group-hover/district:-translate-y-1 group-hover/district:brightness-115",
+        active
+          ? "border-teal-muted/72 shadow-[0_0_40px_rgba(63,185,170,0.3),0_20px_50px_rgba(0,0,0,0.62),inset_0_0_28px_rgba(113,217,210,0.09)]"
+          : "border-cyan-muted/13 opacity-[0.92]",
+        shapeClass,
       )}
     >
-      {district.shape === "institution" ? <InstitutionFacade active={active} district={district} /> : null}
+      <BuildingRoof active={active} shape={district.shape} />
+      {district.shape === "institution" ? <InstitutionFacade active={active} /> : null}
       {district.shape !== "institution" ? <ModernFacade active={active} district={district} /> : null}
       <span
         className={cn(
-          "absolute left-1/2 top-[18%] flex min-h-7 w-[78%] -translate-x-1/2 items-center justify-center rounded-[3px] border px-2 font-mono text-[clamp(0.48rem,0.72vw,0.66rem)] font-black uppercase tracking-[0.08em] transition-[filter,box-shadow] duration-300",
-          active ? cn(accent.border, accent.mutedBg, accent.text, "shadow-[0_0_18px_rgba(113,217,210,0.16)]") : "border-cyan-muted/16 bg-black/28 text-cyan-muted/64",
+          "absolute left-1/2 top-[15%] flex min-h-7 w-[80%] -translate-x-1/2 items-center justify-center rounded-[3px] border px-2 text-center font-mono text-[clamp(0.45rem,0.66vw,0.6rem)] font-black uppercase tracking-[0.08em] transition-[filter,box-shadow] duration-300",
+          active
+            ? "border-teal-muted/58 bg-teal-muted/12 text-teal-muted shadow-[0_0_18px_rgba(63,185,170,0.22)]"
+            : "border-cyan-muted/13 bg-black/28 text-cyan-muted/54",
         )}
       >
         {district.buildingSign}
@@ -806,37 +758,67 @@ function DistrictBuilding({ active, district }: { active: boolean; district: Dis
       {active ? (
         <span className="absolute right-[16%] top-[46%] h-8 w-7 rounded-[2px] border border-amber-soft/64 bg-amber-soft/22 shadow-[0_0_22px_rgba(241,185,90,0.34)] animate-[node-pulse_3.4s_ease-in-out_infinite]" />
       ) : null}
+      <span className="absolute inset-x-0 bottom-0 h-[14%] border-t border-cyan-muted/10 bg-black/26" />
     </span>
   );
 }
 
-function ModernFacade({ active, district }: { active: boolean; district: District }) {
-  const accent = accentStyles[district.accent];
+function BuildingRoof({ active, shape }: { active: boolean; shape: District["shape"] }) {
+  const glow = active ? "border-teal-muted/54 bg-teal-muted/14 shadow-[0_0_18px_rgba(63,185,170,0.2)]" : "border-cyan-muted/14 bg-cyan-muted/7";
 
+  if (shape === "tower") {
+    return (
+      <span className="absolute left-1/2 top-0 z-20 h-[20%] w-[58%] -translate-x-1/2 -translate-y-[42%]">
+        <span className={cn("absolute bottom-0 left-1/2 h-[72%] w-[62%] -translate-x-1/2 rounded-t-[6px] border", glow)} />
+        <span className="absolute left-1/2 top-0 h-[52%] w-px -translate-x-1/2 bg-gradient-to-b from-amber-soft/80 to-cyan-muted/30" />
+      </span>
+    );
+  }
+
+  if (shape === "institution") {
+    return (
+      <span className={cn("absolute left-1/2 top-0 z-20 h-[13%] w-[70%] -translate-x-1/2 -translate-y-[58%] rounded-t-[7px] border", glow)} />
+    );
+  }
+
+  if (shape === "community") {
+    return (
+      <span className="absolute inset-x-[13%] top-0 z-20 flex -translate-y-[62%] justify-between">
+        <span className={cn("h-8 w-[36%] rounded-t-[5px] border", glow)} />
+        <span className={cn("h-6 w-[28%] rounded-t-[5px] border", glow)} />
+      </span>
+    );
+  }
+
+  return <span className={cn("absolute left-1/2 top-0 z-20 h-[10%] w-[56%] -translate-x-1/2 -translate-y-[48%] rounded-t-[5px] border", glow)} />;
+}
+
+function ModernFacade({ active, district }: { active: boolean; district: District }) {
   return (
     <span className="absolute inset-0">
-      <span className="absolute inset-x-3 bottom-0 top-[34%] grid grid-cols-4 content-start gap-1.5">
+      <span className="absolute inset-x-3 bottom-[15%] top-[36%] grid grid-cols-4 content-start gap-1.5">
         {windowCells.slice(0, 20).map((windowCell) => (
           <span
             className={cn(
-              "h-2 rounded-[1px] border border-cyan-muted/8 animate-[screen-flicker_6.5s_steps(4,end)_infinite]",
-              active && windowCell % 4 === 0 ? accent.bg : windowCell % 5 === 0 ? "bg-amber-soft/50" : "bg-cyan-muted/18",
+              "h-2 rounded-[1px] border border-cyan-muted/7 animate-[screen-flicker_6.5s_steps(4,end)_infinite]",
+              active && windowCell % 4 === 0
+                ? "bg-teal-muted/48 shadow-[0_0_8px_rgba(63,185,170,0.26)]"
+                : windowCell % 7 === 0
+                  ? "bg-amber-soft/44 shadow-[0_0_8px_rgba(241,185,90,0.18)]"
+                  : "bg-cyan-muted/13",
             )}
             key={`${district.id}-${windowCell}`}
             style={{ animationDelay: `${windowCell * 0.1}s` }}
           />
         ))}
       </span>
-      <span className="absolute inset-x-0 bottom-0 h-[18%] border-t border-cyan-muted/12 bg-black/24" />
-      <span className="absolute left-[12%] bottom-0 h-[22%] w-[24%] border border-cyan-muted/16 bg-black/24" />
-      <span className="absolute right-[14%] bottom-0 h-[20%] w-[26%] border border-cyan-muted/16 bg-black/20" />
+      <span className="absolute left-[12%] bottom-[4%] h-[22%] w-[24%] border border-cyan-muted/14 bg-black/26" />
+      <span className="absolute right-[14%] bottom-[4%] h-[20%] w-[26%] border border-cyan-muted/12 bg-black/24" />
     </span>
   );
 }
 
-function InstitutionFacade({ active, district }: { active: boolean; district: District }) {
-  const accent = accentStyles[district.accent];
-
+function InstitutionFacade({ active }: { active: boolean }) {
   return (
     <span className="absolute inset-0">
       <span className="absolute left-1/2 top-0 h-[18%] w-[62%] -translate-x-1/2 border-x border-t border-amber-soft/24 bg-[linear-gradient(180deg,rgba(241,185,90,0.16),rgba(0,0,0,0.18))]" />
@@ -849,7 +831,7 @@ function InstitutionFacade({ active, district }: { active: boolean; district: Di
             <span
               className={cn(
                 "mx-auto mt-3 block h-8 w-[42%] rounded-t-full animate-[screen-flicker_5.8s_steps(4,end)_infinite]",
-                active && column === 2 ? accent.bg : "bg-amber-soft/30",
+                active && column === 2 ? "bg-teal-muted/48 shadow-[0_0_10px_rgba(63,185,170,0.26)]" : "bg-amber-soft/28",
               )}
             />
           </span>
@@ -863,78 +845,26 @@ function InstitutionFacade({ active, district }: { active: boolean; district: Di
   );
 }
 
-function JourneyIndicator({ strength }: { strength: number }) {
-  return (
-    <aside
-      className="absolute right-[0.8%] top-[24%] z-40 flex h-[36%] w-[4.6%] min-w-12 flex-col items-center justify-between rounded-[8px] border border-cyan-muted/16 bg-[linear-gradient(180deg,rgba(5,15,22,0.86),rgba(2,7,12,0.94))] px-2 py-4 shadow-[0_18px_54px_rgba(0,0,0,0.5),inset_0_0_22px_rgba(113,217,210,0.05)]"
-      style={{
-        opacity: strength,
-        transform: `translateX(${(1 - strength) * 18}px)`,
-      }}
-    >
-      <span className="h-3 w-3 rotate-45 border-l-2 border-t-2 border-foreground/80" />
-      <div className="grid justify-items-center gap-1 font-mono uppercase">
-        <span className="rounded-[3px] border border-amber-soft/32 bg-amber-soft/8 px-2 py-1 text-[clamp(0.75rem,1.2vw,1rem)] font-black text-foreground">
-          04
-        </span>
-        <span className="text-[0.58rem] font-bold text-foreground/62">/08</span>
-      </div>
-      <div className="grid gap-2">
-        {navRailDots.map((dot) => (
-          <span
-            className={cn(
-              "h-1.5 w-1.5 rounded-full",
-              dot === 3 ? "bg-cyan-muted shadow-[var(--glow-cyan)]" : "bg-foreground/46",
-            )}
-            key={dot}
-          />
-        ))}
-      </div>
-      <span className="h-3 w-3 rotate-45 border-b-2 border-r-2 border-foreground/80" />
-    </aside>
-  );
-}
-
-function ScrollPrompt({ strength }: { strength: number }) {
-  return (
-    <div
-      className="absolute right-[1.3%] top-[59.5%] z-40 flex h-[7.2%] w-[14%] min-w-36 items-center gap-3 overflow-hidden rounded-[6px] border border-cyan-muted/22 bg-[linear-gradient(90deg,rgba(4,14,20,0.9),rgba(3,11,17,0.94))] px-3 shadow-[0_16px_46px_rgba(0,0,0,0.48),inset_0_0_20px_rgba(113,217,210,0.05)]"
-      style={{
-        opacity: strength,
-        transform: `translateX(${(1 - strength) * 24}px)`,
-      }}
-    >
-      <span className="relative h-7 w-5 rounded-full border border-foreground/62">
-        <span className="absolute left-1/2 top-1 h-2 w-px -translate-x-1/2 bg-cyan-muted animate-[packet-run-y_2.6s_linear_infinite]" />
-      </span>
-      <span className="min-w-0 font-mono text-[clamp(0.48rem,0.72vw,0.62rem)] font-black uppercase leading-[1.45] tracking-[0.08em] text-foreground/68">
-        Scroll To Explore<br />The District
-      </span>
-      <span className="ml-auto h-2.5 w-2.5 rotate-45 border-b-2 border-r-2 border-teal-muted" />
-    </div>
-  );
-}
-
 function SelectedDistrictPanel({ district, strength }: { district: District; strength: number }) {
   return (
     <article
-      className="absolute inset-x-[1.1%] top-[64%] z-50 h-[24.8%] overflow-hidden rounded-[8px] border border-cyan-muted/18 bg-[linear-gradient(180deg,rgba(3,13,19,0.94),rgba(1,7,12,0.98))] shadow-[0_24px_80px_rgba(0,0,0,0.62),inset_0_0_34px_rgba(113,217,210,0.06)]"
+      className="absolute inset-x-[1.1%] top-[63.4%] z-50 h-[25.7%] overflow-hidden rounded-[8px] border border-cyan-muted/16 bg-[linear-gradient(180deg,rgba(3,12,18,0.92),rgba(1,6,11,0.98))] shadow-[0_24px_74px_rgba(0,0,0,0.64),inset_0_0_30px_rgba(113,217,210,0.045)]"
       style={{
         opacity: strength,
         transform: `translateY(${(1 - strength) * 24}px)`,
       }}
     >
-      <span className="absolute inset-1 rounded-[5px] border border-foreground/7" />
-      <span className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/64 to-transparent" />
-      <span className="absolute inset-0 micro-grid opacity-15" />
+      <span className="absolute inset-1 rounded-[5px] border border-foreground/6" />
+      <span className="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/52 to-transparent" />
+      <span className="absolute inset-0 micro-grid opacity-10" />
 
-      <div className="relative z-10 grid h-full grid-cols-[1.23fr_1.08fr_0.92fr_1.08fr] gap-0 px-[clamp(0.65rem,1.4vw,1.15rem)] py-[clamp(0.55rem,1vw,0.8rem)]">
+      <div className="relative z-10 grid h-full grid-cols-[1.34fr_1.02fr_0.98fr_1.06fr] gap-[clamp(0.55rem,1vw,0.9rem)] px-[clamp(0.7rem,1.45vw,1.25rem)] py-[clamp(0.58rem,1vw,0.82rem)]">
         <SelectedDistrictIdentity district={district} />
-        <PanelColumn className="border-l border-cyan-muted/12 pl-[clamp(0.6rem,1.2vw,1rem)]" title="Key Responsibilities">
+        <PanelColumn className="border-l border-cyan-muted/10 pl-[clamp(0.65rem,1.1vw,0.95rem)]" title="Key Responsibilities">
           <ul className="mt-2 grid gap-1.5">
             {district.responsibilities.slice(0, 5).map((responsibility) => (
               <li
-                className="flex gap-2 text-[clamp(0.46rem,0.68vw,0.61rem)] font-semibold leading-[1.35] text-foreground/68"
+                className="flex gap-2 text-[clamp(0.45rem,0.66vw,0.6rem)] font-semibold leading-[1.32] text-foreground/68"
                 key={responsibility}
               >
                 <span className="mt-[0.35rem] h-1 w-1 shrink-0 rounded-[1px] bg-cyan-muted/76" />
@@ -943,11 +873,11 @@ function SelectedDistrictPanel({ district, strength }: { district: District; str
             ))}
           </ul>
         </PanelColumn>
-        <PanelColumn className="border-l border-cyan-muted/12 pl-[clamp(0.6rem,1.2vw,1rem)]" title="Impact & Outcome">
+        <PanelColumn className="border-l border-cyan-muted/10 pl-[clamp(0.65rem,1.1vw,0.95rem)]" title="Impact & Outcome">
           <div className="mt-2 grid gap-1.5">
             {district.impact.map((item) => (
               <div
-                className="grid grid-cols-[1.55rem_minmax(0,1fr)] items-center gap-2 rounded-[4px] border border-cyan-muted/10 bg-cyan-muted/5 px-2 py-1"
+                className="grid grid-cols-[1.45rem_minmax(0,1fr)] items-center gap-2 rounded-[4px] border border-cyan-muted/9 bg-cyan-muted/4 px-2 py-1"
                 key={`${district.id}-${item.value}-${item.label}`}
               >
                 <span className="relative h-5 w-5 rounded-[3px] border border-teal-muted/30 bg-teal-muted/10">
@@ -965,7 +895,7 @@ function SelectedDistrictPanel({ district, strength }: { district: District; str
             ))}
           </div>
         </PanelColumn>
-        <PanelColumn className="border-l border-cyan-muted/12 pl-[clamp(0.6rem,1.2vw,1rem)]" title="Evidence Preview">
+        <PanelColumn className="border-l border-cyan-muted/10 pl-[clamp(0.65rem,1.1vw,0.95rem)]" title="Evidence Preview">
           <EvidencePreview district={district} />
         </PanelColumn>
       </div>
@@ -977,13 +907,13 @@ function SelectedDistrictIdentity({ district }: { district: District }) {
   const accent = accentStyles[district.accent];
 
   return (
-    <div className="grid min-w-0 grid-cols-[6.4rem_minmax(0,1fr)] gap-[clamp(0.55rem,1vw,0.85rem)] pr-[clamp(0.5rem,1.1vw,1rem)]">
+    <div className="grid min-w-0 grid-cols-[5.6rem_minmax(0,1fr)] gap-[clamp(0.6rem,1vw,0.9rem)] pr-[clamp(0.25rem,0.8vw,0.75rem)]">
       <div className="relative min-h-0">
         <div className="mb-1 flex items-center gap-2 font-mono text-[0.5rem] font-black uppercase tracking-[0.16em] text-amber-soft">
           <span className="h-1.5 w-1.5 rounded-[2px] bg-teal-muted shadow-[var(--glow-cyan)]" />
           Selected District
         </div>
-        <PixelAvatar accent={district.accent} />
+        <SelectedDistrictLanyard accent={district.accent} />
       </div>
       <div className="min-w-0">
         <div className="flex items-start gap-2">
@@ -1002,10 +932,10 @@ function SelectedDistrictIdentity({ district }: { district: District }) {
         <p className="mt-2 line-clamp-3 text-[clamp(0.48rem,0.72vw,0.62rem)] font-semibold leading-[1.45] text-foreground/68">
           {district.description}
         </p>
-        <div className="mt-2 grid grid-cols-3 gap-1.5">
-          {district.tags.slice(0, 6).map((tag) => (
+        <div className="mt-2 grid grid-cols-2 gap-1.5">
+          {district.tags.slice(0, 4).map((tag) => (
             <span
-              className="truncate rounded-[3px] border border-cyan-muted/14 bg-cyan-muted/6 px-2 py-1 text-center text-[clamp(0.4rem,0.58vw,0.5rem)] font-bold leading-none text-foreground/62"
+              className="truncate rounded-[3px] border border-cyan-muted/12 bg-cyan-muted/5 px-2 py-1 text-center text-[clamp(0.38rem,0.56vw,0.49rem)] font-bold leading-none text-foreground/62"
               key={tag}
             >
               {tag}
@@ -1017,19 +947,38 @@ function SelectedDistrictIdentity({ district }: { district: District }) {
   );
 }
 
-function PixelAvatar({ accent }: { accent: DistrictAccent }) {
+function SelectedDistrictLanyard({ accent }: { accent: DistrictAccent }) {
   const accentClass = accentStyles[accent];
 
   return (
-    <div className="relative mx-auto mt-2 h-[7.1rem] w-[5.3rem] overflow-hidden rounded-t-[44%] border border-cyan-muted/18 bg-[linear-gradient(180deg,rgba(23,45,58,0.72),rgba(5,12,18,0.98))] shadow-[inset_0_0_22px_rgba(113,217,210,0.07)]">
-      <span className="absolute left-1/2 top-[13%] h-[38%] w-[54%] -translate-x-1/2 rounded-t-[42%] rounded-b-[22%] bg-[#1b1514]" />
-      <span className="absolute left-1/2 top-[27%] h-[32%] w-[48%] -translate-x-1/2 rounded-[38%] bg-[#c48a5a]" />
-      <span className="absolute left-[36%] top-[39%] h-1.5 w-1.5 rounded-[1px] bg-black" />
-      <span className="absolute right-[36%] top-[39%] h-1.5 w-1.5 rounded-[1px] bg-black" />
-      <span className="absolute left-1/2 top-[51%] h-px w-4 -translate-x-1/2 bg-black/45" />
-      <span className="absolute left-1/2 bottom-[9%] h-[38%] w-[68%] -translate-x-1/2 rounded-t-[16px] border border-cyan-muted/16 bg-[linear-gradient(180deg,rgba(18,55,73,0.92),rgba(8,17,25,1))]" />
-      <span className={cn("absolute left-1/2 bottom-[27%] h-8 w-5 -translate-x-1/2 rounded-[3px] border", accentClass.border, accentClass.bg)} />
-      <span className="absolute inset-x-0 bottom-0 h-5 bg-black/30" />
+    <div className="relative mx-auto mt-1 h-[7.8rem] w-[5.25rem] pt-[1.15rem]">
+      <span className="absolute left-[22%] top-0 h-[2.3rem] w-2 origin-bottom -rotate-[15deg] overflow-hidden rounded-full border border-cyan-muted/30 bg-surface-2 shadow-[0_0_14px_rgba(113,217,210,0.16)]">
+        <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(113,217,210,0.48)_0_18%,rgba(255,255,255,0.12)_18%_28%,transparent_28%_52%,rgba(139,185,255,0.3)_52%_70%,rgba(113,217,210,0.32)_70%_100%)] bg-[length:100%_22px]" />
+      </span>
+      <span className="absolute right-[22%] top-0 h-[2.3rem] w-2 origin-bottom rotate-[15deg] overflow-hidden rounded-full border border-cyan-muted/30 bg-surface-2 shadow-[0_0_14px_rgba(113,217,210,0.16)]">
+        <span className="absolute inset-0 bg-[linear-gradient(180deg,rgba(113,217,210,0.48)_0_18%,rgba(255,255,255,0.12)_18%_28%,transparent_28%_52%,rgba(139,185,255,0.3)_52%_70%,rgba(113,217,210,0.32)_70%_100%)] bg-[length:100%_22px]" />
+      </span>
+      <span className="absolute left-1/2 top-[1.65rem] h-4 w-[3.4rem] -translate-x-1/2 rounded-[4px] border border-cyan-muted/36 bg-[linear-gradient(180deg,rgba(243,249,255,0.14),rgba(10,16,22,0.95))] shadow-[0_10px_20px_rgba(0,0,0,0.32),var(--glow-cyan)]" />
+      <div
+        className="relative z-10 h-full overflow-hidden rounded-[10px] border border-cyan-muted/34 bg-[radial-gradient(circle_at_50%_18%,rgba(113,217,210,0.12),transparent_4.8rem),linear-gradient(180deg,rgba(7,11,16,0.98),rgba(2,5,9,0.98))] p-1.5 shadow-[0_16px_34px_rgba(0,0,0,0.48),inset_0_0_26px_rgba(113,217,210,0.09)]"
+        style={{ clipPath: "polygon(9px 0, calc(100% - 9px) 0, 100% 9px, 100% calc(100% - 9px), calc(100% - 9px) 100%, 9px 100%, 0 calc(100% - 9px), 0 9px)" }}
+      >
+        <span className="absolute inset-0 micro-grid opacity-25" />
+        <span className="absolute inset-x-2 top-0 h-px bg-gradient-to-r from-transparent via-cyan-muted/70 to-transparent" />
+        <span className="relative z-10 grid h-full place-items-center overflow-hidden rounded-[7px] border border-cyan-muted/18 bg-black/32 p-1">
+          <img
+            alt="Kiagus Arif Rahman"
+            className="block h-full w-full object-contain object-center contrast-[1.04] saturate-[1.03]"
+            draggable={false}
+            src="/avatar/fotokiagus.jpeg"
+          />
+        </span>
+        <span className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),transparent_25%,transparent_78%,rgba(0,0,0,0.18))]" />
+        <span className="scanline-mask pointer-events-none absolute inset-0 z-20 opacity-[0.1] animate-[scanline-drift_7s_linear_infinite]" />
+        <span className={cn("absolute bottom-1.5 left-1/2 z-30 grid h-5 w-[3.4rem] -translate-x-1/2 place-items-center rounded-[3px] border bg-background/82 font-mono text-[0.45rem] font-black uppercase tracking-[0.08em]", accentClass.border, accentClass.text)}>
+          Kiagus ID
+        </span>
+      </div>
     </div>
   );
 }
@@ -1095,21 +1044,14 @@ function DistrictNavigationStrip({
 }) {
   return (
     <div
-      className="absolute inset-x-[1.1%] bottom-[1.2%] z-50 grid h-[7.5%] grid-cols-[12%_1fr_30%] gap-[clamp(0.55rem,1vw,0.85rem)]"
+      className="absolute inset-x-[1.1%] bottom-[1.15%] z-50 grid h-[7.25%] grid-cols-[minmax(0,1fr)_minmax(14rem,20rem)] gap-[clamp(0.65rem,1.1vw,1rem)]"
       style={{
         opacity: strength,
         transform: `translateY(${(1 - strength) * 18}px)`,
       }}
     >
-      <div className="relative overflow-hidden rounded-[6px] border border-cyan-muted/16 bg-[linear-gradient(180deg,rgba(3,13,19,0.86),rgba(1,7,12,0.94))] px-4 py-3 shadow-[inset_0_0_22px_rgba(113,217,210,0.05)]">
-        <span className="absolute inset-1 rounded-[4px] border border-foreground/7" />
-        <span className="relative z-10 block font-mono text-[clamp(0.48rem,0.74vw,0.62rem)] font-black uppercase tracking-[0.12em] text-cyan-muted">
-          District Navigation
-        </span>
-        <span className="relative z-10 mt-2 block font-mono text-lg leading-none text-cyan-muted">&lt;-</span>
-      </div>
-
-      <div className="relative overflow-hidden rounded-[6px] border border-cyan-muted/12 bg-[linear-gradient(180deg,rgba(2,11,18,0.72),rgba(1,6,11,0.9))] shadow-[inset_0_0_22px_rgba(113,217,210,0.04)]">
+      <div className="relative grid grid-cols-[12rem_minmax(0,1fr)] items-center overflow-hidden rounded-[6px] border border-cyan-muted/12 bg-[linear-gradient(180deg,rgba(2,11,18,0.72),rgba(1,6,11,0.9))] pl-16 pr-4 shadow-[inset_0_0_22px_rgba(113,217,210,0.04)]">
+        <span className="absolute inset-1 rounded-[4px] border border-foreground/6" />
         <span className="absolute inset-x-[5%] bottom-2 h-[42%] opacity-80">
           {districts.map((district, index) => (
             <span
@@ -1122,7 +1064,15 @@ function DistrictNavigationStrip({
             />
           ))}
         </span>
-        <div className="relative z-10 flex h-full items-center justify-center gap-[clamp(0.55rem,1.4vw,1.3rem)]">
+        <div className="relative z-10 min-w-0 font-mono uppercase">
+          <span className="block text-[clamp(0.48rem,0.72vw,0.62rem)] font-black tracking-[0.12em] text-cyan-muted/78">
+            District Navigation
+          </span>
+          <span className="mt-1 block text-[clamp(0.42rem,0.58vw,0.5rem)] font-bold tracking-[0.08em] text-foreground/46">
+            Select building 01-06
+          </span>
+        </div>
+        <div className="relative z-10 flex h-full items-center justify-center gap-[clamp(0.5rem,1.15vw,1.05rem)]">
           {districts.map((district) => {
             const active = activeDistrictId === district.id;
             const accent = accentStyles[district.accent];
@@ -1132,8 +1082,10 @@ function DistrictNavigationStrip({
                 aria-label={`Select district ${district.id}`}
                 aria-pressed={active}
                 className={cn(
-                  "relative grid h-9 w-9 place-items-center rounded-[4px] border bg-background/70 font-mono text-[0.72rem] font-black text-foreground/60 outline-none transition-[border-color,filter,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:brightness-125 focus-visible:ring-2 focus-visible:ring-cyan-muted/70",
-                  active ? cn(accent.border, accent.bg, accent.text, accent.glow) : "border-cyan-muted/18 hover:border-cyan-muted/42",
+                  "relative grid h-9 w-9 place-items-center rounded-[4px] border bg-background/70 font-mono text-[0.72rem] font-black text-foreground/60 outline-none transition-[border-color,filter,box-shadow,transform,background-color] duration-300 hover:-translate-y-0.5 hover:brightness-125 focus-visible:ring-2 focus-visible:ring-cyan-muted/70",
+                  active
+                    ? "border-teal-muted/66 bg-teal-muted/14 text-teal-muted shadow-[0_0_22px_rgba(63,185,170,0.24)]"
+                    : cn(accent.mutedBg, "border-cyan-muted/16 hover:border-cyan-muted/38"),
                 )}
                 key={`nav-${district.id}`}
                 onClick={() => onSelect(district.id)}
@@ -1146,27 +1098,22 @@ function DistrictNavigationStrip({
         </div>
       </div>
 
-      <div className="relative grid grid-cols-[4.5rem_minmax(0,1fr)_4.5rem] items-center overflow-hidden rounded-[6px] border border-cyan-muted/18 bg-[linear-gradient(90deg,rgba(4,15,21,0.9),rgba(2,9,14,0.95))] px-3 shadow-[inset_0_0_24px_rgba(113,217,210,0.05)]">
-        <span className="absolute inset-1 rounded-[4px] border border-foreground/7" />
-        <span className="relative grid h-11 w-11 place-items-center rounded-[4px] border border-amber-soft/28 bg-amber-soft/9 shadow-[var(--glow-amber)]">
-          <span className="h-6 w-5 rounded-[2px] border border-amber-soft/52 bg-amber-soft/18">
-            <span className="mx-auto mt-1 block h-2 w-2 rounded-[1px] bg-amber-soft/62" />
+      <div className="relative grid grid-cols-[2.4rem_minmax(0,1fr)] items-center gap-2 overflow-hidden rounded-[6px] border border-amber-soft/18 bg-[linear-gradient(90deg,rgba(11,11,12,0.9),rgba(18,14,8,0.86),rgba(2,9,14,0.94))] px-3 shadow-[inset_0_0_22px_rgba(241,185,90,0.04)]">
+        <span className="absolute inset-1 rounded-[4px] border border-foreground/6" />
+        <span className="relative grid h-8 w-8 place-items-center rounded-[4px] border border-amber-soft/28 bg-amber-soft/8 shadow-[0_0_16px_rgba(241,185,90,0.18)]">
+          <span className="h-5 w-4 rounded-[2px] border border-amber-soft/48 bg-amber-soft/16">
+            <span className="mx-auto mt-1 block h-1.5 w-1.5 rounded-[1px] bg-amber-soft/60" />
           </span>
         </span>
         <div className="relative min-w-0">
-          <h4 className="font-mono text-[clamp(0.55rem,0.82vw,0.7rem)] font-black uppercase tracking-[0.14em] text-cyan-muted">
+          <h4 className="font-mono text-[clamp(0.5rem,0.74vw,0.62rem)] font-black uppercase tracking-[0.12em] text-amber-soft/76">
             Next Destination
           </h4>
-          <p className="mt-1 text-[clamp(0.46rem,0.66vw,0.58rem)] font-semibold leading-[1.25] text-foreground/66">
+          <p className="mt-1 text-[clamp(0.43rem,0.62vw,0.54rem)] font-semibold leading-[1.25] text-foreground/58">
             <span className="block">Building window detected.</span>
             <span className="block">Preparing to enter project archive...</span>
           </p>
         </div>
-        <span className="relative ml-auto flex gap-1 opacity-60">
-          <span className="h-8 w-5 skew-x-[-18deg] bg-cyan-muted/16" />
-          <span className="h-8 w-5 skew-x-[-18deg] bg-cyan-muted/26" />
-          <span className="h-8 w-5 skew-x-[-18deg] bg-cyan-muted/38" />
-        </span>
       </div>
     </div>
   );
