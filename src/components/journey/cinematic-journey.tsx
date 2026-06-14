@@ -5,7 +5,7 @@ import { PinnedJourneyStage } from "@/components/journey/pinned-journey-stage";
 import { useCinematicScrollProgress } from "@/components/journey/use-cinematic-scroll-progress";
 import { IdentitySnapshotSection } from "@/components/sections/identity/identity-snapshot-section";
 
-const JOURNEY_SCROLL_DISTANCE = "h-[300svh]";
+const JOURNEY_SCROLL_DISTANCE = "h-[480svh]";
 
 function clamp01(value: number) {
   return Math.min(1, Math.max(0, value));
@@ -14,8 +14,9 @@ function clamp01(value: number) {
 export function CinematicJourney() {
   const journeyRef = useRef<HTMLElement | null>(null);
   const progress = useCinematicScrollProgress(journeyRef);
-  const identityToCapabilityProgress = clamp01(progress / 0.48);
-  const capabilityToKnowledgeProgress = clamp01((progress - 0.48) / 0.52);
+  const identityToCapabilityProgress = clamp01(progress / 0.34);
+  const capabilityToKnowledgeProgress = clamp01((progress - 0.34) / 0.34);
+  const knowledgeToExperienceProgress = clamp01((progress - 0.68) / 0.32);
   const style = {
     "--journey-progress": progress,
   } as CSSProperties;
@@ -34,6 +35,7 @@ export function CinematicJourney() {
       >
         {() => (
           <IdentitySnapshotSection
+            experienceProgress={knowledgeToExperienceProgress}
             journeyProgress={identityToCapabilityProgress}
             knowledgeProgress={capabilityToKnowledgeProgress}
           />

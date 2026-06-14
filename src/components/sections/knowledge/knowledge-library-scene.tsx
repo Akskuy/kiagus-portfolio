@@ -5,6 +5,7 @@ import { memo, useMemo, useState } from "react";
 import { cn } from "@/lib/cn";
 
 type KnowledgeLibrarySceneProps = {
+  districtProgress?: number;
   progress: number;
 };
 
@@ -163,6 +164,8 @@ const shelfRows = Array.from({ length: 6 }, (_, index) => index);
 const bookBlocks = Array.from({ length: 18 }, (_, index) => index);
 const dustParticles = Array.from({ length: 18 }, (_, index) => index);
 const lampRays = Array.from({ length: 5 }, (_, index) => index);
+const pageRoads = Array.from({ length: 8 }, (_, index) => index);
+const skylineSpines = Array.from({ length: 18 }, (_, index) => index);
 
 function clamp01(value: number) {
   return Math.min(1, Math.max(0, value));
@@ -178,20 +181,33 @@ function segment(progress: number, start: number, end: number) {
   return smoothStep((clamp01(progress) - start) / (end - start));
 }
 
-export function KnowledgeLibraryScene({ progress }: KnowledgeLibrarySceneProps) {
+export function KnowledgeLibraryScene({
+  districtProgress = 0,
+  progress,
+}: KnowledgeLibrarySceneProps) {
   const stage = clamp01(progress);
+  const districtStage = clamp01(districtProgress);
   const enter = segment(stage, 0.08, 0.28);
   const tabsBoot = segment(stage, 0.22, 0.48);
   const archiveForm = segment(stage, 0.34, 0.72);
   const activeState = segment(stage, 0.62, 1);
   const sceneOpacity = segment(stage, 0.06, 0.22);
+  const pageOpen = segment(districtStage, 0.32, 0.58);
+  const sceneExit = segment(districtStage, 0.72, 0.96);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selectedPillar = knowledgePillars[selectedIndex] ?? knowledgePillars[0]!;
 
   const style = {
-    opacity: sceneOpacity,
-    pointerEvents: stage > 0.72 ? "auto" : "none",
-    transform: `translate3d(0, ${(1 - enter) * 18}px, 0) scale(${0.985 + enter * 0.015})`,
+    filter: `saturate(${1 - pageOpen * 0.22}) sepia(${Math.max(0, 1 - pageOpen) * 0.02}) brightness(${1 - pageOpen * 0.08})`,
+    opacity: sceneOpacity * (1 - sceneExit * 0.94),
+    pointerEvents: stage > 0.72 && districtStage < 0.08 ? "auto" : "none",
+    transform: `translate3d(0, ${(1 - enter) * 18 - pageOpen * 10}px, 0) scale(${0.985 + enter * 0.015 - pageOpen * 0.035})`,
+  } as CSSProperties;
+
+  const contentStyle = {
+    opacity: 1 - sceneExit * 0.8,
+    transform: `perspective(1200px) rotateX(${pageOpen * 6}deg) translateY(${-pageOpen * 10}px) scaleX(${1 + pageOpen * 0.035}) scaleY(${1 - pageOpen * 0.04})`,
+    transformOrigin: "50% 54%",
   } as CSSProperties;
 
   if (stage <= 0.01) {
@@ -205,9 +221,18 @@ export function KnowledgeLibraryScene({ progress }: KnowledgeLibrarySceneProps) 
       className="absolute inset-0 z-[24] overflow-hidden bg-background"
       style={style}
     >
-      <LibraryAtmosphere activeState={activeState} archiveForm={archiveForm} enter={enter} />
+      <LibraryAtmosphere
+        activeState={activeState}
+        archiveForm={archiveForm}
+        districtProgress={districtStage}
+        enter={enter}
+      />
+      <ArchivePageUnlock districtProgress={districtStage} />
 
-      <div className="relative z-10 mx-auto h-full w-full max-w-[var(--shell-max)] px-[clamp(0.75rem,2.4vw,2.4rem)] py-[clamp(0.6rem,1.6vw,1.25rem)]">
+      <div
+        className="relative z-10 mx-auto h-full w-full max-w-[var(--shell-max)] px-[clamp(0.75rem,2.4vw,2.4rem)] py-[clamp(0.6rem,1.6vw,1.25rem)]"
+        style={contentStyle}
+      >
         <KnowledgeTitleRail strength={archiveForm} />
 
         <PillarTabs
@@ -231,12 +256,16 @@ export function KnowledgeLibraryScene({ progress }: KnowledgeLibrarySceneProps) 
 function LibraryAtmosphere({
   activeState,
   archiveForm,
+  districtProgress,
   enter,
 }: {
   activeState: number;
   archiveForm: number;
+  districtProgress: number;
   enter: number;
 }) {
+  const cityShift = segment(districtProgress, 0.32, 0.72);
+
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div
@@ -245,8 +274,14 @@ function LibraryAtmosphere({
       />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(241,185,90,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(113,217,210,0.035)_1px,transparent_1px)] bg-[length:24px_24px] opacity-35" />
 
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(113,217,210,0.14),transparent_25rem),linear-gradient(180deg,rgba(2,11,23,0.82),rgba(1,5,12,0.96))]"
+        style={{ opacity: cityShift }}
+      />
+
       <ArchiveShelves side="left" strength={archiveForm} />
       <ArchiveShelves side="right" strength={archiveForm} />
+      <ShelfSkylineOverlay strength={cityShift} />
 
       <div
         className="absolute left-[18%] right-[18%] top-[8%] h-[13%] rounded-[2px] border-y border-amber-soft/12 bg-[linear-gradient(90deg,transparent,rgba(241,185,90,0.1),transparent)]"
@@ -293,6 +328,116 @@ function LibraryAtmosphere({
         className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_28rem,rgba(0,0,0,0.54))]"
         style={{ opacity: 0.5 + enter * 0.18 }}
       />
+    </div>
+  );
+}
+
+function ArchivePageUnlock({ districtProgress }: { districtProgress: number }) {
+  const focus = segment(districtProgress, 0.12, 0.34);
+  const open = segment(districtProgress, 0.32, 0.58);
+  const dissolve = segment(districtProgress, 0.66, 0.9);
+  const opacity = focus * (1 - dissolve);
+
+  if (opacity <= 0.01) {
+    return null;
+  }
+
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute left-[27%] top-[31%] z-30 h-[36%] w-[46%]"
+      style={{
+        opacity,
+        transform: `perspective(1100px) rotateX(${open * 10}deg) translateY(${-open * 12}px) scale(${0.94 + open * 0.1})`,
+        transformOrigin: "50% 60%",
+      }}
+    >
+      <div className="absolute inset-0 rounded-[9px] border border-amber-soft/22 bg-[linear-gradient(180deg,rgba(48,30,16,0.88),rgba(8,14,18,0.96))] shadow-[0_24px_76px_rgba(0,0,0,0.58),inset_0_0_34px_rgba(241,185,90,0.08)]" />
+      <div
+        className="absolute left-[4%] top-[7%] h-[86%] w-[45%] origin-right rounded-l-[8px] border border-amber-soft/24 bg-[linear-gradient(135deg,rgba(55,35,20,0.92),rgba(8,15,18,0.96))]"
+        style={{ transform: `rotateY(${-open * 50}deg)` }}
+      >
+        <PageRoads open={open} side="left" />
+      </div>
+      <div
+        className="absolute right-[4%] top-[7%] h-[86%] w-[45%] origin-left rounded-r-[8px] border border-teal-muted/26 bg-[linear-gradient(225deg,rgba(45,29,18,0.9),rgba(5,22,31,0.96))]"
+        style={{ transform: `rotateY(${open * 50}deg)` }}
+      >
+        <PageRoads open={open} side="right" />
+      </div>
+      <span className="absolute left-1/2 top-[9%] h-[82%] w-px -translate-x-1/2 bg-gradient-to-b from-amber-soft/44 via-teal-muted/30 to-transparent" />
+      <span
+        className="absolute left-[16%] right-[16%] top-[45%] h-px bg-gradient-to-r from-transparent via-teal-muted/78 to-transparent shadow-[var(--glow-cyan)]"
+        style={{ transform: `scaleX(${0.35 + open * 0.8})` }}
+      />
+      <span className="absolute left-[7%] top-[6%] rounded-[3px] border border-teal-muted/42 bg-teal-muted/10 px-2 py-1 font-mono text-[0.54rem] font-black uppercase tracking-[0.12em] text-teal-muted">
+        04 Statistical Inference
+      </span>
+    </div>
+  );
+}
+
+function PageRoads({ open, side }: { open: number; side: "left" | "right" }) {
+  return (
+    <span className="absolute inset-0 overflow-hidden rounded-[inherit]">
+      <span className="absolute inset-0 micro-grid opacity-24" />
+      {pageRoads.map((road) => (
+        <span
+          className="absolute h-px bg-gradient-to-r from-transparent via-teal-muted/62 to-transparent"
+          key={`${side}-${road}`}
+          style={{
+            left: side === "left" ? "10%" : "auto",
+            right: side === "right" ? "10%" : "auto",
+            top: `${14 + road * 10}%`,
+            transform: `rotate(${(road - 3) * (side === "left" ? 3.5 : -3.5)}deg) scaleX(${0.42 + open * 0.68})`,
+            transformOrigin: side === "left" ? "left center" : "right center",
+            width: `${42 + road * 5}%`,
+          }}
+        />
+      ))}
+      <span
+        className="absolute left-[24%] top-[32%] h-3 w-3 rounded-[2px] border border-teal-muted/52 bg-teal-muted/16 shadow-[var(--glow-cyan)]"
+        style={{ opacity: open }}
+      />
+      <span
+        className="absolute right-[24%] top-[62%] h-3 w-3 rounded-[2px] border border-amber-soft/48 bg-amber-soft/16 shadow-[var(--glow-amber)]"
+        style={{ opacity: open }}
+      />
+    </span>
+  );
+}
+
+function ShelfSkylineOverlay({ strength }: { strength: number }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="absolute inset-x-0 bottom-[20%] h-[48%]"
+      style={{ opacity: strength }}
+    >
+      {skylineSpines.map((spine) => (
+        <span
+          className="absolute bottom-0 overflow-hidden rounded-t-[3px] border-t border-cyan-muted/12 bg-[linear-gradient(180deg,rgba(17,47,60,0.58),rgba(3,10,17,0.9))]"
+          key={spine}
+          style={{
+            height: `${24 + ((spine * 23) % 56)}%`,
+            left: `${spine * 6 - 4}%`,
+            width: `${4 + ((spine * 7) % 4)}%`,
+          }}
+        >
+          <span className="absolute inset-1 grid grid-cols-2 content-start gap-1 pt-2">
+            {pageRoads.slice(0, 6).map((windowCell) => (
+              <span
+                className={cn(
+                  "h-1 rounded-[1px] animate-[screen-flicker_6s_steps(4,end)_infinite]",
+                  (windowCell + spine) % 4 === 0 ? "bg-amber-soft/58" : "bg-cyan-muted/24",
+                )}
+                key={windowCell}
+                style={{ animationDelay: `${(windowCell + spine) * 0.12}s` }}
+              />
+            ))}
+          </span>
+        </span>
+      ))}
     </div>
   );
 }

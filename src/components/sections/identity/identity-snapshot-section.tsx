@@ -3,6 +3,7 @@
 import { useCallback, useState, type CSSProperties } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CapabilityMatrixScene } from "@/components/sections/capability/capability-matrix-scene";
+import { ExperienceDistrictScene } from "@/components/sections/experience/experience-district-scene";
 import { AvatarCore } from "@/components/sections/identity/avatar-core";
 import { IdentityBootPreloader } from "@/components/sections/identity/identity-boot-preloader";
 import { IdentityStatCard } from "@/components/sections/identity/identity-stat-card";
@@ -107,6 +108,7 @@ type IdentitySceneMorph = {
 };
 
 type IdentitySnapshotSectionProps = {
+  experienceProgress?: number;
   journeyProgress?: number;
   knowledgeProgress?: number;
 };
@@ -140,6 +142,7 @@ function getIdentitySceneMorph(progress: number): IdentitySceneMorph {
 }
 
 export function IdentitySnapshotSection({
+  experienceProgress = 0,
   journeyProgress = 0,
   knowledgeProgress = 0,
 }: IdentitySnapshotSectionProps) {
@@ -170,7 +173,11 @@ export function IdentitySnapshotSection({
         shellForm={morph.shellForm}
         titleMorph={morph.titleMorph}
       />
-      <KnowledgeLibraryScene progress={knowledgeProgress} />
+      <KnowledgeLibraryScene
+        districtProgress={experienceProgress}
+        progress={knowledgeProgress}
+      />
+      <ExperienceDistrictScene progress={experienceProgress} />
 
       <motion.div
         animate={{
